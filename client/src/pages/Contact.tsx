@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHero } from "../components/Layout";
 import { Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { CONTACT, quoteServices } from "../data/content";
+import { CONTACT, poolSizes, quoteServices } from "../data/content";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -59,6 +59,23 @@ export default function ContactPage() {
                 </div>
               </Reveal>
             ))}
+          </div>
+          <div className="contact-split">
+            <Reveal>
+              <div>
+                <h3 className="map-title">What size pool do you need?</h3>
+                <p className="map-sub">Three common starting points — we fine-tune dimensions to your site and budget.</p>
+                <div className="why-grid" style={{ marginTop: 24, gridTemplateColumns: "1fr" }}>
+                  {poolSizes.map((p, i) => (
+                    <div key={p.name} className="why-card">
+                      <span className="svc-detail-no">0{i + 1}</span>
+                      <h3>{p.name}</h3>
+                      <p><b>{p.dims}</b><br />{p.copy}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
           </div>
           <div className="contact-split">
             <Reveal>

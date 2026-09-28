@@ -388,7 +388,6 @@ export interface Finish {
   color: string;
   desc: string;
 }
-
 export const finishes: Finish[] = [
   { name: "Quartzite", color: "linear-gradient(135deg,#8fa8a3,#3c5a55)", desc: "Cool underfoot even at noon — grippy, natural cleft stone for edges and decks." },
   { name: "Glass mosaic", color: "linear-gradient(135deg,#35c4c0,#0a5c6c)", desc: "Hand-set shimmer that turns shallow water electric blue in daylight." },
@@ -396,4 +395,65 @@ export const finishes: Finish[] = [
   { name: "Micro-cement", color: "linear-gradient(135deg,#b9bec0,#5d6669)", desc: "Seamless modern skin — one continuous surface from deck to waterline." },
   { name: "Pebble", color: "linear-gradient(135deg,#7d8b8f,#2e3a3d)", desc: "Natural lagoon feel — massaging texture and deep, organic colour." },
   { name: "Porcelain", color: "linear-gradient(135deg,#eef2f2,#9fb6b8)", desc: "Large-format, stain-proof and precise — the crisp contemporary choice." },
+];
+
+export type GalleryCategory =
+  | "Infinity"
+  | "Family"
+  | "Plunge"
+  | "Commercial"
+  | "Spa & Features";
+
+export interface GalleryItem {
+  image: string;
+  title: string;
+  location: string;
+  category: GalleryCategory;
+}
+
+export const galleryCategories: Array<"All" | GalleryCategory> = [
+  "All",
+  "Infinity",
+  "Family",
+  "Plunge",
+  "Commercial",
+  "Spa & Features",
+];
+
+export const galleryItems: GalleryItem[] = [
+  { image: IMG.infinity, title: "Vanishing-edge villa pool", location: "ECR, Chennai", category: "Infinity" },
+  { image: IMG.evening, title: "Dusk swim under the palms", location: "Mahabalipuram", category: "Family" },
+  { image: IMG.resort, title: "Resort lagoon with deck jets", location: "Kochi", category: "Commercial" },
+  { image: IMG.lapLanes, title: "20-metre training lane", location: "Bengaluru", category: "Family" },
+  { image: IMG.duskHouse, title: "Rooftop plunge at dusk", location: "Hyderabad", category: "Plunge" },
+  { image: IMG.detail, title: "Pebble-finish lagoon edge", location: "ECR, Chennai", category: "Infinity" },
+  { image: IMG.interior, title: "Warm-water therapy suite", location: "Anna Nagar, Chennai", category: "Spa & Features" },
+  { image: IMG.hero, title: "Courtyard family pool", location: "Adyar, Chennai", category: "Family" },
+  { image: IMG.resort, title: "Wellness court with Jacuzzi", location: "Whitefield, Bengaluru", category: "Spa & Features" },
+  { image: IMG.infinity, title: "Clifftop infinity concept", location: "Kovalam", category: "Infinity" },
+  { image: IMG.lapLanes, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
+  { image: IMG.duskHouse, title: "Compact terrace plunge", location: "Kochi", category: "Plunge" },
+];
+
+export interface Industry {
+  title: string;
+  copy: string;
+}
+
+export const industries: Industry[] = [
+  { title: "Residential", copy: "Villas, farmhouses and terrace homes — family pools, plunge courts and wellness corners sized to your plot." },
+  { title: "Commercial", copy: "Hotels, resorts, clubs and homestays — high-bather-load pools with balance tanks, dosing and safety decks." },
+  { title: "Institutional", copy: "Schools, academies and training centres — lane pools and learner pools built to standard depths and markings." },
+];
+
+export interface PoolSize {
+  name: string;
+  dims: string;
+  copy: string;
+}
+
+export const poolSizes: PoolSize[] = [
+  { name: "Family pool", dims: "10 m × 4 m · 1.0–1.8 m deep", copy: "The classic home pool — swimming, play and evening floats for the whole family." },
+  { name: "Semi-Olympic / club", dims: "25 m × 10 m · 1.2–1.8 m deep", copy: "For clubs, resorts and serious training — lanes, timing and spectator deck options." },
+  { name: "Competition", dims: "50 m × 25 m · 2.0 m+ deep", copy: "Full-spec race pools with starting blocks, lane markings and event lighting." },
 ];

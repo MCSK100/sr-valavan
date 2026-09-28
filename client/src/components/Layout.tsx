@@ -22,10 +22,11 @@ export function Brand({ dark = false }: { dark?: boolean }) {
 }
 
 const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 function Nav({ onMenu, scrolled }: { onMenu: () => void; scrolled: boolean }) {
@@ -60,10 +61,7 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
     navigate(href);
     onClose();
   };
-  const links = [
-    ...NAV_LINKS,
-    { href: "/contact", label: "Get a site visit" },
-  ];
+  const links = [...NAV_LINKS, { href: "/contact", label: "Get a site visit" }];
   return (
     <motion.div
       className="mobile-menu"
@@ -79,11 +77,8 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
         </button>
       </div>
       <div className="mobile-menu-list">
-        <button onClick={() => go("/")}>
-          Home <ArrowUpRight size={20} />
-        </button>
         {links.map((l) => (
-          <button key={l.href} onClick={() => go(l.href)}>
+          <button key={`${l.href}-${l.label}`} onClick={() => go(l.href)}>
             {l.label} <ArrowUpRight size={20} />
           </button>
         ))}
@@ -273,9 +268,11 @@ function SiteFooter() {
         <div>
           <h5>Explore</h5>
           <ul>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/about">About Us</Link></li>
             <li><Link href="/services">Services</Link></li>
-            <li><Link href="/work">Work</Link></li>
-            <li><Link href="/about">About</Link></li>
+            <li><Link href="/gallery">Gallery</Link></li>
+            <li><Link href="/contact">Contact Us</Link></li>
             <li><Link href="/faq">FAQ</Link></li>
           </ul>
         </div>

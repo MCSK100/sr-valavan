@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Counter, ParallaxImage, Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, steps, testimonials, whyChooseUs } from "../data/content";
+import { IMG, industries, steps, testimonials, whyChooseUs } from "../data/content";
 
 export default function AboutPage() {
   return (
@@ -77,7 +77,30 @@ export default function AboutPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              02 <span>Why choose us</span>
+              02 <span>Who we serve</span>
+            </div>
+            <h2 className="sec-title">
+              Homes, businesses <em>& institutions.</em>
+            </h2>
+          </Reveal>
+          <div className="why-grid">
+            {industries.map((w, i) => (
+              <Reveal key={w.title} delay={(i % 3) * 0.08}>
+                <div className="why-card">
+                  <span className="svc-detail-no">0{i + 1}</span>
+                  <h3>{w.title}</h3>
+                  <p>{w.copy}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="content-width">
+          <Reveal>
+            <div className="sec-marker">
+              03 <span>Why choose us</span>
             </div>
             <h2 className="sec-title">
               A pool partner, <em>not just a contractor.</em>
@@ -102,7 +125,7 @@ export default function AboutPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              03 <span>How we work</span>
+              04 <span>How we work</span>
             </div>
             <h2 className="sec-title">
               From first visit <em>to first swim.</em>
@@ -128,7 +151,7 @@ export default function AboutPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              04 <span>Client words</span>
+              05 <span>Client words</span>
             </div>
             <h2 className="sec-title">
               Loved <em>after the fill.</em>

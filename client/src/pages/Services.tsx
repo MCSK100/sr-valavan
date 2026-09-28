@@ -37,7 +37,39 @@ export default function ServicesPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              00 <span>Wide range of swimming pools</span>
+              00 <span>End-to-end turnkey projects</span>
+            </div>
+            <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>
+              Consult → Build → Commission → <em>Care.</em>
+            </h2>
+            <p className="sec-lede">
+              One contract from first sketch to first swim: site consultation and budgeting,
+              excavation and groundwork, shell construction and tiling, equipment
+              commissioning — then weekly care for years after.
+            </p>
+          </Reveal>
+          <div className="type-grid">
+            {[
+              { n: "Consult & design", d: "Site study, drawings, 3D views and a line-item budget — approved before we dig." },
+              { n: "Groundwork & shell", d: "Excavation, steel, waterproofing and plumbing — civil work with photo updates." },
+              { n: "Finish & commission", d: "Tiling, coping, salt + filtration + lighting — balanced, tested and handed over." },
+            ].map((t, i) => (
+              <Reveal key={t.n} delay={(i % 3) * 0.07}>
+                <div className="type-card">
+                  <em>0{i + 1}</em>
+                  <b>{t.n}</b>
+                  <span>{t.d}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section" style={{ paddingTop: 40, paddingBottom: 30 }}>
+        <div className="content-width">
+          <Reveal>
+            <div className="sec-marker">
+              01 <span>Wide range of swimming pools</span>
             </div>
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>
               Infinity · Readymade · Skimmer · <em>Terrace & more.</em>
@@ -87,7 +119,7 @@ export default function ServicesPage() {
                       <li key={t}>{t}</li>
                     ))}
                   </ul>
-                  <Link href="/work" className="svc-go">
+                  <Link href="/gallery" className="svc-go">
                     See related work <ArrowRight size={13} />
                   </Link>
                 </div>
