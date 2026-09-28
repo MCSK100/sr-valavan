@@ -6,10 +6,10 @@ import Seo from "../components/Seo";
 import { projects } from "../data/content";
 
 const stats = [
-  { to: 120, suffix: "+", label: "Pools designed & built" },
-  { to: 14, suffix: " yrs", label: "At the waterline" },
-  { to: 98, suffix: "%", label: "Clients who refer us" },
-  { to: 48, suffix: " hr", label: "Site-visit response" },
+  { to: 14, suffix: " +", label: "Years of experience" },
+  { to: 120, suffix: "+", label: "Completed projects" },
+  { to: 12, suffix: "", label: "Ongoing projects" },
+  { to: 450, suffix: "+", label: "Happy customers" },
 ];
 
 export default function WorkPage() {

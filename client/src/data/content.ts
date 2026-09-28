@@ -1,14 +1,20 @@
 import {
+  BadgeCheck,
   Building2,
-  Droplets,
-  HeartPulse,
-  RefreshCcw,
-  ShieldCheck,
-  Waves,
   Compass,
+  Droplets,
   Hammer,
+  Headphones,
+  HeartPulse,
+  Leaf,
   PencilRuler,
   Phone,
+  RefreshCcw,
+  ShieldCheck,
+  Sparkles,
+  Timer,
+  Waves,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
@@ -25,6 +31,43 @@ export const CONTACT = {
 export const waLink = (msg: string) =>
   `https://wa.me/${CONTACT.waNumber}?text=${encodeURIComponent(msg)}`;
 
+export const quoteServices = [
+  "Swimming Pool Construction",
+  "Fountains & Jacuzzi / Waterfalls",
+  "Swimming Pool Filtration Systems",
+  "Swimming Pool Accessories",
+  "Swimming Pool Maintenance",
+  "Swimming Pool Tiles",
+  "Other",
+];
+
+export const poolTypes = [
+  {
+    name: "Infinity Edge",
+    desc: "Vanishing-edge pools that merge water with horizon — ideal for sea-facing and terrace sites.",
+  },
+  {
+    name: "Skimmer Pools",
+    desc: "The dependable family classic — simple hydraulics, easy upkeep, honest pricing.",
+  },
+  {
+    name: "Readymade / FRP",
+    desc: "Factory-finished fibreglass shells craned in fast — perfect for terraces and quick timelines.",
+  },
+  {
+    name: "In-Ground Concrete",
+    desc: "Fully custom RCC shells in any shape, depth or finish — built for decades.",
+  },
+  {
+    name: "Above-Ground",
+    desc: "Compact, cost-effective splash pools for farmhouses and rentals with minimal civil work.",
+  },
+  {
+    name: "Terrace / Plunge",
+    desc: "Lightweight, leak-proof plunge pools engineered for rooftops and courtyards.",
+  },
+];
+
 export interface Service {
   icon: LucideIcon;
   title: string;
@@ -37,8 +80,8 @@ export const services: Service[] = [
   {
     icon: Waves,
     title: "Residential Pools",
-    copy: "Infinity, lap, plunge and family pools — designed to your site, soil and sun path.",
-    tags: ["Infinity edge", "Lap pools", "Plunge pools"],
+    copy: "Infinity, skimmer, in-ground and family pools — designed to your site, soil and sun path.",
+    tags: ["Infinity edge", "Skimmer pools", "In-ground"],
     details: [
       "Soil test, structural design and civic approvals handled end-to-end",
       "Skimmer or overflow gutter hydraulics sized for your bather load",
@@ -60,25 +103,25 @@ export const services: Service[] = [
   },
   {
     icon: HeartPulse,
-    title: "Spas & Wellness",
-    copy: "Jacuzzis, steam, sauna and hydrotherapy courts with silent, serviceable plant rooms.",
-    tags: ["Jacuzzi", "Steam & sauna", "Cold plunge"],
+    title: "Spas, Jacuzzi & Fountains",
+    copy: "Jacuzzis, waterfalls, fountains, steam, sauna and hydrotherapy courts — silent, serviceable plant rooms.",
+    tags: ["Jacuzzi", "Waterfalls", "Fountains"],
     details: [
       "Hydrotherapy jet layouts tuned to shoulder, back and leg lines",
-      "Heated plunge + cold plunge contrast circuits",
+      "Waterfalls, deck jets and fountain features integrated with filtration",
       "Steam and sauna cabins with hygiene-grade timber and controls",
       "Whisper-quiet plant rooms you never have to think about",
     ],
   },
   {
     icon: RefreshCcw,
-    title: "Renovation & Remodel",
+    title: "Renovation, Tiling & Repair",
     copy: "Leak repair, re-tiling, shape changes and full equipment upgrades for ageing pools.",
-    tags: ["Leak repair", "Re-tiling", "Shape change"],
+    tags: ["Leak repair", "Pool tiling", "Shape change"],
     details: [
       "Pressure testing to find the exact leak point before we dig",
       "Re-waterproofing with a 10-year written warranty",
-      "Finish upgrades: mosaic, quartzite, micro-cement or porcelain",
+      "Precision re-tiling: mosaic, quartzite, micro-cement or porcelain",
       "Equipment swap to salt + variable-speed pumps that cut bills ~40%",
     ],
   },
@@ -104,6 +147,30 @@ export const services: Service[] = [
       "Digital water-health report on WhatsApp after every visit",
       "Chemicals dosed and logged; you never handle drums",
       "Priority breakdown visits for AMC members",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Readymade, FRP & Terrace Pools",
+    copy: "Factory-finished FRP and readymade pools craned in fast — ideal for terraces and quick timelines.",
+    tags: ["FRP / Fibreglass", "Terrace pools", "Above-ground"],
+    details: [
+      "Customisable shape, size and finish to fit rooftops, backyards and courtyards",
+      "Lightweight shells engineered for terrace load with leak-proof warranty",
+      "Installation in days, not months, with salt + LED as standard",
+      "Lower construction cost with long-term durability and easy upkeep",
+    ],
+  },
+  {
+    icon: Wrench,
+    title: "Accessories, Tiles & Equipment",
+    copy: "A complete range of pool accessories, tiles, lights and fittings that lift looks and function.",
+    tags: ["Accessories", "Pool tiles", "Lights & fittings"],
+    details: [
+      "Robotic cleaners, covers, ladders, showers and poolside fittings",
+      "Designer pool tiles — mosaic, porcelain and anti-slip deck options",
+      "LED lighting, heating and salt systems retrofitted without breaking tile",
+      "Genuine spares with installation and after-support",
     ],
   },
 ];
@@ -189,11 +256,27 @@ export interface Step {
 }
 
 export const steps: Step[] = [
-  { icon: Phone, title: "Site visit", copy: "We walk your site, test soil and water, and fix the right pool for the plot." },
-  { icon: PencilRuler, title: "Design", copy: "3D views, sun studies and a line-item estimate — no vague lump sums." },
-  { icon: Compass, title: "Engineering", copy: "Structural, plumbing and electrical drawings signed off before we dig." },
-  { icon: Hammer, title: "Build", copy: "One accountable crew, photo updates every week, tested at every stage." },
-  { icon: ShieldCheck, title: "Care", copy: "Handover training, warranties in writing, and AMC that actually shows up." },
+  { icon: Phone, title: "Conceptual Stage", copy: "We start with your vision — site walk, soil and water tests, and the right pool for your plot and lifestyle." },
+  { icon: PencilRuler, title: "Flexible Design", copy: "3D views, sun studies and a line-item estimate for any space — compact terrace to luxury estate." },
+  { icon: Leaf, title: "Eco-friendly Engineering", copy: "Water-efficient hydraulics, energy-saving pumps and salt systems signed off before we dig." },
+  { icon: Hammer, title: "High-Quality Build", copy: "Durable materials, one accountable crew, photo updates every week, tested at every stage." },
+  { icon: Compass, title: "Extensive Reach & Handover", copy: "Homes, villas and resorts across South India — balanced water, staff training and a printed care manual." },
+  { icon: ShieldCheck, title: "Amazing Support", copy: "Warranties in writing, priority breakdown visits, and AMC that actually shows up." },
+];
+
+export interface WhyPoint {
+  icon: LucideIcon;
+  title: string;
+  copy: string;
+}
+
+export const whyChooseUs: WhyPoint[] = [
+  { icon: BadgeCheck, title: "Worry-Free Guarantee", copy: "One contract for design, build, water safety and care — you relax while one accountable team owns everything." },
+  { icon: Droplets, title: "Salt Chlorine Generator", copy: "Salt + UV as standard for gentle, smell-free water that is kind to skin and eyes — and cheaper to run." },
+  { icon: Timer, title: "Show Up On Time", copy: "Fixed visit slots, GPS-tracked crews and weekly photo updates — your schedule is respected at every stage." },
+  { icon: Wrench, title: "Priority Repair Advantage", copy: "Filter, heater or leak issue? AMC members jump the queue with fast diagnosis and genuine spares." },
+  { icon: Sparkles, title: "Total Clean Promise", copy: "Sparkling, hygienically balanced water on every visit — logged chemistry and a WhatsApp health report." },
+  { icon: Headphones, title: "No Contracts, Just Care", copy: "Flexible AMC with no lock-in. Our results keep you with us — not paperwork. Cancel anytime." },
 ];
 
 export interface Testimonial {
@@ -225,6 +308,27 @@ export const testimonials: Testimonial[] = [
     place: "Whitefield, Bengaluru",
     initials: "DK",
   },
+  {
+    quote:
+      "From concept to first swim they handled everything — waterfalls, Jacuzzi, lighting. The terrace plunge is now the best room of our villa.",
+    name: "Raju Bhosale",
+    place: "Villa Owner, ECR",
+    initials: "RB",
+  },
+  {
+    quote:
+      "Transparent costing, high-grade materials and a crew that shows up on time. Our readymade FRP pool was filled within ten days.",
+    name: "Anil Singh",
+    place: "Farmhouse, Hyderabad",
+    initials: "AS",
+  },
+  {
+    quote:
+      "Post-construction support is phenomenal — one call and their technician is at the plant room. Truly a one-stop pool partner.",
+    name: "Sanu Mendez",
+    place: "Homestay, Kochi",
+    initials: "SM",
+  },
 ];
 
 export interface Faq {
@@ -235,23 +339,47 @@ export interface Faq {
 export const faqs: Faq[] = [
   {
     q: "How much does a swimming pool cost in Chennai?",
-    a: "A compact plunge pool starts around ₹8–10 lakh, a family skimmer pool around ₹14–20 lakh, and a vanishing-edge infinity pool ₹25 lakh and above — equipment and finish included. We give a line-item estimate after a free site visit, so you see exactly where every rupee goes.",
+    a: "A compact plunge pool starts around ₹8–10 lakh, a family skimmer pool around ₹14–20 lakh, and a vanishing-edge infinity pool ₹25 lakh and above — equipment and finish included. Readymade FRP pools for home are often more affordable and faster. We give a line-item estimate after a free site visit, so you see exactly where every rupee goes.",
+  },
+  {
+    q: "How are swimming pools constructed?",
+    a: "Traditional in-ground pools use RCC shells with waterproofing and tiling (6–8 weeks). Readymade FRP / fibreglass pools arrive factory-finished and are craned into a prepared pit or terrace frame in days. We recommend the method that suits your soil, load and timeline after a site study.",
+  },
+  {
+    q: "Is a pool worth the money?",
+    a: "Yes — a well-built pool lifts property value and daily life, especially for villas, farmhouses and resorts. Salt systems and variable-speed pumps keep running costs low, and a readymade pool for home keeps the upfront cost controlled while delivering the same lifestyle upgrade.",
   },
   {
     q: "How long does construction take?",
-    a: "A standard residential pool takes 6–8 weeks from excavation to first fill: 1 week civil, 2 weeks shell and waterproofing, 2 weeks tiling and coping, 1–2 weeks equipment, testing and balancing. Renovations typically finish in 2–3 weeks.",
+    a: "A standard residential pool takes 6–8 weeks from excavation to first fill: 1 week civil, 2 weeks shell and waterproofing, 2 weeks tiling and coping, 1–2 weeks equipment, testing and balancing. Readymade FRP installs finish in 7–12 days. Renovations typically finish in 2–3 weeks.",
   },
   {
     q: "What maintenance does a pool need?",
-    a: "Very little, if it is built right. Weekly skimming, monthly filter backwash and balanced chemistry. Our AMC plans cover all of it with a visit every week and a water-health report on WhatsApp. Salt-chlorinated pools cut chemical handling to near zero.",
+    a: "Very little, if it is built right. Daily skimming, weekly vacuuming and filter checks, plus balanced chemistry. Our AMC plans cover all of it with a visit every week and a water-health report on WhatsApp. Salt-chlorinated pools cut chemical handling to near zero.",
+  },
+  {
+    q: "What chemicals are needed, and how often should I clean?",
+    a: "Chlorine (or salt-generated chlorine), pH stabilisers, alkalinity balancers, algaecide and a test kit. Skim daily, vacuum weekly and deep-clean tiles seasonally. We hand over a chemical guide at handover, and AMC members never touch a drum — we dose and log everything.",
   },
   {
     q: "Salt water, chlorine or UV — which is best?",
     a: "For homes we recommend salt chlorination with UV assist: gentle on skin and eyes, no chlorine smell, and lower running cost. Commercial pools get automated liquid dosing for precise control at high bather loads.",
   },
   {
+    q: "What is an FRP / readymade swimming pool? Can it crack?",
+    a: "FRP (fibreglass-reinforced plastic) pools are strong, waterproof factory shells — quick to install and ideal for terraces. They flex slightly with soil movement, so cracks are rare when installed by a certified builder on a proper base. We warranty both shell and installation in writing.",
+  },
+  {
+    q: "Can a readymade pool be customised to fit my space?",
+    a: "Absolutely — shape, size, steps, benches, colour and finish can be tailored for backyards, rooftops and even terrace pools. Share your plot sketch on WhatsApp and we will propose two fitting options with pricing within 48 hours.",
+  },
+  {
+    q: "What is a Jacuzzi pool? Can you add a waterfall later?",
+    a: "A Jacuzzi is a heated hydrotherapy pool with massage jets — often paired with a main pool. And yes, waterfalls, deck jets, LED lighting and heating can be retrofitted to existing pools without breaking tile in most cases. Ask us for an upgrade estimate with tile and pump implications listed.",
+  },
+  {
     q: "Do you give warranty and after-service?",
-    a: "Yes — 10 years on waterproofing, 5 years on structure, 1–2 years on equipment (as per manufacturer), all in writing. Every project can move onto an annual care plan with priority breakdown visits.",
+    a: "Yes — 10 years on waterproofing, 5 years on structure, 1–2 years on equipment (as per manufacturer), all in writing. Every project can move onto an annual care plan with priority breakdown visits and no lock-in contracts.",
   },
 ];
 

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { CONTACT, waLink } from "../data/content";
+import { CONTACT, quoteServices, waLink } from "../data/content";
 import { Reveal, cn, usePageState } from "./motion";
+
+export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quote"));
 
 export function Brand({ dark = false }: { dark?: boolean }) {
   return (
@@ -38,6 +40,12 @@ function Nav({ onMenu, scrolled }: { onMenu: () => void; scrolled: boolean }) {
         ))}
       </nav>
       <div className="nav-end">
+        <a className="nav-call" href={CONTACT.phoneHref} aria-label="Call now">
+          <Phone size={15} /> <span>{CONTACT.phoneDisplay}</span>
+        </a>
+        <button className="nav-cta" onClick={openQuote}>
+          Get a Quote <ArrowUpRight size={14} />
+        </button>
         <button className="mobile-trigger" aria-label="Open navigation" onClick={onMenu}>
           <Menu size={22} />
         </button>
@@ -80,11 +88,108 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
           </button>
         ))}
       </div>
+      <div className="mobile-menu-cta">
+        <button className="nav-cta" style={{ display: "inline-flex" }} onClick={() => { onClose(); openQuote(); }}>
+          Get a Quote <ArrowUpRight size={14} />
+        </button>
+        <a href={CONTACT.phoneHref} className="mobile-call">
+          <Phone size={16} /> {CONTACT.phoneDisplay}
+        </a>
+      </div>
       <div className="mobile-menu-foot">
         <span>SR VALAVAN ENTERPRISES · CHENNAI</span>
         <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
       </div>
     </motion.div>
+  );
+}
+
+function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", city: "" });
+  const set =
+    (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+      setForm((f) => ({ ...f, [k]: e.target.value }));
+  useEffect(() => {
+    if (!open) setSent(false);
+  }, [open ]);
+  if (!open) return null;
+  return (
+    <div className="quote-overlay" onClick={onClose} role="dialog" aria-modal="true" aria-label="Request a quote">
+      <motion.div
+        className="quote-modal"
+        onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0, y: 26, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="quote-modal-head">
+          <div>
+            <span className="sec-marker" style={{ margin: 0 }}>Get a quote</span>
+            <h3>Request a quote for your dream pool</h3>
+            <p>Free site visit · Line-item estimate within 48 hours.</p>
+          </div>
+          <button onClick={onClose} aria-label="Close quote form"><X size={20} /></button>
+        </div>
+        {sent ? (
+          <div className="form-ok">
+            <span className="ok-ring"><Check size={28} /></span>
+            <h3>Request received.</h3>
+            <p>Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — we will call {form.phone || "you"} back within 48 hours to fix a site visit.</p>
+            <a className="btn-primary" href={waLink(`Hi! I requested a quote for ${form.service || "a swimming pool"} in ${form.city || "my city"}. Name: ${form.name}, Phone: ${form.phone}`)} target="_blank" rel="noreferrer">
+              <MessageCircle size={16} /> Confirm faster on WhatsApp
+            </a>
+          </div>
+        ) : (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSent(true);
+            }}
+          >
+            <div className="f-row">
+              <div className="f-field">
+                <label htmlFor="q-name">Name*</label>
+                <input id="q-name" required placeholder="Your name" value={form.name} onChange={set("name")} />
+              </div>
+              <div className="f-field">
+                <label htmlFor="q-phone">Contact No*</label>
+                <input id="q-phone" required placeholder="+91 …" value={form.phone} onChange={set("phone")} />
+              </div>
+            </div>
+            <div className="f-field">
+              <label htmlFor="q-email">Email</label>
+              <input id="q-email" type="email" placeholder="you@example.com" value={form.email} onChange={set("email")} />
+            </div>
+            <div className="f-row">
+              <div className="f-field">
+                <label htmlFor="q-service">Service*</label>
+                <select id="q-service" required value={form.service} onChange={set("service")}>
+                  <option value="">Select a service…</option>
+                  {quoteServices.map((s) => (
+                    <option key={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="f-field">
+                <label htmlFor="q-city">City</label>
+                <input id="q-city" placeholder="Chennai…" value={form.city} onChange={set("city")} list="sr-cities" />
+                <datalist id="sr-cities">
+                  {CONTACT.cities.map((c) => (
+                    <option key={c} value={c} />
+                  ))}
+                </datalist>
+              </div>
+            </div>
+            <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center" }}>
+              Submit request <ArrowRight size={16} />
+            </button>
+            <p className="form-note">Prefer to talk? <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a> · {CONTACT.hours}</p>
+          </form>
+        )}
+      </motion.div>
+    </div>
   );
 }
 
@@ -178,8 +283,10 @@ function SiteFooter() {
           <h5>Services</h5>
           <ul>
             <li><Link href="/services">Residential pools</Link></li>
-            <li><Link href="/services">Commercial & resorts</Link></li>
-            <li><Link href="/services">Renovation</Link></li>
+            <li><Link href="/services">Readymade / FRP pools</Link></li>
+            <li><Link href="/services">Fountains & Jacuzzi</Link></li>
+            <li><Link href="/services">Renovation & tiling</Link></li>
+            <li><Link href="/services">Filtration & automation</Link></li>
             <li><Link href="/services">AMC & care</Link></li>
           </ul>
         </div>
@@ -189,6 +296,7 @@ function SiteFooter() {
             <li><a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a></li>
             <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
             <li><Link href="/contact">Vadapalani, Chennai</Link></li>
+            <li><button onClick={openQuote} style={{ padding: 0, color: "inherit", textAlign: "left" }}>Get a free quote →</button></li>
           </ul>
         </div>
       </div>
@@ -237,13 +345,13 @@ export function CtaBand() {
       <div className="content-width cta-inner">
         <Reveal>
           <h2>
-            Make room <em>for water.</em>
+            Stop dreaming — <em>start building your pool.</em>
           </h2>
-          <p>Free site visit · Line-item estimate within 48 hours · No pressure, ever.</p>
+          <p>Free site visit · Line-item estimate within 48 hours · Get costing details today. No pressure, ever.</p>
           <div className="cta-actions">
-            <Link href="/contact" className="btn-primary">
-              Book a free site visit <ArrowRight size={16} />
-            </Link>
+            <button className="btn-primary" onClick={openQuote}>
+              Get costing details <ArrowRight size={16} />
+            </button>
             <a className="btn-ghost" href={waLink("Hi! I want a pool estimate.")} target="_blank" rel="noreferrer">
               <span className="play-ring">
                 <MessageCircle size={16} />
@@ -268,6 +376,12 @@ function ScrollToTop() {
 export default function Layout({ children }: { children: ReactNode }) {
   const { scrolled, progress } = usePageState();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [quoteOpen, setQuoteOpen] = useState(false);
+  useEffect(() => {
+    const fn = () => setQuoteOpen(true);
+    window.addEventListener("sr:open-quote", fn);
+    return () => window.removeEventListener("sr:open-quote", fn);
+  }, []);
   return (
     <div className="pro-page" id="top">
       <ScrollToTop />
@@ -276,6 +390,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       {menuOpen && <MenuOverlay onClose={() => setMenuOpen(false)} />}
       {children}
       <SiteFooter />
+      <QuoteModal open={quoteOpen} onClose={() => setQuoteOpen(false)} />
       <WhatsAppWidget />
     </div>
   );

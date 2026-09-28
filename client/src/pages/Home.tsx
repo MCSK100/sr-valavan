@@ -8,6 +8,7 @@ import {
   Play,
   Plus,
   Star,
+  X,
 } from "lucide-react";
 import {
   motion,
@@ -22,6 +23,7 @@ import {
   type MouseEvent as ReactMouseEvent,
 } from "react";
 import Seo from "../components/Seo";
+import { openQuote } from "../components/Layout";
 import {
   Counter,
   ParallaxImage,
@@ -31,13 +33,17 @@ import {
   handleImgError,
 } from "../components/motion";
 import {
+  CONTACT,
   faqs,
   finishes,
+  poolTypes,
   projects,
+  quoteServices,
   services,
   steps,
   testimonials,
   waLink,
+  whyChooseUs,
 } from "../data/content";
 
 /* ---------------- Media ---------------- */
@@ -273,10 +279,10 @@ function Marquee() {
 
 function Stats() {
   const items = [
-    { to: 120, suffix: "+", label: "Pools designed & built" },
-    { to: 14, suffix: " yrs", label: "At the waterline" },
-    { to: 98, suffix: "%", label: "Clients who refer us" },
-    { to: 48, suffix: " hr", label: "Site-visit response" },
+    { to: 14, suffix: " +", label: "Years of experience" },
+    { to: 120, suffix: "+", label: "Completed projects" },
+    { to: 12, suffix: "", label: "Ongoing projects" },
+    { to: 450, suffix: "+", label: "Happy customers" },
   ];
   return (
     <div className="stats-band">
@@ -299,7 +305,7 @@ function Services() {
         <div className="sec-head-split">
           <Reveal>
             <div className="sec-marker">
-              01 <span>What we do</span>
+              01 <span>What we do · One-stop pool solution</span>
             </div>
             <h2 className="sec-title">
               One studio for <em>everything water.</em>
@@ -307,12 +313,13 @@ function Services() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="side">
-              Design, civil work, waterproofing, equipment and after-care — a single contract,
-              a single accountable team, zero finger-pointing.
+              Swimming pool construction, readymade FRP pools, fountains & Jacuzzi, filtration,
+              accessories, tiling, maintenance and renovation — a single contract, a single
+              accountable team, zero finger-pointing.
             </p>
-            <a href="#contact" className="link-arrow">
-              Discuss your project <ArrowUpRight size={14} />
-            </a>
+            <button onClick={openQuote} className="link-arrow">
+              Get costing details <ArrowUpRight size={14} />
+            </button>
           </Reveal>
         </div>
         <div className="svc-grid">
@@ -341,6 +348,129 @@ function Services() {
           ))}
         </div>
       </div>
+    </section>
+  );
+}
+
+function WhyChoose() {
+  return (
+    <section id="why-us" className="section">
+      <div className="content-width">
+        <Reveal>
+          <div className="sec-marker">
+            02 <span>Why choose us</span>
+          </div>
+          <h2 className="sec-title">
+            A pool partner, <em>not just a contractor.</em>
+          </h2>
+          <p className="sec-lede">
+            From salt-clean water to on-time crews and priority repairs — everything is handled
+            under one roof, so you simply swim.
+          </p>
+        </Reveal>
+        <div className="why-grid">
+          {whyChooseUs.map((w, i) => (
+            <Reveal key={w.title} delay={(i % 3) * 0.08}>
+              <div className="why-card">
+                <div className="svc-icon">
+                  <w.icon size={24} />
+                </div>
+                <h3>{w.title}</h3>
+                <p>{w.copy}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={0.1}>
+          <div style={{ marginTop: 30 }}>
+            <button onClick={openQuote} className="link-arrow">
+              Get pricing details <ArrowUpRight size={14} />
+            </button>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function PoolTypes() {
+  return (
+    <section id="pool-types" className="section">
+      <div className="content-width">
+        <div className="sec-head-split">
+          <Reveal>
+            <div className="sec-marker">
+              03 <span>Wide range of pools</span>
+            </div>
+            <h2 className="sec-title">
+              Every site has <em>its water.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="side">
+              Infinity, readymade FRP, skimmer, in-ground, above-ground and terrace plunge —
+              we match the pool type to your space, soil, load and budget.
+            </p>
+          </Reveal>
+        </div>
+        <div className="type-grid">
+          {poolTypes.map((t, i) => (
+            <Reveal key={t.name} delay={(i % 3) * 0.07}>
+              <div className="type-card">
+                <em>0{i + 1}</em>
+                <b>{t.name}</b>
+                <span>{t.desc}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Gallery() {
+  const [active, setActive] = useState<number | null>(null);
+  const items = projects;
+  return (
+    <section id="Work-gallery" className="section">
+      <div className="content-width">
+        <div className="sec-head-split">
+          <Reveal>
+            <div className="sec-marker">
+              04 <span>Work gallery</span>
+            </div>
+            <h2 className="sec-title">
+              Recent <em>projects.</em>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="side">
+              Infinity edges, terrace plunges and resort lagoons across Chennai, Bengaluru,
+              Hyderabad and Kochi. Tap any image to view it large.
+            </p>
+          </Reveal>
+        </div>
+        <div className="gallery-grid">
+          {items.map((p, i) => (
+            <Reveal key={p.no} delay={(i % 3) * 0.07}>
+              <button className="gallery-item" onClick={() => setActive(i)} aria-label={`View ${p.title}`}>
+                <img src={p.image} alt={`${p.title} — ${p.location}`} loading="lazy" onError={handleImgError} />
+                <span>{p.location} · {p.type}</span>
+              </button>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+      {active !== null && (
+        <div className="lightbox" onClick={() => setActive(null)} role="dialog" aria-modal="true" aria-label="Project image viewer">
+          <button onClick={() => setActive(null)} aria-label="Close viewer"><X size={20} /></button>
+          <div onClick={(e) => e.stopPropagation()}>
+            <img src={items[active].image} alt={`${items[active].title} — ${items[active].location}`} onError={handleImgError} />
+            <p>{items[active].title} — {items[active].location} · {items[active].type}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -648,7 +778,7 @@ function Faq() {
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", city: "", service: "", message: "" });
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
   return (
@@ -700,8 +830,8 @@ function Contact() {
                   setSubmitted(true);
                 }}
               >
-                <h3>Book a free site visit</h3>
-                <p>No spam, no pressure — just measurements and honest numbers.</p>
+                <h3>Request a free quote</h3>
+                <p>Select a service, leave your details — estimate within 48 hours.</p>
                 <div className="f-row">
                   <div className="f-field">
                     <label htmlFor="cf-name">Name</label>
@@ -712,16 +842,25 @@ function Contact() {
                     <input id="cf-phone" required placeholder="+91 …" value={form.phone} onChange={set("phone")} />
                   </div>
                 </div>
-                <div className="f-field">
-                  <label htmlFor="cf-city">Site city</label>
-                  <select id="cf-city" value={form.city} onChange={set("city")}>
-                    <option value="">Select a city…</option>
-                    <option>Chennai</option>
-                    <option>Bengaluru</option>
-                    <option>Hyderabad</option>
-                    <option>Kochi</option>
-                    <option>Elsewhere</option>
-                  </select>
+                <div className="f-row">
+                  <div className="f-field">
+                    <label htmlFor="cf-service">Service</label>
+                    <select id="cf-service" value={form.service} onChange={set("service")}>
+                      <option value="">Select a service…</option>
+                      {quoteServices.map((s) => (
+                        <option key={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="f-field">
+                    <label htmlFor="cf-city">Site city</label>
+                    <select id="cf-city" value={form.city} onChange={set("city")}>
+                      <option value="">Select a city…</option>
+                      {CONTACT.cities.map((c) => (
+                        <option key={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
                 <div className="f-field">
                   <label htmlFor="cf-msg">About your project</label>
@@ -741,7 +880,7 @@ function Contact() {
                 >
                   Request callback <ArrowRight size={16} />
                 </motion.button>
-                <p className="form-note">Average response time: under 6 working hours.</p>
+                <p className="form-note">Average response time: under 6 working hours. Prefer WhatsApp? <a href={waLink("Hi! I want a free pool quote.")} target="_blank" rel="noreferrer">Chat now</a>.</p>
               </form>
             )}
           </div>
@@ -765,7 +904,10 @@ export default function Home() {
       <WaveSep fill="var(--white)" />
       <Stats />
       <Services />
+      <WhyChoose />
+      <PoolTypes />
       <Work />
+      <Gallery />
       <Portfolio />
       <FilmBand />
       <Materials />

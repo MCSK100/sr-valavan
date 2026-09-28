@@ -1,9 +1,9 @@
-import { Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import { CtaBand, PageHero } from "../components/Layout";
+import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Counter, ParallaxImage, Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, steps, testimonials } from "../data/content";
+import { IMG, steps, testimonials, whyChooseUs } from "../data/content";
 
 export default function AboutPage() {
   return (
@@ -45,6 +45,15 @@ export default function AboutPage() {
                 equipment and weekly care. No subcontractor chains, no finger-pointing — one
                 phone number from first dig to tenth summer.
               </p>
+              <div className="brochure-band" style={{ marginTop: 28 }}>
+                <div>
+                  <h3>Create your perfect pool</h3>
+                  <p>Download our brochure with pool types, finishes and cost ranges.</p>
+                </div>
+                <button className="btn-primary" onClick={openQuote}>
+                  Get brochure + quote <ArrowRight size={16} />
+                </button>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -52,10 +61,10 @@ export default function AboutPage() {
       <div className="stats-band">
         <div className="content-width stats-grid">
           {[
-            { to: 120, suffix: "+", label: "Pools delivered" },
-            { to: 14, suffix: " yrs", label: "Of practice" },
-            { to: 40, suffix: "+", label: "AMC sites live" },
-            { to: 6, suffix: "", label: "Cities served" },
+            { to: 14, suffix: " +", label: "Years of experience" },
+            { to: 120, suffix: "+", label: "Completed projects" },
+            { to: 12, suffix: "", label: "Ongoing projects" },
+            { to: 450, suffix: "+", label: "Happy customers" },
           ].map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08} className="stat">
               <Counter to={s.to} suffix={s.suffix} />
@@ -68,7 +77,32 @@ export default function AboutPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              02 <span>How we work</span>
+              02 <span>Why choose us</span>
+            </div>
+            <h2 className="sec-title">
+              A pool partner, <em>not just a contractor.</em>
+            </h2>
+          </Reveal>
+          <div className="why-grid">
+            {whyChooseUs.map((w, i) => (
+              <Reveal key={w.title} delay={(i % 3) * 0.08}>
+                <div className="why-card">
+                  <span className="svc-icon" style={{ marginBottom: 4 }}>
+                    <w.icon size={24} />
+                  </span>
+                  <h3>{w.title}</h3>
+                  <p>{w.copy}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="content-width">
+          <Reveal>
+            <div className="sec-marker">
+              03 <span>How we work</span>
             </div>
             <h2 className="sec-title">
               From first visit <em>to first swim.</em>
@@ -94,7 +128,7 @@ export default function AboutPage() {
         <div className="content-width">
           <Reveal>
             <div className="sec-marker">
-              03 <span>Client words</span>
+              04 <span>Client words</span>
             </div>
             <h2 className="sec-title">
               Loved <em>after the fill.</em>

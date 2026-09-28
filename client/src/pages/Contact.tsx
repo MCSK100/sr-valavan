@@ -4,11 +4,11 @@ import { useState } from "react";
 import { PageHero } from "../components/Layout";
 import { Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { CONTACT } from "../data/content";
+import { CONTACT, quoteServices } from "../data/content";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", city: "", service: "", message: "" });
   const set =
     (k: keyof typeof form) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -81,8 +81,8 @@ export default function ContactPage() {
                       setSubmitted(true);
                     }}
                   >
-                    <h3>Book a free site visit</h3>
-                    <p>No spam, no pressure — just measurements and honest numbers.</p>
+                    <h3>Request a free quote</h3>
+                    <p>Select a service, leave your details — estimate within 48 hours.</p>
                     <div className="f-row">
                       <div className="f-field">
                         <label htmlFor="cp-name">Name</label>
@@ -93,14 +93,25 @@ export default function ContactPage() {
                         <input id="cp-phone" required placeholder="+91 …" value={form.phone} onChange={set("phone")} />
                       </div>
                     </div>
-                    <div className="f-field">
-                      <label htmlFor="cp-city">Site city</label>
-                      <select id="cp-city" value={form.city} onChange={set("city")}>
-                        <option value="">Select a city…</option>
-                        {CONTACT.cities.map((c) => (
-                          <option key={c}>{c}</option>
-                        ))}
-                      </select>
+                    <div className="f-row">
+                      <div className="f-field">
+                        <label htmlFor="cp-service">Service</label>
+                        <select id="cp-service" value={form.service} onChange={set("service")}>
+                          <option value="">Select a service…</option>
+                          {quoteServices.map((s) => (
+                            <option key={s}>{s}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="f-field">
+                        <label htmlFor="cp-city">Site city</label>
+                        <select id="cp-city" value={form.city} onChange={set("city")}>
+                          <option value="">Select a city…</option>
+                          {CONTACT.cities.map((c) => (
+                            <option key={c}>{c}</option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
                     <div className="f-field">
                       <label htmlFor="cp-msg">About your project</label>

@@ -1,9 +1,9 @@
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Link } from "wouter";
-import { CtaBand, PageHero } from "../components/Layout";
+import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Reveal, cn } from "../components/motion";
 import Seo from "../components/Seo";
-import { services } from "../data/content";
+import { poolTypes, services } from "../data/content";
 
 export default function ServicesPage() {
   return (
@@ -31,8 +31,31 @@ export default function ServicesPage() {
             Everything water, <em>under one roof.</em>
           </>
         }
-        lede="Design, civil work, waterproofing, equipment and after-care — a single contract and a single accountable team."
+        lede="One-stop solution for all swimming pool needs — construction, readymade FRP pools, fountains & Jacuzzi, filtration, accessories, tiling, maintenance and renovation."
       />
+      <section className="section" style={{ paddingTop: 70, paddingBottom: 30 }}>
+        <div className="content-width">
+          <Reveal>
+            <div className="sec-marker">
+              00 <span>Wide range of swimming pools</span>
+            </div>
+            <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>
+              Infinity · Readymade · Skimmer · <em>Terrace & more.</em>
+            </h2>
+          </Reveal>
+          <div className="type-grid">
+            {poolTypes.map((t, i) => (
+              <Reveal key={t.name} delay={(i % 3) * 0.07}>
+                <div className="type-card">
+                  <em>0{i + 1}</em>
+                  <b>{t.name}</b>
+                  <span>{t.desc}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section" style={{ paddingTop: 90 }}>
         <div className="content-width svc-detail-list">
           {services.map((s, i) => (
@@ -52,9 +75,9 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                   <div className="svc-detail-actions">
-                    <Link href="/contact" className="link-arrow">
+                    <button onClick={openQuote} className="link-arrow">
                       Get an estimate <ArrowUpRight size={14} />
-                    </Link>
+                    </button>
                   </div>
                 </div>
                 <div className="svc-detail-side">
