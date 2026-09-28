@@ -6,7 +6,7 @@ import Seo from "../components/Seo";
 import { galleryCategories, galleryItems } from "../data/content";
 
 const stats = [
-  { to: 14, suffix: " +", label: "Years of experience" },
+  { to: 5, suffix: " +", label: "Years of experience" },
   { to: 120, suffix: "+", label: "Completed projects" },
   { to: 12, suffix: "", label: "Ongoing projects" },
   { to: 450, suffix: "+", label: "Happy customers" },
@@ -22,7 +22,7 @@ export default function GalleryPage() {
     <main>
       <Seo
         title="Swimming Pool Gallery — Infinity, Family & Plunge Pools | SR Valavan Enterprises"
-        description="Browse infinity edges, family pools, terrace plunges, commercial pools and spa features designed, built and maintained by SR Valavan Enterprises across South India."
+        description="Browse infinity edges, family pools, terrace plunges, commercial pools and spa features designed, built and maintained by SR Valavan Enterprises across Tamil Nadu."
         path="/gallery"
       />
       <PageHero

@@ -9,8 +9,8 @@ export default function AboutPage() {
   return (
     <main>
       <Seo
-        title="About Us — Pool Designers & Builders Since 2011 | SR Valavan Enterprises"
-        description="Meet SR Valavan Enterprises: a Chennai pool studio with 14 years, 120+ pools and one promise — design, build and care, all under one roof."
+        title="About Us — Pool Designers & Builders Since 2021 | SR Valavan Enterprises"
+        description="Meet SR Valavan Enterprises: a Chennai pool studio with 5 years, 120+ pools and one promise — design, build and care, all under one roof."
         path="/about"
       />
       <PageHero
@@ -20,12 +20,12 @@ export default function AboutPage() {
             A pool is not an amenity. <em>It is a horizon.</em>
           </>
         }
-        lede="Since 2011 we have designed and built singular pools, spas and water landscapes across South India — and stayed around to care for them."
+        lede="Since 2021 we have designed and built singular pools, spas and water landscapes across Tamil Nadu — and stayed around to care for them."
       />
       <section className="section" style={{ paddingTop: 90 }}>
         <div className="content-width about-split">
           <Reveal>
-            <ParallaxImage src={IMG.evening} alt="Luxury villa pool at dusk" label="THE STUDIO / SINCE 2011" />
+            <ParallaxImage src={IMG.evening} alt="Luxury villa pool at dusk" label="THE STUDIO / SINCE 2021" />
           </Reveal>
           <Reveal delay={0.1}>
             <div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
       <div className="stats-band">
         <div className="content-width stats-grid">
           {[
-            { to: 14, suffix: " +", label: "Years of experience" },
+            { to: 5, suffix: " +", label: "Years of experience" },
             { to: 120, suffix: "+", label: "Completed projects" },
             { to: 12, suffix: "", label: "Ongoing projects" },
             { to: 450, suffix: "+", label: "Happy customers" },

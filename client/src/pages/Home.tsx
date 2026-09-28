@@ -193,7 +193,7 @@ function Hero() {
         <motion.div style={{ x: copyX }}>
           <div className="hero-topline">
             <span className="live">
-              <span className="live-dot" /> NOW BUILDING · CHENNAI / BENGALURU / KOCHI
+              <span className="live-dot" /> NOW BUILDING · CHENNAI / COIMBATORE / MADURAI
             </span>
           </div>
           <motion.p
@@ -218,7 +218,7 @@ function Hero() {
             transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             SR Valavan Enterprises designs and builds swimming pools that feel inevitable —
-            engineered for South Indian sun and soil, finished like architecture, and cared for
+            engineered for Tamil Nadu sun and soil, finished like architecture, and cared for
             for years after the first swim.
           </motion.p>
           <motion.div
@@ -279,7 +279,7 @@ function Marquee() {
 
 function Stats() {
   const items = [
-    { to: 14, suffix: " +", label: "Years of experience" },
+    { to: 5, suffix: " +", label: "Years of experience" },
     { to: 120, suffix: "+", label: "Completed projects" },
     { to: 12, suffix: "", label: "Ongoing projects" },
     { to: 450, suffix: "+", label: "Happy customers" },
@@ -446,8 +446,8 @@ function Gallery() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="side">
-              Infinity edges, terrace plunges and resort lagoons across Chennai, Bengaluru,
-              Hyderabad and Kochi. Tap any image to view it large.
+              Infinity edges, terrace plunges and resort lagoons across Chennai, Coimbatore,
+              Madurai and Trichy. Tap any image to view it large.
             </p>
           </Reveal>
         </div>
@@ -896,7 +896,7 @@ export default function Home() {
     <main>
       <Seo
         title="SR Valavan Enterprises — Luxury Swimming Pools, Spas & Water Landscapes"
-        description="SR Valavan Enterprises designs & builds luxury swimming pools, spas and water landscapes across Chennai, Bengaluru, Hyderabad & Kochi. 120+ pools, 14 years, free site visit."
+        description="SR Valavan Enterprises designs & builds luxury swimming pools, spas and water landscapes across Chennai, Coimbatore, Madurai & Trichy. 120+ pools, 5 years, free site visit."
         path="/"
       />
       <Hero />

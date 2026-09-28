@@ -10,7 +10,7 @@ export default function ServicesPage() {
     <main>
       <Seo
         title="Swimming Pool Services — Construction, Renovation & AMC | SR Valavan Enterprises"
-        description="Residential & commercial pools, spas, renovations, filtration automation and AMC across Chennai, Bengaluru, Hyderabad & Kochi. One accountable studio."
+        description="Residential & commercial pools, spas, renovations, filtration automation and AMC across Chennai, Coimbatore, Madurai & Trichy. One accountable studio."
         path="/services"
         jsonLd={{
           "@context": "https://schema.org",

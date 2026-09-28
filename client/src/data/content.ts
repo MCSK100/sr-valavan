@@ -25,7 +25,7 @@ export const CONTACT = {
   email: "hello@srvalavanenterprises.in",
   address: "100 Feet Road, Vadapalani, Chennai 600 026",
   hours: "9 AM – 7 PM, all days",
-  cities: ["Chennai", "Bengaluru", "Hyderabad", "Kochi", "Elsewhere"],
+  cities: ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem"],
 };
 
 export const waLink = (msg: string) =>
@@ -210,7 +210,7 @@ export const projects: Project[] = [
   {
     no: "02",
     title: "The Quarry House",
-    location: "Bengaluru",
+    location: "Coimbatore",
     type: "Lap pool · 2024",
     image: IMG.lapLanes,
     copy: "A 20-metre training lane in granite and glass — built for 5 AM rituals.",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
   {
     no: "03",
     title: "Palm Courtyard",
-    location: "Kochi",
+    location: "Madurai",
     type: "Courtyard plunge · 2024",
     image: IMG.resort,
     copy: "A shaded plunge court that cools a heritage home by three degrees.",
@@ -226,7 +226,7 @@ export const projects: Project[] = [
   {
     no: "04",
     title: "Skyline Plunge",
-    location: "Hyderabad",
+    location: "Trichy",
     type: "Terrace plunge · 2024",
     image: IMG.duskHouse,
     copy: "A rooftop plunge with city views — lightweight shell, silent equipment.",
@@ -260,7 +260,7 @@ export const steps: Step[] = [
   { icon: PencilRuler, title: "Flexible Design", copy: "3D views, sun studies and a line-item estimate for any space — compact terrace to luxury estate." },
   { icon: Leaf, title: "Eco-friendly Engineering", copy: "Water-efficient hydraulics, energy-saving pumps and salt systems signed off before we dig." },
   { icon: Hammer, title: "High-Quality Build", copy: "Durable materials, one accountable crew, photo updates every week, tested at every stage." },
-  { icon: Compass, title: "Extensive Reach & Handover", copy: "Homes, villas and resorts across South India — balanced water, staff training and a printed care manual." },
+  { icon: Compass, title: "Extensive Reach & Handover", copy: "Homes, villas and resorts across Tamil Nadu — balanced water, staff training and a printed care manual." },
   { icon: ShieldCheck, title: "Amazing Support", copy: "Warranties in writing, priority breakdown visits, and AMC that actually shows up." },
 ];
 
@@ -305,7 +305,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Weekly AMC is clockwork — water report on WhatsApp, chemicals topped up, filters backwashed. I never think about the pool.",
     name: "Divya & Karthik",
-    place: "Whitefield, Bengaluru",
+    place: "Saibaba Colony, Coimbatore",
     initials: "DK",
   },
   {
@@ -319,14 +319,14 @@ export const testimonials: Testimonial[] = [
     quote:
       "Transparent costing, high-grade materials and a crew that shows up on time. Our readymade FRP pool was filled within ten days.",
     name: "Anil Singh",
-    place: "Farmhouse, Hyderabad",
+    place: "Farmhouse, Erode",
     initials: "AS",
   },
   {
     quote:
       "Post-construction support is phenomenal — one call and their technician is at the plant room. Truly a one-stop pool partner.",
     name: "Sanu Mendez",
-    place: "Homestay, Kochi",
+    place: "Homestay, Kodaikanal",
     initials: "SM",
   },
 ];
@@ -423,16 +423,16 @@ export const galleryCategories: Array<"All" | GalleryCategory> = [
 export const galleryItems: GalleryItem[] = [
   { image: IMG.infinity, title: "Vanishing-edge villa pool", location: "ECR, Chennai", category: "Infinity" },
   { image: IMG.evening, title: "Dusk swim under the palms", location: "Mahabalipuram", category: "Family" },
-  { image: IMG.resort, title: "Resort lagoon with deck jets", location: "Kochi", category: "Commercial" },
-  { image: IMG.lapLanes, title: "20-metre training lane", location: "Bengaluru", category: "Family" },
-  { image: IMG.duskHouse, title: "Rooftop plunge at dusk", location: "Hyderabad", category: "Plunge" },
+  { image: IMG.resort, title: "Resort lagoon with deck jets", location: "Madurai", category: "Commercial" },
+  { image: IMG.lapLanes, title: "20-metre training lane", location: "Coimbatore", category: "Family" },
+  { image: IMG.duskHouse, title: "Rooftop plunge at dusk", location: "Trichy", category: "Plunge" },
   { image: IMG.detail, title: "Pebble-finish lagoon edge", location: "ECR, Chennai", category: "Infinity" },
   { image: IMG.interior, title: "Warm-water therapy suite", location: "Anna Nagar, Chennai", category: "Spa & Features" },
   { image: IMG.hero, title: "Courtyard family pool", location: "Adyar, Chennai", category: "Family" },
-  { image: IMG.resort, title: "Wellness court with Jacuzzi", location: "Whitefield, Bengaluru", category: "Spa & Features" },
-  { image: IMG.infinity, title: "Clifftop infinity concept", location: "Kovalam", category: "Infinity" },
+  { image: IMG.resort, title: "Wellness court with Jacuzzi", location: "RS Puram, Coimbatore", category: "Spa & Features" },
+  { image: IMG.infinity, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
   { image: IMG.lapLanes, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
-  { image: IMG.duskHouse, title: "Compact terrace plunge", location: "Kochi", category: "Plunge" },
+  { image: IMG.duskHouse, title: "Compact terrace plunge", location: "Salem", category: "Plunge" },
 ];
 
 export interface Industry {

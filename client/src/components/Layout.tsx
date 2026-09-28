@@ -262,7 +262,7 @@ function SiteFooter() {
           <Brand dark />
           <p className="footer-blurb">
             Designer & builder of luxury swimming pools, spas and water landscapes across
-            South India — since 2011.
+            Tamil Nadu — since 2021.
           </p>
         </div>
         <div>
