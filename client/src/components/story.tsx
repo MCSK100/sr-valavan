@@ -23,8 +23,8 @@ export function RollingWord({ words = DEFAULT_WORDS }: { words?: string[] }) {
   }, [words.length]);
   return (
     <span className="roll" style={{ transform: `translateY(-${idx * 1.2}em)`, transition: "transform .7s cubic-bezier(.22,1,.36,1)" }}>
-      {words.map((w) => (
-        <span key={w} className="roll-word">
+      {words.map((w, i) => (
+        <span key={w} className="roll-word" aria-hidden={i !== idx} style={{ opacity: i === idx ? 1 : 0 }}>
           <SplitLetters text={w} />
         </span>
       ))}
