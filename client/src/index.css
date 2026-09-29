@@ -93,10 +93,6 @@ body.night .theme-toggle button.active { background: #f4d24a; color: #17272e; }
 .hero-pool-img { position: absolute; left: 50%; bottom: -6vw; transform: translateX(-50%); width: min(1100px, 92vw); height: 34vh; object-fit: cover; border-radius: 40px 40px 0 0; border: 6px solid rgba(255,249,241,0.9); border-bottom: 0; box-shadow: 0 -30px 80px rgba(0,0,0,0.25); }
 .hero-noise { position: absolute; inset: 0; opacity: 0.08; background-image: radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1.4px); background-size: 22px 22px; pointer-events: none; }
 @keyframes sunPulse { to { transform: scale(1.05); } }
-.hero-cloud { position: absolute; z-index: 1; background: rgba(255, 249, 241, 0.9); border-radius: 100px; filter: blur(1px); animation: cloudDrift 9s ease-in-out infinite alternate; }
-.hero-cloud.cloud-a { width: calc(var(--sun-w) * 0.62); height: 54px; right: calc(var(--sun-w) * -0.3); top: calc(var(--sun-w) * 0.3); }
-.hero-cloud.cloud-b { width: calc(var(--sun-w) * 0.34); height: 38px; right: calc(var(--sun-w) * 0.5); top: calc(var(--sun-w) * 0.26); opacity: 0.8; }
-body.night .hero-cloud { background: rgba(255,249,241,0.14); }
 @keyframes cloudDrift { to { transform: translateX(-46px); } }
 .hero-content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 24px 170px; transform-origin: center center; will-change: transform, opacity; --sun-w: clamp(300px, 44vw, 680px); }
 .hero-eyebrow { position: static; display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 0 18px; font-family: var(--mono); font-size: 14px; letter-spacing: 1.4px; text-transform: uppercase; color: white; white-space: nowrap; }
@@ -501,7 +497,7 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 .hero-wash{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,20,26,.42),rgba(3,20,26,.12) 40%,rgba(2,12,16,.62));pointer-events:none}
 .hero-content{z-index:2}
 .rain-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.h-line{position:static;font-family:var(--serif);font-weight:400;font-size:clamp(54px,11vw,150px);letter-spacing:2.7px;line-height:1.1;color:#fff;margin:0;white-space:nowrap;text-shadow:0 4px 60px rgba(0,0,0,.35)}
+.h-line{position:static;font-family:var(--serif);font-weight:400;font-size:clamp(54px,9.4vw,150px);letter-spacing:2.7px;line-height:1.1;color:#fff;margin:0;white-space:nowrap;text-shadow:0 4px 60px rgba(0,0,0,.35)}
 .hero-dots{position:absolute;right:34px;bottom:32vh;z-index:3;display:flex;flex-direction:column;gap:10px}
 .hero-dots button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.6);padding:0;transition:all .3s}
 .hero-dots button.active{background:var(--gold-soft);border-color:var(--gold-soft);transform:scale(1.25)}

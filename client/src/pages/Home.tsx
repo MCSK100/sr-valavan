@@ -54,8 +54,6 @@ function Hero() {
       <RainDrops />
       <div className="hero-noise" />
       <div className="hero-content">
-        <div className="hero-cloud cloud-a" />
-        <div className="hero-cloud cloud-b" />
         <p className="hero-eyebrow"><i /> Swimming pool design & construction</p>
         <h1 style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
           SR Vallavan Enterprises — Your Dream Pool. Built to Perfection.
