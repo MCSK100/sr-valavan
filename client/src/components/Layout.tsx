@@ -220,6 +220,9 @@ function SiteFooter() {
         <span>© {new Date().getFullYear()} SR Vallavan Enterprises · Design / Details / Dive</span>
         <span style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><Phone size={12} /> {CONTACT.phoneDisplay}</span>
       </div>
+      <div className="content-width" style={{ paddingBottom: 18, fontSize: 10.5, opacity: 0.45, fontFamily: "var(--mono)" }}>
+        <span>Service photos: villa pool via Pexels · pool waterfall &amp; renovation via Flickr “Concrete Forms” (CC BY 2.0) · pool filtration via Flickr “blmurch” (CC BY-SA 2.0)</span>
+      </div>
     </footer>
   );
 }

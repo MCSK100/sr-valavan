@@ -3,18 +3,18 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { ParallaxImage, Reveal, cn, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, companyBlurb, pageHeroSlides, poolTypes, services } from "../data/content";
+import { IMG, SVC_IMG, companyBlurb, pageHeroSlides, poolTypes, services } from "../data/content";
 
 // 1:1 with `services` — 8 mutually-distinct pool images, none reused
 // elsewhere on this page (hero/turnkey use a different set).
 const chapterImages = [
   IMG.villa, // Custom Swimming Pools — villa pool
   IMG.infinity, // Infinity Pools — infinity edge
-  IMG.duskHouse, // Residential Pools — home pool at dusk
+  SVC_IMG.residential, // Residential Pools — evening villa pool (local photo)
   IMG.resort, // Commercial & Resort Pools — resort pool
-  IMG.lagoon, // Water Features & Fountains — lagoon water body
-  IMG.detail, // Pool Renovation — tile / finish detail
-  IMG.evening, // Pool Equipment & Filtration — pristine lit water
+  SVC_IMG.fountain, // Water Features & Fountains — rock waterfall into pool (local photo)
+  SVC_IMG.renovation, // Pool Renovation — pool shell rebuild in progress (local photo)
+  SVC_IMG.filtration, // Pool Equipment & Filtration — circulating crystal-clear water (local photo)
   IMG.vanishing, // Waterproofing & Leak Repair — pool structure
 ];
 const chapterFacts = [

@@ -5,7 +5,7 @@ import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
 import { RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
-import { CONTACT, buildSteps, companyBlurb, faqs, finishes, poolTypes, services, waLink, whyChooseUs } from "../data/content";
+import { CONTACT, SVC_IMG, buildSteps, companyBlurb, faqs, finishes, poolTypes, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
@@ -35,7 +35,7 @@ const media = {
   float2: U("photo-1601918774946-25832a4be0d6"),
 };
 
-const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.renovation, media.plumber, media.worker];
+const svcImages = [media.heroPool, media.infinity, SVC_IMG.residential, media.resort, SVC_IMG.fountain, SVC_IMG.renovation, SVC_IMG.filtration, media.worker];
 const typeImages = [media.infinity, media.evening, media.float, media.float2];
 
 function Hero() {
@@ -265,7 +265,7 @@ function CareBand() {
       copy: "Leak-proof membranes and coatings for new shells and existing pools — applied with care, built to last.",
     },
     {
-      img: media.renovation,
+      img: SVC_IMG.renovation,
       alt: "Swimming pool structural renovation",
       tag: "21-day rebuilds",
       title: "Renovation & Refits",

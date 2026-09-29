@@ -221,6 +221,17 @@ export const IMG = {
   compactFloat: U("photo-1601918774946-25832a4be0d6"),
 };
 
+// Verified service photos stored locally (see client/public/services).
+// Sources: residential-pool.jpg — Pexels (photo 26859048, free license);
+// pool-fountain.jpg + pool-renovation.jpg — Flickr user "Concrete Forms", CC BY 2.0;
+// pool-filtration.jpg — Flickr user "blmurch", CC BY-SA 2.0 (credits in site footer).
+export const SVC_IMG = {
+  residential: "/services/residential-pool.jpg",
+  fountain: "/services/pool-fountain.jpg",
+  renovation: "/services/pool-renovation.jpg",
+  filtration: "/services/pool-filtration.jpg",
+};
+
 export const pageHeroSlides = {
   services: [IMG.tropical, IMG.villaDusk, IMG.compactFloat, IMG.lapLanes],
   gallery: [IMG.sitework, IMG.cranes, IMG.plans, IMG.pipes],
