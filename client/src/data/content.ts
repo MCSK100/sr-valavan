@@ -1,15 +1,24 @@
 import {
+  Award,
   BadgeCheck,
+  Box,
   Building2,
+  ClipboardCheck,
   Compass,
   Droplets,
   Hammer,
-  HeartPulse,
+  IndianRupee,
+  Layers,
+  Palette,
+  PartyPopper,
   PencilRuler,
   Phone,
   RefreshCcw,
+  Settings,
   ShieldCheck,
   Sparkles,
+  Timer,
+  Users,
   Waves,
   Wrench,
   type LucideIcon,
@@ -175,12 +184,20 @@ const U = (id: string, w = 2560) =>
 export const IMG = {
   hero: U("photo-1600596542815-ffad4c1539a9", 3840),
   infinity: U("photo-1613977257363-707ba9348227"),
-  resort: U("photo-1571896349842-33c89424de2d"),
-  evening: U("photo-1512917774080-9991f1c4c750"),
-  detail: U("photo-1600585154340-be6161a56a0c"),
+  resort: U("photo-1540541338287-41700207dee6"),
+  evening: U("photo-1584132967334-10e028bd69f7"),
+  detail: U("photo-1572331165267-854da2b10ccc"),
   duskHouse: U("photo-1523217582562-09d0def993a6"),
   lapLanes: U("photo-1530549387789-4c1017266635"),
   interior: U("photo-1600607687939-ce8a6c25118c"),
+  lagoon: U("photo-1571896349842-33c89424de2d"),
+  villa: U("photo-1600965962361-9035dbfd1c50"),
+  hotel: U("photo-1561501900-3701fa6a0864"),
+  tropical: U("photo-1445019980597-93fa8acb246c"),
+  vanishing: U("photo-1576013551627-0cc20b96c2a7"),
+  float: U("photo-1596178065887-1198b6148b2b"),
+  duskPool: U("photo-1512917774080-9991f1c4c750"),
+  mosaic: U("photo-1600585154340-be6161a56a0c"),
 };
 
 export const projects: Project[] = [
@@ -205,7 +222,7 @@ export const projects: Project[] = [
     title: "Palm Courtyard",
     location: "Madurai",
     type: "Courtyard plunge · 2024",
-    image: IMG.resort,
+    image: IMG.lagoon,
     copy: "A shaded plunge court that cools a heritage home by three degrees.",
   },
   {
@@ -213,7 +230,7 @@ export const projects: Project[] = [
     title: "Skyline Plunge",
     location: "Trichy",
     type: "Terrace plunge · 2024",
-    image: IMG.duskHouse,
+    image: IMG.vanishing,
     copy: "A rooftop plunge with city views — lightweight shell, silent equipment.",
   },
   {
@@ -221,7 +238,7 @@ export const projects: Project[] = [
     title: "Farmhouse Lagoon",
     location: "ECR, Chennai",
     type: "Freeform · 2023",
-    image: IMG.detail,
+    image: IMG.villa,
     copy: "A pebble-finished lagoon that melts a farmhouse garden into water.",
   },
   {
@@ -241,12 +258,14 @@ export interface Step {
 }
 
 export const steps: Step[] = [
-  { icon: Phone, title: "Consultation", copy: "Tell us about your property, requirements and dream pool." },
-  { icon: Compass, title: "Site Assessment", copy: "We understand your available space and project requirements." },
-  { icon: PencilRuler, title: "Design & Planning", copy: "We develop a pool concept tailored to your property and preferences." },
-  { icon: Hammer, title: "Construction", copy: "Our team brings the approved design to life with careful execution." },
-  { icon: Sparkles, title: "Finishing", copy: "Tiles, coping, lighting, water features and final details complete the look." },
-  { icon: Waves, title: "Ready to Dive", copy: "Your new swimming pool is ready for unforgettable moments." },
+  { icon: ClipboardCheck, title: "Site Inspection & Planning", copy: "We visit your site, understand your space and plan the best design as per your needs." },
+  { icon: Hammer, title: "Excavation", copy: "Precision digging with proper leveling and measurement." },
+  { icon: Layers, title: "Steel Fixing", copy: "High-quality steel structure for long-lasting strength and durability." },
+  { icon: Box, title: "Shuttering & Concreting", copy: "Strong foundation with premium grade concrete." },
+  { icon: Droplets, title: "Waterproofing", copy: "Leak-proof finishing for a hassle-free experience." },
+  { icon: Palette, title: "Tiling", copy: "Premium tiles for a stylish and long-lasting look." },
+  { icon: Settings, title: "Filtration & Equipment Setup", copy: "Clean, safe and crystal clear water with the right systems." },
+  { icon: PartyPopper, title: "Final Touch & Handover", copy: "Testing, cleaning and ready for you to make a splash!" },
 ];
 
 export interface WhyPoint {
@@ -256,12 +275,12 @@ export interface WhyPoint {
 }
 
 export const whyChooseUs: WhyPoint[] = [
-  { icon: PencilRuler, title: "Custom Designs", copy: "Every property is different. We create pool concepts that suit your available space, architecture and lifestyle." },
-  { icon: ShieldCheck, title: "Quality Construction", copy: "We focus on strong construction, proper finishing and attention to detail at every stage." },
-  { icon: Compass, title: "End-to-End Service", copy: "From initial planning and construction to finishing and installation, we help manage your pool project from start to finish." },
-  { icon: BadgeCheck, title: "Transparent Approach", copy: "Clear communication and practical solutions help you understand your project before construction begins." },
-  { icon: Sparkles, title: "Attention to Detail", copy: "From the pool shape to the finishing touches, every detail contributes to the final experience." },
-  { icon: HeartPulse, title: "Built Around You", copy: "Your requirements come first. We create solutions based on your space, expectations and budget." },
+  { icon: ShieldCheck, title: "Strong & Durable Construction", copy: "High-quality steel structure and premium grade concrete for long-lasting strength." },
+  { icon: Droplets, title: "Leak Proof Guarantee", copy: "Leak-proof waterproofing and finishing for a hassle-free pool experience." },
+  { icon: Award, title: "Premium Quality Materials", copy: "Premium tiles, fittings and systems — stylish, durable and built to last." },
+  { icon: Users, title: "Experienced Team", copy: "A skilled crew that plans, builds and finishes your pool with care at every stage." },
+  { icon: Timer, title: "On-Time Completion", copy: "Planned execution with clear stages — from site inspection to handover, on schedule." },
+  { icon: IndianRupee, title: "Affordable Pricing", copy: "Practical solutions based on your space, expectations and budget. No surprises." },
 ];
 
 export interface Testimonial {
@@ -410,14 +429,14 @@ export const galleryItems: GalleryItem[] = [
   { image: IMG.evening, title: "Dusk swim under the palms", location: "Mahabalipuram", category: "Family" },
   { image: IMG.resort, title: "Resort lagoon with deck jets", location: "Madurai", category: "Commercial" },
   { image: IMG.lapLanes, title: "20-metre training lane", location: "Coimbatore", category: "Family" },
-  { image: IMG.duskHouse, title: "Rooftop plunge at dusk", location: "Trichy", category: "Plunge" },
+  { image: IMG.vanishing, title: "Rooftop plunge at dusk", location: "Trichy", category: "Plunge" },
   { image: IMG.detail, title: "Pebble-finish lagoon edge", location: "ECR, Chennai", category: "Infinity" },
   { image: IMG.interior, title: "Warm-water therapy suite", location: "Anna Nagar, Chennai", category: "Spa & Features" },
   { image: IMG.hero, title: "Courtyard family pool", location: "Adyar, Chennai", category: "Family" },
-  { image: IMG.resort, title: "Wellness court with Jacuzzi", location: "RS Puram, Coimbatore", category: "Spa & Features" },
-  { image: IMG.infinity, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
-  { image: IMG.lapLanes, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
-  { image: IMG.duskHouse, title: "Compact terrace plunge", location: "Salem", category: "Plunge" },
+  { image: IMG.hotel, title: "Wellness court with Jacuzzi", location: "RS Puram, Coimbatore", category: "Spa & Features" },
+  { image: IMG.villa, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
+  { image: IMG.tropical, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
+  { image: IMG.float, title: "Compact terrace plunge", location: "Salem", category: "Plunge" },
 ];
 
 export interface Industry {

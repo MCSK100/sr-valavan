@@ -13,7 +13,7 @@ import TermsPage from "./pages/Terms";
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="dark">
+    <ThemeProvider defaultTheme="light">
       <Layout>
         <Switch>
           <Route path="/" component={Home} />
