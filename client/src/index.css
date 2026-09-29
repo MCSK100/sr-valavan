@@ -64,7 +64,7 @@ section { scroll-margin-top: 90px; }
 .pro-nav { position: fixed; z-index: 70; top: 14px; left: 50%; transform: translateX(-50%); width: min(calc(100% - 32px), 1240px); height: 66px; padding: 0 10px 0 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-radius: 100px; background: rgba(255, 249, 241, 0.72); border: 1px solid rgba(28, 43, 51, 0.12); box-shadow: 0 12px 34px rgba(28, 43, 51, 0.12); backdrop-filter: blur(20px) saturate(170%); -webkit-backdrop-filter: blur(20px) saturate(170%); color: var(--text-heading); transition: background 0.4s, color 0.4s; }
 body.night .pro-nav { background: rgba(10, 21, 36, 0.66); border-color: rgba(255, 249, 241, 0.16); }
 .brand { display: inline-flex; align-items: center; gap: 10px; font: 500 13px var(--mono); letter-spacing: 0.04em; }
-.brand-logo { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; background: #fff; border: 1px solid var(--line); }
+.brand-logo { height: 46px; width: auto; max-width: 230px; object-fit: contain; display: block; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 .brand-text b { font-weight: 700; font-size: 13px; }
 .brand-text small { font-size: 9px; letter-spacing: 0.24em; opacity: 0.6; }
@@ -415,4 +415,33 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 
 .faq-split{display:grid;grid-template-columns:1.5fr 1fr;gap:44px;align-items:start}
 @media(max-width:1080px){.faq-split{grid-template-columns:1fr}}
+
+
+/* ===== landing extras: film, type images, gallery preview ===== */
+.film-band{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#062a35}
+.film-band video,.film-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film-wash{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,20,26,.55),transparent 42%,rgba(2,12,16,.8))}
+.film-caption{position:relative;padding:90px 0 80px}
+.film-kicker{font:500 11px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft);margin:0 0 14px}
+.film-caption h2{margin:0;font:400 clamp(36px,4.6vw,64px)/1.02 var(--serif);text-shadow:0 4px 50px rgba(0,0,0,.4)}
+.film-caption h2 em{color:var(--gold-soft);font-style:italic}
+.film-sub{max-width:52ch;color:rgba(255,255,255,.82);line-height:1.7}
+.type-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.type-img-card{border:1px solid #323131;border-radius:22px;overflow:hidden;background:var(--paper);box-shadow:4px 4px 0 #323131}
+.type-img-card img{height:200px;width:100%;object-fit:cover;border-bottom:1px solid #323131}
+.type-img-card div{padding:20px 22px 24px}
+.type-img-card b{display:block;font:400 20px var(--serif);margin:6px 0 8px}
+.type-img-card span{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+.type-img-card em{font:500 11px var(--mono);letter-spacing:.12em;color:var(--pool);font-style:normal}
+.why-banner{position:relative;border-radius:26px;overflow:hidden;border:1px solid #323131;box-shadow:6px 6px 0 #323131;margin-top:36px;height:300px}
+.why-banner img{width:100%;height:100%;object-fit:cover}
+.why-banner span{position:absolute;left:18px;bottom:16px;color:#fff;font:600 10.5px var(--mono);letter-spacing:.14em;background:rgba(3,35,48,.6);padding:10px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.35)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.gal-item{position:relative;border-radius:20px;overflow:hidden;height:280px;border:1px solid #323131;display:block;padding:0;width:100%}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item span{position:absolute;left:12px;bottom:12px;font:600 10.5px var(--mono);letter-spacing:.08em;color:#fff;background:rgba(3,35,48,.55);padding:8px 12px;border-radius:100px}
+.sec-head-split .side{color:var(--ink-soft);line-height:1.75}
+@media(max-width:1080px){.type-img-grid{grid-template-columns:1fr 1fr}.gal-grid{grid-template-columns:1fr 1fr}.sec-head-split{grid-template-columns:1fr !important;gap:20px !important}}
+@media(max-width:700px){.type-img-grid,.gal-grid{grid-template-columns:1fr}.gal-item{height:240px}.film-band{min-height:60vh}}
 

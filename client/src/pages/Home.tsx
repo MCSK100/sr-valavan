@@ -5,24 +5,35 @@ import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
 import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useFanSpread, useTileReveal } from "../components/story";
-import { CONTACT, faqs, finishes, projects, services, steps, testimonials, waLink } from "../data/content";
+import { CONTACT, faqs, finishes, galleryItems, poolTypes, projects, services, steps, testimonials, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
-  heroPool: U("photo-1600596542815-ffad4c1539a9", 2000),
-  infinity: U("photo-1613977257363-707ba9348227"),
-  resort: U("photo-1571896349842-33c89424de2d"),
-  evening: U("photo-1512917774080-9991f1c4c750"),
-  detail: U("photo-1600585154340-be6161a56a0c"),
+  heroPool: U("photo-1600596542815-ffad4c1539a9", 3840),
+  infinity: U("photo-1613977257363-707ba9348227", 2400),
+  resort: U("photo-1540541338287-41700207dee6"),
+  evening: U("photo-1584132967334-10e028bd69f7"),
+  detail: U("photo-1572331165267-854da2b10ccc"),
   lap: U("photo-1530549387789-4c1017266635"),
   dusk: U("photo-1523217582562-09d0def993a6"),
+  villa: U("photo-1600965962361-9035dbfd1c50"),
+  hotel: U("photo-1561501900-3701fa6a0864"),
+  tropical: U("photo-1445019980597-93fa8acb246c"),
+  vanishing: U("photo-1576013551627-0cc20b96c2a7"),
+  float: U("photo-1596178065887-1198b6148b2b"),
+  mosaic: U("photo-1600585154340-be6161a56a0c"),
+  interior: U("photo-1600607687939-ce8a6c25118c"),
+  lagoon: U("photo-1571896349842-33c89424de2d"),
 };
+
+const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.float, media.evening, media.mosaic];
+const typeImages = [media.villa, media.infinity, media.vanishing, media.dusk, media.hotel, media.float];
 
 function Hero() {
   useTileReveal();
   return (
     <section className="hero" aria-label="SR Valavan hero">
-      <img className="hero-shader" src={media.heroPool} alt="" aria-hidden onError={handleImgError} />
+      <img className="hero-shader" src={media.heroPool} alt="4K luxury swimming pool villa at dusk" fetchPriority="high" onError={handleImgError} />
       <div className="hero-noise" />
       <div className="hero-content">
         <div className="sun-group" aria-hidden><div className="sun-core" /></div>
@@ -231,20 +242,153 @@ function ServicesStrip() {
   return (
     <section className="section" id="services">
       <div className="content-width">
-        <Reveal><div className="sec-marker">01 · What we do</div>
+        <Reveal><div className="sec-marker">04 · What we do</div>
           <h2 className="sec-title">Complete pool <em>solutions.</em></h2>
-          <p className="sec-lede">Custom pools, infinity edges, plunge courts, spas, fountains, renovation + AMC — planned around your plot and lifestyle.</p>
+          <p className="sec-lede">Custom pools, infinity edges, plunge courts, spas, fountains, renovation, filtration + AMC — planned around your plot and lifestyle.</p>
         </Reveal>
         <div className="svc-grid">
-          {services.slice(0, 6).map((s) => (
+          {services.map((s, i) => (
             <Reveal key={s.title}>
-              <article className="svc-card">
-                <div className="svc-icon"><s.icon size={24} /></div>
-                <h3>{s.title}</h3>
-                <p>{s.copy}</p>
-                <ul className="svc-tags">{s.tags.map((t) => <li key={t}>{t}</li>)}</ul>
-                <button onClick={openQuote} className="link-arrow">Enquire <ArrowRight size={13} /></button>
+              <article className="svc-card" style={{ padding: 0, overflow: "hidden" }}>
+                <img src={svcImages[i % svcImages.length]} alt={s.title} loading="lazy" onError={handleImgError} style={{ height: 190, width: "100%", objectFit: "cover", borderBottom: "1px solid #323131" }} />
+                <div style={{ padding: "24px 24px 26px" }}>
+                  <div className="svc-icon"><s.icon size={24} /></div>
+                  <h3>{s.title}</h3>
+                  <p>{s.copy}</p>
+                  <ul className="svc-tags">{s.tags.map((t) => <li key={t}>{t}</li>)}</ul>
+                  <div style={{ display: "flex", gap: 16, marginTop: 6, flexWrap: "wrap" }}>
+                    <button onClick={openQuote} className="link-arrow">Enquire <ArrowRight size={13} /></button>
+                    <Link href="/services" className="link-arrow">All services <ArrowUpRight size={13} /></Link>
+                  </div>
+                </div>
               </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PoolTypes() {
+  return (
+    <section className="section" id="pool-types" style={{ paddingTop: 20 }}>
+      <div className="content-width">
+        <Reveal><div className="sec-marker">05 · Pool types</div>
+          <h2 className="sec-title">A pool that matches <em>your plot.</em></h2>
+          <p className="sec-lede">Villa pools, infinity edges, overflows, rooftops, resorts and fully custom concepts.</p>
+        </Reveal>
+        <div className="type-img-grid">
+          {poolTypes.map((t, i) => (
+            <Reveal key={t.name} delay={(i % 3) * 0.07}>
+              <article className="type-img-card">
+                <img src={typeImages[i % typeImages.length]} alt={t.name} loading="lazy" onError={handleImgError} />
+                <div><em>0{i + 1}</em><b>{t.name}</b><span>{t.desc}</span></div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FilmBand() {
+  const [ok, setOk] = useState(true);
+  return (
+    <section className="film-band" aria-label="On-site pool film">
+      {ok ? (
+        <video autoPlay muted loop playsInline poster={media.resort} onError={() => setOk(false)}>
+          <source src="/herosec_video.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <img src={media.resort} alt="Resort pool lined with palms" onError={handleImgError} />
+      )}
+      <div className="film-wash" />
+      <div className="content-width film-caption">
+        <Reveal>
+          <p className="film-kicker">Shot on our sites · Tamil Nadu</p>
+          <h2>An empty backyard. A rooftop. <em>A resort.</em></h2>
+          <p className="film-sub">All it takes is the right design and the right crew. Let&apos;s build your dream pool.</p>
+          <button onClick={openQuote} className="btn-primary" style={{ marginTop: 22 }}>Start your project <ArrowRight size={15} /></button>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function WhyChoose() {
+  return (
+    <section className="section" id="why-us">
+      <div className="content-width">
+        <Reveal><div className="sec-marker">06 · Why us</div>
+          <h2 className="sec-title">Built with care. <em>Finished with precision.</em></h2>
+          <p className="sec-lede">Your vision. Our craftsmanship. One perfect pool — designed around your space, expectations and budget.</p>
+        </Reveal>
+        <Reveal>
+          <div className="why-banner">
+            <img src={media.tropical} alt="Finished pool deck" loading="lazy" onError={handleImgError} />
+            <span>STRONG SHELL · LEAK-PROOF · ON TIME</span>
+          </div>
+        </Reveal>
+        <div className="why-grid">
+          {whyChooseUs.map((w, i) => (
+            <Reveal key={w.title} delay={(i % 3) * 0.08}>
+              <div className="why-card"><div className="svc-icon"><w.icon size={24} /></div><h3>{w.title}</h3><p>{w.copy}</p></div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GalleryPreview() {
+  return (
+    <section className="section" id="gallery-preview" style={{ paddingTop: 20 }}>
+      <div className="content-width">
+        <div className="sec-head-split" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, alignItems: "end", marginBottom: 40 }}>
+          <Reveal><div className="sec-marker">07 · Gallery</div>
+            <h2 className="sec-title">Ideas come <em>to life.</em></h2>
+          </Reveal>
+          <Reveal delay={0.1}><p className="side" style={{ color: "var(--ink-soft)", lineHeight: 1.75 }}>Every project tells a story. Every pool begins with an idea — swim through 120+ of them.</p>
+            <Link href="/gallery" className="link-arrow">Open full gallery <ArrowUpRight size={14} /></Link>
+          </Reveal>
+        </div>
+        <div className="gal-grid">
+          {galleryItems.slice(0, 4).map((g, i) => (
+            <Reveal key={`${g.title}-${i}`} delay={(i % 4) * 0.07}>
+              <Link href="/gallery" className="gal-item" aria-label={`View ${g.title}`}>
+                <img src={g.image} alt={`${g.title} — ${g.location}`} loading="lazy" onError={handleImgError} />
+                <span>{g.location} · {g.category}</span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Reviews() {
+  return (
+    <section className="section" id="reviews" style={{ paddingTop: 20 }}>
+      <div className="content-width">
+        <Reveal><div className="sec-marker">08 · Client words</div>
+          <h2 className="sec-title">Loved <em>after the fill.</em></h2>
+          <p className="sec-lede">4.9★ across 120+ handovers — homes, resorts, clubs.</p>
+        </Reveal>
+        <div className="testi-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18, marginTop: 44 }}>
+          {testimonials.map((t) => (
+            <Reveal key={t.name}>
+              <figure className="quote" style={{ background: "var(--paper)", border: "1px solid #323131", borderRadius: 22, padding: "30px 26px", boxShadow: "4px 4px 0 #323131", display: "flex", flexDirection: "column", gap: 14, margin: 0 }}>
+                <span style={{ display: "flex", gap: 3, color: "var(--gold)" }}>{Array.from({ length: 5 }).map((_, s) => <Star key={s} size={14} fill="currentColor" />)}</span>
+                <p style={{ fontFamily: "var(--serif)", fontSize: 19, margin: 0 }}>“{t.quote}”</p>
+                <footer style={{ display: "flex", gap: 12, alignItems: "center", marginTop: "auto" }}>
+                  <span style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg,#0a8a99,#073c4d)", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700 }}>{t.initials}</span>
+                  <div><b>{t.name}</b><br /><span style={{ fontSize: 12, opacity: 0.65 }}>{t.place}</span></div>
+                </footer>
+              </figure>
             </Reveal>
           ))}
         </div>
@@ -275,11 +419,12 @@ function Process() {
   return (
     <section className="section" id="process">
       <div className="content-width">
-        <div className="sec-marker">04 · Idea → Plan → Build → Swim</div>
-        <h2 className="sec-title">Our pool <em>process.</em></h2>
+        <div className="sec-marker">09 · Idea → Plan → Build → Swim</div>
+        <h2 className="sec-title">Our pool construction <em>process.</em></h2>
+        <p className="sec-lede">Eight stages, photo updates at every one — from first site visit to first cannonball.</p>
         <div className="steps">
-          {steps.slice(0, 4).map((s, i) => (
-            <div key={s.title} className="step"><span className="num">0{i + 1}</span><h4>{s.title}</h4><p>{s.copy}</p></div>
+          {steps.map((s, i) => (
+            <div key={s.title} className="step"><span className="num">{String(i + 1).padStart(2, "0")}</span><h4>{s.title}</h4><p>{s.copy}</p></div>
           ))}
         </div>
         <button onClick={openQuote} className="link-arrow">Start with a free site visit <ArrowUpRight size={14} /></button>
@@ -293,16 +438,17 @@ function Faq() {
   return (
     <section className="section" id="faq">
       <div className="content-width">
-        <div className="sec-marker">05 · Good to know</div>
-        <h2 className="sec-title">Questions, <em>answered.</em></h2>
+        <div className="sec-marker">10 · Good to know</div>
+        <h2 className="sec-title">Questions, <em>answered honestly.</em></h2>
         <div className="faq-list">
-          {faqs.slice(0, 6).map((f, i) => (
+          {faqs.map((f, i) => (
             <div key={f.q} className={cn("faq", open === i && "open")}>
               <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>{f.q}<span className="plus"><Plus size={16} /></span></button>
               <div className="faq-a"><div><p>{f.a}</p></div></div>
             </div>
           ))}
         </div>
+        <Link href="/faq" className="link-arrow">All {faqs.length} questions <ArrowUpRight size={14} /></Link>
       </div>
     </section>
   );
@@ -315,13 +461,15 @@ function Contact() {
     <section className="contact-sec" id="contact">
       <div className="content-width contact-inner">
         <Reveal>
-          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>06 · Ready to dive</div>
+          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>11 · Ready to dive</div>
           <div className="contact-copy"><h2>Let&apos;s turn your plot <em>into water.</em></h2>
             <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Villa, rooftop, farmhouse or resort — share your plot sketch on WhatsApp, get two fitting options + pricing within 48 hours.</p>
+            <img src={media.hotel} alt="Resort pool at dusk" loading="lazy" onError={handleImgError} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,.3)", height: 210, width: "100%", objectFit: "cover", marginTop: 20 }} />
           </div>
           <div className="contact-points">
             <a href={CONTACT.phoneHref}>📞 {CONTACT.phoneDisplay} · {CONTACT.hours}</a>
             <a href={waLink("Hi! I want a free pool quote.")} target="_blank" rel="noreferrer">💬 WhatsApp us — chat now</a>
+            <a href={`mailto:${CONTACT.email}`}>✉️ {CONTACT.email}</a>
             <div>📍 {CONTACT.address}</div>
           </div>
           <div style={{ display: "flex", gap: 8, marginTop: 18, alignItems: "center", fontSize: 13, opacity: 0.8 }}>
@@ -369,6 +517,11 @@ export default function Home() {
       <Playground />
       <Stats />
       <ServicesStrip />
+      <PoolTypes />
+      <FilmBand />
+      <WhyChoose />
+      <GalleryPreview />
+      <Reviews />
       <Process />
       <Faq />
       <Contact />

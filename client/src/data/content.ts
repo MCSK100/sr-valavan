@@ -183,6 +183,7 @@ const U = (id: string, w = 2560) =>
 
 export const IMG = {
   hero: U("photo-1600596542815-ffad4c1539a9", 3840),
+  heroDusk: U("photo-1613977257363-707ba9348227", 3840),
   infinity: U("photo-1613977257363-707ba9348227"),
   resort: U("photo-1540541338287-41700207dee6"),
   evening: U("photo-1584132967334-10e028bd69f7"),
