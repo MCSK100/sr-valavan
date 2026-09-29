@@ -222,7 +222,7 @@ export const IMG = {
 };
 
 export const pageHeroSlides = {
-  services: [IMG.duskHouse, IMG.evening, IMG.infinity, IMG.resort],
+  services: [IMG.duskHouse, IMG.evening, IMG.lagoon, IMG.lapLanes],
   gallery: [IMG.sitework, IMG.cranes, IMG.plans, IMG.pipes],
   about: [IMG.villa, IMG.lapLanes, IMG.interior],
   contact: [IMG.tropical, IMG.hotel, IMG.interior],
