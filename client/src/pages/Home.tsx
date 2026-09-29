@@ -4,8 +4,8 @@ import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
-import { FloatFly, RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
-import { CONTACT, buildSteps, companyBlurb, faqs, finishes, poolTypes, projects, services, waLink, whyChooseUs } from "../data/content";
+import { RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
+import { CONTACT, buildSteps, companyBlurb, faqs, finishes, poolTypes, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
@@ -93,62 +93,6 @@ function Intro() {
           performs reliably and fits your requirements.
         </p>
         <button onClick={openQuote} className="link-arrow" style={{ marginTop: 26 }}>Let&apos;s Build Your Pool <ArrowRight size={14} /></button>
-      </div>
-    </section>
-  );
-}
-
-function FeaturedWork() {
-  const rows = [
-    [projects[0], projects[1]],
-    [projects[2], projects[3]],
-  ];
-  return (
-    <section className="featured-work" id="featured">
-      <div id="plane-host" style={{ position: "relative" }}>
-        <FloatFly containerId="plane-host" />
-        <div className="content-width" style={{ textAlign: "center" }}>
-          <div className="sec-marker" style={{ justifyContent: "center" }}>07 · Selected work</div>
-        </div>
-        <h2 className="featured-heading">Pools we&apos;ve built. <em style={{ fontStyle: "italic" }}>Spaces we&apos;ve transformed.</em></h2>
-        <p style={{ textAlign: "center", color: "var(--ink-soft)", maxWidth: "60ch", margin: "0 auto 30px", lineHeight: 1.75, padding: "0 24px" }}>
-          Explore our completed swimming pool projects and discover the quality, creativity and craftsmanship behind every build.
-        </p>
-        <div className="logo-marquee-wrap" aria-label="Project categories">
-          <div className="logo-marquee-inner">
-            {[0, 1].map((dup) => (
-              <span key={dup} style={{ display: "flex", gap: 56 }}>
-                {["Residential Pools", "Villa Pools", "Farmhouse Pools", "Infinity Pools", "Commercial Pools", "Resort Pools", "Renovation Projects"].map((w) => (
-                  <span key={`${dup}-${w}`} className="client-logo"><i>✦</i> {w}</span>
-                ))}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div className="project-tiles">
-          {rows.map((row, ri) => (
-            <div key={ri} className="tiles-row">
-              {row.map((p, i) => (
-                <Link
-                  key={p.no}
-                  href="/gallery"
-                  className={cn("project-tile", i === 0 ? "tile-wide" : "tile-narrow")}
-                  aria-label={`${p.title} — ${p.location}`}
-                >
-                  <img src={p.image} alt={`${p.title} — ${p.location}`} loading="lazy" onError={handleImgError} />
-                  <span className="tile-overlay">
-                    <span className="tile-overlay-title">{p.title}</span>
-                    <span className="tile-overlay-subtitle">{p.copy}<br />{p.location} · {p.type}</span>
-                    <span className="tile-cta">View project <ArrowUpRight size={14} /></span>
-                  </span>
-                </Link>
-              ))}
-            </div>
-          ))}
-        </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Link href="/gallery" className="tile-cta" style={{ margin: "34px auto 0" }}>Explore Our Projects <ArrowUpRight size={14} /></Link>
-        </div>
       </div>
     </section>
   );
@@ -584,7 +528,6 @@ export default function Home() {
       <PoolTypes />
       <Playground />
       <Process />
-      <FeaturedWork />
       <PremiumImage />
       <ServiceArea />
       <Faq />
