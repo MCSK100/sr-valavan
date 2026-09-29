@@ -9,7 +9,7 @@ import { CONTACT, faqs, finishes, galleryItems, poolTypes, projects, services, s
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
-  heroPool: U("photo-1600596542815-ffad4c1539a9", 3840),
+  heroPool: U("photo-1512917774080-9991f1c4c750", 3840),
   infinity: U("photo-1613977257363-707ba9348227", 2400),
   resort: U("photo-1540541338287-41700207dee6"),
   evening: U("photo-1584132967334-10e028bd69f7"),
@@ -33,7 +33,7 @@ function Hero() {
   useTileReveal();
   return (
     <section className="hero" aria-label="SR Valavan hero">
-      <img className="hero-shader" src={media.heroPool} alt="4K luxury swimming pool villa at dusk" fetchPriority="high" onError={handleImgError} />
+      <img className="hero-shader" src={media.heroPool} alt="4K infinity-edge swimming pool at dusk" fetchPriority="high" onError={handleImgError} />
       <div className="hero-noise" />
       <div className="hero-content">
         <div className="sun-group" aria-hidden><div className="sun-core" /></div>
