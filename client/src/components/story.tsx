@@ -1,13 +1,21 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
-/* Split headline into hoverable letters */
+/* Split headline into hoverable letters (words kept intact for clean wrapping) */
 export function SplitLetters({ text }: { text: string }) {
+  const words = text.split(" ");
   return (
     <>
-      {text.split("").map((ch, i) => (
-        <span key={i} className="h-letter">
-          {ch === " " ? "\u00A0" : ch}
-        </span>
+      {words.map((word, wi) => (
+        <Fragment key={wi}>
+          <span className="h-word">
+            {word.split("").map((ch, i) => (
+              <span key={i} className="h-letter">
+                {ch}
+              </span>
+            ))}
+          </span>
+          {wi < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </>
   );
