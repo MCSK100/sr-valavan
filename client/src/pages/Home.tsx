@@ -1,11 +1,11 @@
 import { ArrowRight, ArrowUpRight, Check, Plus, Star } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
-import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useFanSpread, useTileReveal } from "../components/story";
-import { CONTACT, faqs, finishes, poolTypes, projects, services, steps, testimonials, waLink, whyChooseUs } from "../data/content";
+import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useTileReveal } from "../components/story";
+import { CONTACT, faqs, finishes, poolTypes, projects, services, steps, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const heroSlides = [
@@ -21,19 +21,22 @@ const media = {
   evening: U("photo-1584132967334-10e028bd69f7"),
   detail: U("photo-1572331165267-854da2b10ccc"),
   lap: U("photo-1530549387789-4c1017266635"),
-  dusk: U("photo-1523217582562-09d0def993a6"),
-  villa: U("photo-1600965962361-9035dbfd1c50"),
-  hotel: U("photo-1561501900-3701fa6a0864"),
-  tropical: U("photo-1445019980597-93fa8acb246c"),
+  dusk: U("photo-1613977257592-4871e5fcd7c4"),
+  villa: U("photo-1520250497591-112f2f40a3f4"),
+  hotel: U("photo-1520607162513-77705c0f0d4a"),
+  tropical: U("photo-1520250497591-112f2f40a3f4"),
   vanishing: U("photo-1576013551627-0cc20b96c2a7"),
-  float: U("photo-1596178065887-1198b6148b2b"),
-  mosaic: U("photo-1600585154340-be6161a56a0c"),
-  interior: U("photo-1600607687939-ce8a6c25118c"),
+  float: U("photo-1519974719765-e6559eac2575"),
+  mosaic: U("photo-1572331165267-854da2b10ccc"),
+  interior: U("photo-1575429198097-0414ec08e8cd"),
   lagoon: U("photo-1571896349842-33c89424de2d"),
+  swimmer: U("photo-1520607162513-77705c0f0d4a"),
+  aerial: U("photo-1519974719765-e6559eac2575"),
+  indoor: U("photo-1575429198097-0414ec08e8cd"),
 };
 
-const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.float, media.evening, media.mosaic];
-const typeImages = [media.infinity, media.villa, media.hotel, media.float];
+const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.evening, media.swimmer];
+const typeImages = [media.infinity, media.villa, media.lagoon, media.vanishing];
 
 function Hero() {
   useTileReveal();
@@ -56,11 +59,19 @@ function Hero() {
           style={{ opacity: slide === i ? 1 : 0, zIndex: slide === i ? 0 : -1 }}
         />
       ))}
-      <div className="hero-dots" role="tablist" aria-label="Hero images">
-        {heroSlides.map((h, i) => (
-          <button key={h.src} role="tab" aria-selected={slide === i} aria-label={`Show image ${i + 1}`} className={slide === i ? "active" : ""} onClick={() => setSlide(i)} />
-        ))}
-      </div>
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster={media.heroPool}
+        aria-hidden
+      >
+        <source src="/herosec_video.mp4" type="video/mp4" />
+      </video>
+      <div className="hero-wash" aria-hidden />
       <div className="hero-noise" />
       <div className="hero-content">
         <div className="sun-group" aria-hidden><div className="sun-core" /></div>
@@ -116,6 +127,9 @@ function FeaturedWork() {
     <section className="featured-work" id="featured">
       <div id="plane-host" style={{ position: "relative" }}>
         <FloatFly containerId="plane-host" />
+        <div className="content-width" style={{ textAlign: "center" }}>
+          <div className="sec-marker" style={{ justifyContent: "center" }}>07 · Selected work</div>
+        </div>
         <h2 className="featured-heading">Pools we&apos;ve built. <em style={{ fontStyle: "italic" }}>Spaces we&apos;ve transformed.</em></h2>
         <p style={{ textAlign: "center", color: "var(--ink-soft)", maxWidth: "60ch", margin: "0 auto 30px", lineHeight: 1.75, padding: "0 24px" }}>
           Explore our completed swimming pool projects and discover the quality, creativity and craftsmanship behind every build.
@@ -176,41 +190,25 @@ function PremiumImage() {
   );
 }
 
-function LagoonTestimonials() {
-  const ref = useRef<HTMLElement>(null);
-  const spread = useFanSpread(ref);
-  const cards = testimonials.slice(0, 3);
+function FilmBand() {
   return (
-    <>
-      <section className="testimonials" ref={ref} aria-label="Client words">
-        <svg className="t-wavy" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
-          <path d="M0,70 C240,110 480,20 720,60 C960,100 1200,30 1440,70 L1440,120 L0,120 Z" fill="#0d4a5c" />
-        </svg>
-        <div className="t-willow"><div className="t-willow-sway" /></div>
-        <div className="t-land" />
-        <div className="t-inner">
-          <p className="t-eyebrow">TESTIMONIALS</p>
-          <h2 className="t-heading">In their words — after the fill</h2>
-          <div className="t-cards" style={{ ["--spread" as string]: spread }}>
-            {cards.map((t, i) => (
-              <figure key={t.name} className="t-card" style={{ ["--pos" as string]: i - 1, zIndex: i === 1 ? 3 : 2 }}>
-                <span style={{ fontSize: 40, lineHeight: 1, opacity: 0.35 }}>“</span>
-                <blockquote className="t-quote">{t.quote}</blockquote>
-                <hr className="t-divider" />
-                <div className="t-authorrow">
-                  <span className="t-avatar">{t.initials}</span>
-                  <span><span className="t-name">{t.name}</span><br /><span className="t-role">{t.place}</span></span>
-                </div>
-              </figure>
-            ))}
+    <section className="film-band" aria-label="See our pools in motion">
+      <video autoPlay muted loop playsInline preload="metadata" poster={media.heroPool}>
+        <source src="/herosec_video.mp4" type="video/mp4" />
+      </video>
+      <div className="film-wash" />
+      <div className="content-width film-caption">
+        <Reveal>
+          <p className="film-kicker">Real water · Real sites</p>
+          <h2>Watch a pool <em>come to life.</em></h2>
+          <p className="film-sub">From steel and shell to first swim — this is the finish, flow and light we build into every SR Vallavan pool.</p>
+          <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
+            <button onClick={openQuote} className="btn-primary">Get a Free Quote <ArrowRight size={15} /></button>
+            <Link href="/gallery" className="btn-ghost" style={{ color: "#fff" }}>View Our Projects <ArrowUpRight size={15} /></Link>
           </div>
-          <Link href="/gallery" style={{ marginTop: 26, color: "#f4d24a", fontFamily: "var(--mono)", fontSize: 12, letterSpacing: "0.14em" }}>
-            SWIM THROUGH ALL 120+ POOLS →
-          </Link>
-        </div>
-      </section>
-      <div className="t-scrub" aria-hidden />
-    </>
+        </Reveal>
+      </div>
+    </section>
   );
 }
 
@@ -227,7 +225,7 @@ function AboutStory() {
       <div className="content-width">
         <div className="about-grid">
           <Reveal>
-            <div className="sec-marker">02 · Who builds</div>
+            <div className="sec-marker">01 · Who builds</div>
             <h2 className="about-title">We trained as civil builders. Now we craft <em>water people want to live in.</em></h2>
             <p className="about-copy">
               6+ years, 120+ pools, 4.9★ from homeowners, resorts and clubs. We bring something most
@@ -277,7 +275,7 @@ function Playground() {
   return (
     <section className="playground" aria-label="Playground">
       <div className="content-width">
-        <div className="sec-marker">03 · Playground</div>
+        <div className="sec-marker">05 · Finishes</div>
         <h2 className="sec-title">Finish studies, <em>light moods.</em></h2>
         <p className="sec-lede">Each card is a small study in material, light and movement — drag sideways. Every finish is sampled at your site before you commit.</p>
       </div>
@@ -305,7 +303,7 @@ function ServicesStrip() {
   return (
     <section className="section" id="services">
       <div className="content-width">
-        <Reveal><div className="sec-marker">04 · What we do</div>
+        <Reveal><div className="sec-marker">02 · What we do</div>
           <h2 className="sec-title">Complete Swimming Pool <em>Solutions.</em></h2>
           <p className="sec-lede">Designed around your space. Built around your needs.</p>
         </Reveal>
@@ -352,7 +350,7 @@ function PoolTypes() {
   return (
     <section className="section" id="pool-types" style={{ paddingTop: 20 }}>
       <div className="content-width">
-        <Reveal><div className="sec-marker">05 · Pool designs</div>
+        <Reveal><div className="sec-marker">04 · Pool designs</div>
           <h2 className="sec-title">Find the pool that fits <em>your vision.</em></h2>
           <p className="sec-lede">Modern. Elegant. Personal.</p>
         </Reveal>
@@ -375,7 +373,7 @@ function WhyChoose() {
   return (
     <section className="section" id="why-us">
       <div className="content-width">
-        <Reveal><div className="sec-marker">06 · Why us</div>
+        <Reveal><div className="sec-marker">03 · Why us</div>
           <h2 className="sec-title">Why choose <em>SR Vallavan Enterprises?</em></h2>
           <p className="sec-lede">Quality you can see. Craftsmanship you can trust.</p>
         </Reveal>
@@ -389,33 +387,6 @@ function WhyChoose() {
           {whyChooseUs.map((w, i) => (
             <Reveal key={w.title} delay={(i % 3) * 0.08}>
               <div className="why-card"><div className="svc-icon"><w.icon size={24} /></div><h3>{w.title}</h3><p>{w.copy}</p></div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Reviews() {
-  return (
-    <section className="section" id="reviews" style={{ paddingTop: 20 }}>
-      <div className="content-width">
-        <Reveal><div className="sec-marker">08 · Testimonials</div>
-          <h2 className="sec-title">What our <em>clients say.</em></h2>
-          <p className="sec-lede">We believe the best measure of our work is the satisfaction of the people we build for.</p>
-        </Reveal>
-        <div className="testi-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, marginTop: 44 }}>
-          {testimonials.slice(0, 4).map((t) => (
-            <Reveal key={t.name}>
-              <figure className="quote" style={{ background: "var(--paper)", border: "1px solid #323131", borderRadius: 22, padding: "30px 26px", boxShadow: "4px 4px 0 #323131", display: "flex", flexDirection: "column", gap: 14, margin: 0 }}>
-                <span style={{ display: "flex", gap: 3, color: "var(--gold)" }}>{Array.from({ length: 5 }).map((_, s) => <Star key={s} size={14} fill="currentColor" />)}</span>
-                <p style={{ fontFamily: "var(--serif)", fontSize: 19, margin: 0 }}>“{t.quote}”</p>
-                <footer style={{ display: "flex", gap: 12, alignItems: "center", marginTop: "auto" }}>
-                  <span style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg,#0a8a99,#073c4d)", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700 }}>{t.initials}</span>
-                  <div><b>{t.name}</b><br /><span style={{ fontSize: 12, opacity: 0.65 }}>{t.place}</span></div>
-                </footer>
-              </figure>
             </Reveal>
           ))}
         </div>
@@ -446,7 +417,7 @@ function Process() {
   return (
     <section className="section" id="process">
       <div className="content-width">
-        <div className="sec-marker">09 · Our process</div>
+        <div className="sec-marker">06 · Our process</div>
         <h2 className="sec-title">From first idea <em>to first swim.</em></h2>
         <p className="sec-lede">Six stages, clear communication at every one — tell us what you&apos;re imagining, we&apos;ll help you build it.</p>
         <div className="steps">
@@ -465,7 +436,7 @@ function Faq() {
   return (
     <section className="section" id="faq">
       <div className="content-width">
-        <div className="sec-marker">10 · FAQ</div>
+        <div className="sec-marker">09 · FAQ</div>
         <h2 className="sec-title">Frequently asked <em>questions.</em></h2>
         <div className="faq-list">
           {faqs.map((f, i) => (
@@ -486,7 +457,7 @@ function ServiceArea() {
     <section className="section" id="service-area" style={{ paddingTop: 20 }}>
       <div className="content-width" style={{ textAlign: "center" }}>
         <Reveal>
-          <div className="sec-marker" style={{ justifyContent: "center" }}>11 · Where we build</div>
+          <div className="sec-marker" style={{ justifyContent: "center" }}>08 · Where we build</div>
           <h2 className="sec-title" style={{ marginInline: "auto" }}>Building pools across <em>Coimbatore & Tamil Nadu.</em></h2>
           <p className="sec-lede" style={{ marginInline: "auto" }}>From private homes and villas to resorts and commercial properties — swimming pool construction solutions tailored to each project.</p>
         </Reveal>
@@ -510,11 +481,11 @@ function Contact() {
     <section className="contact-sec" id="contact">
       <div className="content-width contact-inner">
         <Reveal>
-          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>12 · Final call</div>
+          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>10 · Final call</div>
           <div className="contact-copy"><h2>Ready to build <em>your dream pool?</em></h2>
             <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Let&apos;s turn your outdoor space into something extraordinary.</p>
             <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Tell us what you&apos;re imagining. We&apos;ll help you build it.</p>
-            <img src={media.hotel} alt="Resort pool at dusk" loading="lazy" onError={handleImgError} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,.3)", height: 210, width: "100%", objectFit: "cover", marginTop: 20 }} />
+            <img src={media.tropical} alt="Resort infinity swimming pool" loading="lazy" onError={handleImgError} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,.3)", height: 210, width: "100%", objectFit: "cover", marginTop: 20 }} />
           </div>
           <div className="contact-points">
             <a href={CONTACT.phoneHref}>📞 {CONTACT.phoneDisplay} · {CONTACT.hours}</a>
@@ -565,6 +536,7 @@ export default function Home() {
       <AboutStory />
       <Stats />
       <ServicesStrip />
+      <FilmBand />
       <Statement />
       <WhyChoose />
       <PoolTypes />
@@ -572,8 +544,6 @@ export default function Home() {
       <Process />
       <FeaturedWork />
       <PremiumImage />
-      <LagoonTestimonials />
-      <Reviews />
       <ServiceArea />
       <Faq />
       <Contact />

@@ -479,8 +479,25 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 
 /* hero carousel */
 .hero-shader{transition:opacity 1.4s ease}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.55;pointer-events:none}
+.hero-wash{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,20,26,.42),rgba(3,20,26,.12) 40%,rgba(2,12,16,.62));pointer-events:none}
+.hero-content{z-index:2}
+.h-line{position:absolute;font-family:var(--serif);font-weight:400;font-size:150px;letter-spacing:2.7px;line-height:1.1;color:#fff;margin:0;white-space:nowrap;text-shadow:0 4px 60px rgba(0,0,0,.35)}
 .hero-dots{position:absolute;right:34px;bottom:32vh;z-index:3;display:flex;flex-direction:column;gap:10px}
 .hero-dots button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.6);padding:0;transition:all .3s}
 .hero-dots button.active{background:var(--gold-soft);border-color:var(--gold-soft);transform:scale(1.25)}
 @media(max-width:1080px){.hero-dots{right:20px;bottom:30vh}}
+
+/* ===== landing alignment fixes ===== */
+.featured-work .sec-marker{margin-bottom:18px}
+.content-width .sec-marker[style*="center"]::before{display:none}
+.type-img-card{text-align:left}
+.type-img-card img{display:block;background:#0a8a99}
+.svc-card img{display:block;background:#0a8a99}
+@media(max-width:1080px){
+  .hero-video{opacity:.5}
+  .recorder{top:auto;bottom:36vh}
+  .hero-cta-block{top:auto;bottom:6vh}
+  .h-line.multidisciplinary,.h-line.designer{white-space:normal;max-width:calc(100vw - 48px)}
+}
 

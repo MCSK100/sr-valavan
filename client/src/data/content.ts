@@ -174,23 +174,23 @@ const U = (id: string, w = 2560) =>
   `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 
 export const IMG = {
-  hero: U("photo-1600596542815-ffad4c1539a9", 3840),
+  hero: U("photo-1520250497591-112f2f40a3f4", 3840),
   heroDusk: U("photo-1613977257363-707ba9348227", 3840),
   infinity: U("photo-1613977257363-707ba9348227"),
   resort: U("photo-1540541338287-41700207dee6"),
   evening: U("photo-1584132967334-10e028bd69f7"),
   detail: U("photo-1572331165267-854da2b10ccc"),
-  duskHouse: U("photo-1523217582562-09d0def993a6"),
+  duskHouse: U("photo-1613977257592-4871e5fcd7c4"),
   lapLanes: U("photo-1530549387789-4c1017266635"),
-  interior: U("photo-1600607687939-ce8a6c25118c"),
+  interior: U("photo-1575429198097-0414ec08e8cd"),
   lagoon: U("photo-1571896349842-33c89424de2d"),
-  villa: U("photo-1600965962361-9035dbfd1c50"),
-  hotel: U("photo-1561501900-3701fa6a0864"),
-  tropical: U("photo-1445019980597-93fa8acb246c"),
+  villa: U("photo-1512917774080-9991f1c4c750"),
+  hotel: U("photo-1520607162513-77705c0f0d4a"),
+  tropical: U("photo-1520250497591-112f2f40a3f4"),
   vanishing: U("photo-1576013551627-0cc20b96c2a7"),
-  float: U("photo-1596178065887-1198b6148b2b"),
+  float: U("photo-1519974719765-e6559eac2575"),
   duskPool: U("photo-1512917774080-9991f1c4c750"),
-  mosaic: U("photo-1600585154340-be6161a56a0c"),
+  mosaic: U("photo-1572331165267-854da2b10ccc"),
 };
 
 export const projects: Project[] = [
