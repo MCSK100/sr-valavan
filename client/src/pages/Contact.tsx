@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHero } from "../components/Layout";
 import { Reveal, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { CONTACT, IMG, poolSizes, quoteServices, waLink } from "../data/content";
+import { CONTACT, IMG, pageHeroSlides, poolSizes, quoteServices, waLink } from "../data/content";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -31,6 +31,7 @@ export default function ContactPage() {
         title={<>Tell us where <em>the site is.</em></>}
         lede="Call, WhatsApp, or leave your details — we will visit, measure and return a line-item estimate within 48 hours. Average response: under 6 working hours."
         image={IMG.interior}
+        images={pageHeroSlides.contact}
         badge="48-HR ESTIMATE · FREE VISIT"
       />
       <section className="section" style={{ paddingTop: 70 }}>

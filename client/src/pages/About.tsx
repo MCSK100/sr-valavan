@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Counter, ParallaxImage, Reveal, cn, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, industries, steps, testimonials, whyChooseUs } from "../data/content";
+import { IMG, industries, pageHeroSlides, steps, testimonials, whyChooseUs } from "../data/content";
 
 const stats = [
   { to: 6, suffix: " +", label: "Years of splashes" },
@@ -32,6 +32,7 @@ export default function AboutPage() {
         title={<>We trained as builders. Now we craft <em>water.</em></>}
         lede="SR Valavan Enterprises is a pool studio, not a contractor — 6+ years across villas, resorts and rooftops, with a structural way of thinking most builders don't bring to water."
         image={IMG.villa}
+        images={pageHeroSlides.about}
         badge="THE STUDIO · SINCE 2021"
       />
       <section className="section" style={{ paddingTop: 80 }}>
@@ -157,7 +158,7 @@ export default function AboutPage() {
           <Reveal><div className="sec-marker">05 · Client words</div>
             <h2 className="sec-title">Loved <em>after the fill.</em></h2>
           </Reveal>
-          <div className="testi-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18, marginTop: 44 }}>
+          <div className="testi-grid">
             {testimonials.slice(0, 3).map((t) => (
               <Reveal key={t.name}>
                 <motion.figure className="quote" style={{ background: "var(--paper)", border: "1px solid #323131", borderRadius: 22, padding: "30px 26px", boxShadow: "4px 4px 0 #323131", display: "flex", flexDirection: "column", gap: 14 }} whileHover={{ y: -6, rotate: -0.4 }}>

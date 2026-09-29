@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Counter, Reveal, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { galleryCategories, galleryItems, IMG } from "../data/content";
+import { galleryCategories, galleryItems, IMG, pageHeroSlides } from "../data/content";
 
 const stats = [
   { to: 6, suffix: " +", label: "Years of splashes" },
@@ -30,6 +30,7 @@ export default function GalleryPage() {
         title={<>Water, <em>on record.</em></>}
         lede="Every project below was designed, engineered, built — and is still cared for — by our own crew. Filter by pool type, tap any tile to view it large."
         image={IMG.resort}
+        images={pageHeroSlides.gallery}
         badge="120+ POOLS BUILT"
       />
       <div className="stats-band">

@@ -1,19 +1,13 @@
 import { ArrowRight, ArrowUpRight, Check, Plus, Star } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
 import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useTileReveal } from "../components/story";
-import { CONTACT, faqs, finishes, poolTypes, projects, services, steps, waLink, whyChooseUs } from "../data/content";
+import { CONTACT, buildSteps, faqs, finishes, poolTypes, projects, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
-const heroSlides = [
-  { src: U("photo-1512917774080-9991f1c4c750", 3840), alt: "4K infinity-edge swimming pool at dusk" },
-  { src: U("photo-1613977257363-707ba9348227", 2560), alt: "Modern villa with mirror-calm pool" },
-  { src: U("photo-1540541338287-41700207dee6", 2560), alt: "Palm-fringed resort lagoon pool" },
-  { src: U("photo-1584132967334-10e028bd69f7", 2560), alt: "Luxury villa pool at golden hour" },
-];
 const media = {
   heroPool: U("photo-1512917774080-9991f1c4c750", 3840),
   infinity: U("photo-1613977257363-707ba9348227", 2400),
@@ -40,25 +34,8 @@ const typeImages = [media.infinity, media.villa, media.lagoon, media.vanishing];
 
 function Hero() {
   useTileReveal();
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), 6000);
-    return () => clearInterval(t);
-  }, []);
   return (
     <section className="hero" aria-label="SR Valavan hero">
-      {heroSlides.map((h, i) => (
-        <img
-          key={h.src}
-          className="hero-shader"
-          src={h.src}
-          alt={i === 0 ? h.alt : ""}
-          aria-hidden={i !== 0}
-          fetchPriority={i === 0 ? "high" : "low"}
-          onError={handleImgError}
-          style={{ opacity: slide === i ? 1 : 0, zIndex: slide === i ? 0 : -1 }}
-        />
-      ))}
       <video
         className="hero-video"
         autoPlay
@@ -415,17 +392,34 @@ function Stats() {
 
 function Process() {
   return (
-    <section className="section" id="process">
+    <section className="build-band" id="process" aria-label="Our pool construction process">
       <div className="content-width">
-        <div className="sec-marker">06 · Our process</div>
-        <h2 className="sec-title">From first idea <em>to first swim.</em></h2>
-        <p className="sec-lede">Six stages, clear communication at every one — tell us what you&apos;re imagining, we&apos;ll help you build it.</p>
-        <div className="steps">
-          {steps.map((s, i) => (
-            <div key={s.title} className="step"><span className="num">{String(i + 1).padStart(2, "0")}</span><h4>{s.title}</h4><p>{s.copy}</p></div>
+        <Reveal>
+          <p className="build-title">Our pool construction process</p>
+          <h2 className="build-flow">Idea <i>→</i> Plan <i>→</i> Build <i>→</i> Swim</h2>
+          <p className="build-lede">Eight stages, photo-documented and clearly communicated at every one — tell us what you&apos;re imagining, we&apos;ll help you build it.</p>
+        </Reveal>
+        <div className="build-grid">
+          {buildSteps.map((s, i) => (
+            <Reveal key={s.title} delay={(i % 4) * 0.07}>
+              <article className="build-card">
+                <div className="build-img">
+                  <img src={s.image} alt={s.title} loading="lazy" onError={handleImgError} />
+                  <span className="build-num">{i + 1}</span>
+                </div>
+                <div className="build-body">
+                  <h4>{s.title}</h4>
+                  <p>{s.copy}</p>
+                </div>
+              </article>
+            </Reveal>
           ))}
         </div>
-        <button onClick={openQuote} className="link-arrow">Start with a free site visit <ArrowUpRight size={14} /></button>
+        <Reveal>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 36 }}>
+            <button onClick={openQuote} className="btn-primary">Start with a free site visit <ArrowUpRight size={14} /></button>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

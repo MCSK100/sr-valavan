@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { ParallaxImage, Reveal, cn, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, poolTypes, services } from "../data/content";
+import { IMG, pageHeroSlides, poolTypes, services } from "../data/content";
 
 const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.lagoon, IMG.interior];
 const chapterFacts = [
@@ -36,6 +36,7 @@ export default function ServicesPage() {
         title={<>Three ways <em>into the blue.</em></>}
         lede="Some pools disappear into the landscape. Others frame it. We are interested in the moment they become the same thing — end-to-end, from soil study to first swim."
         image={IMG.infinity}
+        images={pageHeroSlides.services}
         badge="7 SERVICES · ONE TEAM"
       />
       <section className="section" style={{ paddingTop: 70, paddingBottom: 10 }}>

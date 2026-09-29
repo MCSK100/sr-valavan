@@ -9,6 +9,7 @@ import {
   Hammer,
   IndianRupee,
   Layers,
+  LayoutGrid,
   Palette,
   PartyPopper,
   PencilRuler,
@@ -193,6 +194,15 @@ export const IMG = {
   mosaic: U("photo-1572331165267-854da2b10ccc"),
 };
 
+export const pageHeroSlides = {
+  services: [IMG.infinity, IMG.vanishing, IMG.lagoon, IMG.duskPool],
+  gallery: [IMG.resort, IMG.evening, IMG.villa, IMG.float],
+  about: [IMG.villa, IMG.lapLanes, IMG.interior],
+  contact: [IMG.tropical, IMG.evening, IMG.interior],
+  faq: [IMG.detail, IMG.mosaic, IMG.lapLanes],
+  legal: [IMG.hero, IMG.heroDusk, IMG.duskPool],
+};
+
 export const projects: Project[] = [
   {
     no: "01",
@@ -257,6 +267,64 @@ export const steps: Step[] = [
   { icon: Hammer, title: "Construction", copy: "Our team brings the approved design to life with professional execution." },
   { icon: Palette, title: "Finishing", copy: "Tiles, edges, equipment, lighting and finishing details complete your pool." },
   { icon: PartyPopper, title: "Handover", copy: "Your new swimming pool is ready to enjoy." },
+];
+
+export interface BuildStep {
+  icon: LucideIcon;
+  title: string;
+  copy: string;
+  image: string;
+}
+
+export const buildSteps: BuildStep[] = [
+  {
+    icon: ClipboardCheck,
+    title: "Site Inspection & Planning",
+    copy: "We visit your site, understand your space and plan the best design as per your needs.",
+    image: U("photo-1503387762-592deb58ef4e"),
+  },
+  {
+    icon: Hammer,
+    title: "Excavation",
+    copy: "Precision digging with proper leveling and measurement.",
+    image: U("photo-1541888946425-d81bb19240f5"),
+  },
+  {
+    icon: Layers,
+    title: "Steel Fixing",
+    copy: "High-quality steel structure for long-lasting strength and durability.",
+    image: U("photo-1516937941344-00b4e0337589"),
+  },
+  {
+    icon: Box,
+    title: "Shuttering & Concreting",
+    copy: "Strong foundation with premium grade concrete.",
+    image: U("photo-1504307651254-35680f356dfd"),
+  },
+  {
+    icon: Droplets,
+    title: "Waterproofing",
+    copy: "Leak-proof finishing for a hassle-free experience.",
+    image: U("photo-1621905251189-08b45d6a269e"),
+  },
+  {
+    icon: LayoutGrid,
+    title: "Tiling",
+    copy: "Premium tiles for a stylish and long-lasting look.",
+    image: U("photo-1572331165267-854da2b10ccc"),
+  },
+  {
+    icon: Settings,
+    title: "Filtration & Equipment Setup",
+    copy: "Clean, safe and crystal clear water with the right systems.",
+    image: U("photo-1585704032915-c3400ca199e7"),
+  },
+  {
+    icon: PartyPopper,
+    title: "Final Touch & Handover",
+    copy: "Testing, cleaning and ready for you to make a splash!",
+    image: U("photo-1520250497591-112f2f40a3f4"),
+  },
 ];
 
 export interface WhyPoint {

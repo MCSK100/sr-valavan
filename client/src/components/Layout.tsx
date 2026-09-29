@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram, Menu, MessageCirc
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { CONTACT, quoteServices, waLink } from "../data/content";
-import { Reveal, cn, usePageState } from "./motion";
+import { Reveal, cn, handleImgError, usePageState } from "./motion";
 
 export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quote"));
 
@@ -224,7 +224,14 @@ function SiteFooter() {
   );
 }
 
-export function PageHero({ marker, title, lede, image, badge }: { marker: string; title: ReactNode; lede?: string; image?: string; badge?: string }) {
+export function PageHero({ marker, title, lede, image, images, badge }: { marker: string; title: ReactNode; lede?: string; image?: string; images?: string[]; badge?: string }) {
+  const slides = images && images.length > 0 ? images : image ? [image] : [];
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    if (slides.length < 2) return;
+    const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5000);
+    return () => clearInterval(t);
+  }, [slides.length]);
   return (
     <section className="story-hero">
       <div className="story-sun" aria-hidden />
@@ -243,7 +250,32 @@ export function PageHero({ marker, title, lede, image, badge }: { marker: string
         </Reveal>
         <Reveal delay={0.15}>
           <div className="story-hero-card">
-            {image && <img src={image} alt="" />}
+            {slides.map((src, i) => (
+              <img
+                key={src + i}
+                src={src}
+                alt=""
+                aria-hidden
+                loading={i === 0 ? "eager" : "lazy"}
+                onError={handleImgError}
+                className="ph-slide"
+                style={{ opacity: slides.length < 2 || slide === i ? 1 : 0 }}
+              />
+            ))}
+            {slides.length > 1 && (
+              <div className="ph-dots" role="tablist" aria-label="Hero images">
+                {slides.map((src, i) => (
+                  <button
+                    key={src + i}
+                    role="tab"
+                    aria-selected={slide === i}
+                    aria-label={`Show image ${i + 1}`}
+                    className={slide === i ? "active" : ""}
+                    onClick={() => setSlide(i)}
+                  />
+                ))}
+              </div>
+            )}
             <span>{badge ?? "SR VALAVAN · TAMIL NADU"}</span>
           </div>
         </Reveal>

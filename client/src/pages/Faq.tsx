@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Reveal, cn, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, faqs } from "../data/content";
+import { IMG, faqs, pageHeroSlides } from "../data/content";
 
 export default function FaqPage() {
   const [open, setOpen] = useState(0);
@@ -29,6 +29,7 @@ export default function FaqPage() {
         title={<>Questions, <em>answered honestly.</em></>}
         lede="Cost, timelines, maintenance, warranties — everything pool owners ask before the first dig, answered from 120+ builds."
         image={IMG.detail}
+        images={pageHeroSlides.faq}
         badge={`${faqs.length} ANSWERS · 0 JARGON`}
       />
       <section className="section" style={{ paddingTop: 70 }}>

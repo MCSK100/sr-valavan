@@ -1,7 +1,7 @@
 import { PageHero } from "../components/Layout";
 import { Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { CONTACT } from "../data/content";
+import { CONTACT, pageHeroSlides } from "../data/content";
 
 export default function TermsPage() {
   return (
@@ -19,6 +19,8 @@ export default function TermsPage() {
           </>
         }
         lede="The working rules behind our estimates, builds and care plans. Last updated September 2026."
+        images={pageHeroSlides.legal}
+        badge="SR VALAVAN · TAMIL NADU"
       />
       <section className="section" style={{ paddingTop: 70 }}>
         <div className="content-width prose">
