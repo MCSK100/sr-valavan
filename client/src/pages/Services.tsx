@@ -3,9 +3,9 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { ParallaxImage, Reveal, cn, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { IMG, pageHeroSlides, poolTypes, services } from "../data/content";
+import { IMG, companyBlurb, pageHeroSlides, poolTypes, services } from "../data/content";
 
-const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.lagoon, IMG.interior];
+const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.lagoon, IMG.plumber, IMG.worker];
 const chapterFacts = [
   [{ b: "14 m", s: "Vanishing edge" }, { b: "Salt + UV", s: "Water" }, { b: "6 wks", s: "Shell → fill" }],
   [{ b: "38 °C", s: "Heated plunge" }, { b: "12 jets", s: "Hydrotherapy" }, { b: "Silent", s: "Plant room" }],
@@ -34,10 +34,10 @@ export default function ServicesPage() {
       <PageHero
         marker="Our services"
         title={<>Three ways <em>into the blue.</em></>}
-        lede="Some pools disappear into the landscape. Others frame it. We are interested in the moment they become the same thing — end-to-end, from soil study to first swim."
+        lede={companyBlurb}
         image={IMG.infinity}
         images={pageHeroSlides.services}
-        badge="7 SERVICES · ONE TEAM"
+        badge="8 SERVICES · ONE TEAM"
       />
       <section className="section" style={{ paddingTop: 70, paddingBottom: 10 }}>
         <div className="content-width">

@@ -38,12 +38,16 @@ export const CONTACT = {
 export const waLink = (msg: string) =>
   `https://wa.me/${CONTACT.waNumber}?text=${encodeURIComponent(msg)}`;
 
+export const companyBlurb =
+  "SR Vallavan Enterprises – Professional Swimming Pool Construction, Waterproofing & Renovation Services. We provide quality workmanship, reliable service and complete solutions for residential and commercial projects. Contact us for your swimming pool and waterproofing requirements.";
+
 export const quoteServices = [
   "Swimming Pool Construction",
   "Fountains & Jacuzzi / Waterfalls",
   "Swimming Pool Filtration Systems",
   "Swimming Pool Accessories",
   "Swimming Pool Maintenance",
+  "Swimming Pool Waterproofing",
   "Swimming Pool Tiles",
   "Other",
 ];
@@ -160,6 +164,18 @@ export const services: Service[] = [
       "Equipment matched to your pool size and use",
     ],
   },
+  {
+    icon: ShieldCheck,
+    title: "Waterproofing & Leak Repair",
+    copy: "Leak-proof waterproofing solutions for new pool shells and existing pools, built for a hassle-free experience.",
+    tags: ["Waterproofing", "Leak repair", "New & existing pools"],
+    details: [
+      "Waterproofing for new pool shells before tiling",
+      "Leak detection and repair for existing pools",
+      "Durable protection for residential and commercial projects",
+      "Complete solution with quality workmanship",
+    ],
+  },
 ];
 
 export interface Project {
@@ -192,6 +208,8 @@ export const IMG = {
   float: U("photo-1519974719765-e6559eac2575"),
   duskPool: U("photo-1512917774080-9991f1c4c750"),
   mosaic: U("photo-1572331165267-854da2b10ccc"),
+  worker: U("photo-1621905251189-08b45d6a269e"),
+  plumber: U("photo-1585704032915-c3400ca199e7"),
 };
 
 export const pageHeroSlides = {

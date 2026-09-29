@@ -5,7 +5,7 @@ import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
 import { FloatFly, RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
-import { CONTACT, buildSteps, faqs, finishes, poolTypes, projects, services, waLink, whyChooseUs } from "../data/content";
+import { CONTACT, buildSteps, companyBlurb, faqs, finishes, poolTypes, projects, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
@@ -27,9 +27,11 @@ const media = {
   swimmer: U("photo-1520607162513-77705c0f0d4a"),
   aerial: U("photo-1519974719765-e6559eac2575"),
   indoor: U("photo-1575429198097-0414ec08e8cd"),
+  worker: U("photo-1621905251189-08b45d6a269e"),
+  plumber: U("photo-1585704032915-c3400ca199e7"),
 };
 
-const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.evening, media.swimmer];
+const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.evening, media.plumber, media.worker];
 const typeImages = [media.infinity, media.villa, media.lagoon, media.vanishing];
 
 function Hero() {
@@ -55,14 +57,13 @@ function Hero() {
         <div className="hero-cloud cloud-a" />
         <div className="hero-cloud cloud-b" />
         <p className="hero-eyebrow"><i /> Swimming pool design & construction</p>
-        <span className="hero-vertical">YOUR SPACE · YOUR POOL · YOUR ESCAPE</span>
         <h1 style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
           SR Vallavan Enterprises — Your Dream Pool. Built to Perfection.
         </h1>
         <div className="h-line multidisciplinary" aria-hidden><SplitLetters text="Your Dream Pool." /></div>
         <div className="h-line designer" aria-hidden><RollingWord words={["Built to Perfection.", "Built Around You.", "Built to Last."]} /></div>
         <div className="hero-cta-block">
-          <p>Transform your space into a place to relax, refresh and reconnect — custom residential pools to elegant commercial projects, made for your lifestyle.</p>
+          <p>{companyBlurb}</p>
           <div>
             <button onClick={openQuote} className="btn-primary">Get a Free Quote <ArrowRight size={15} /></button>
             <Link href="/gallery" className="btn-ghost" style={{ color: "#fff" }}><span className="play-ring"><ArrowUpRight size={15} /></span> View Our Projects</Link>
