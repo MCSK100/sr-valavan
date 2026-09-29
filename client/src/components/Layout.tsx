@@ -7,16 +7,10 @@ import { Reveal, cn, usePageState } from "./motion";
 
 export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quote"));
 
-export function Brand({ dark = false }: { dark?: boolean }) {
+export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="SR Valavan Enterprises home">
-      <img src="/logo.png" alt="SR Valavan Enterprises logo" className="brand-logo" width={40} height={40} />
-      <span className="brand-text">
-        <b>SR VALAVAN</b>
-        <small style={dark ? { color: "var(--gold-soft)", opacity: 1 } : undefined}>
-          ENTERPRISES
-        </small>
-      </span>
+      <img src="/srv_logo_2.png" alt="SR Valavan Enterprises logo" className="brand-logo" />
     </Link>
   );
 }
@@ -71,7 +65,7 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="mobile-menu-head">
-        <Brand dark />
+        <Brand />
         <button onClick={onClose} aria-label="Close navigation">
           <X size={24} />
         </button>
@@ -210,7 +204,7 @@ function WhatsAppWidget() {
           transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="wa-head">
-            <img src="/logo.png" alt="SR Valavan Enterprises" className="wa-avatar-img" width={36} height={36} />
+            <img src="/srv_logo_2.png" alt="SR Valavan Enterprises" className="wa-avatar-img" width={36} height={36} />
             <div>
               <b>SR Valavan Enterprises</b>
               <span>
@@ -259,10 +253,12 @@ function SiteFooter() {
     <footer className="footer">
       <div className="content-width footer-grid">
         <div>
-          <Brand dark />
+          <Brand />
           <p className="footer-blurb">
-            Designer & builder of luxury swimming pools, spas and water landscapes across
-            Tamil Nadu — since 2021.
+            Crafting Pools. Creating Experiences.
+          </p>
+          <p className="footer-sub">
+            Swimming Pool Construction | Water Features | Renovation | Commercial &amp; Residential Projects
           </p>
         </div>
         <div>
@@ -279,12 +275,12 @@ function SiteFooter() {
         <div>
           <h5>Services</h5>
           <ul>
+            <li><Link href="/services">Custom pool construction</Link></li>
+            <li><Link href="/services">Infinity & overflow pools</Link></li>
             <li><Link href="/services">Residential pools</Link></li>
-            <li><Link href="/services">Readymade / FRP pools</Link></li>
-            <li><Link href="/services">Fountains & Jacuzzi</Link></li>
-            <li><Link href="/services">Renovation & tiling</Link></li>
-            <li><Link href="/services">Filtration & automation</Link></li>
-            <li><Link href="/services">AMC & care</Link></li>
+            <li><Link href="/services">Commercial & resort pools</Link></li>
+            <li><Link href="/services">Water features & fountains</Link></li>
+            <li><Link href="/services">Renovation & filtration</Link></li>
           </ul>
         </div>
         <div>
@@ -292,7 +288,7 @@ function SiteFooter() {
           <ul>
             <li><a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a></li>
             <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
-            <li><Link href="/contact">Vadapalani, Chennai</Link></li>
+            <li><Link href="/contact">Kuniyamuthur, Coimbatore</Link></li>
             <li><button onClick={openQuote} style={{ padding: 0, color: "inherit", textAlign: "left" }}>Get a free quote →</button></li>
           </ul>
         </div>
@@ -363,18 +359,24 @@ export function CtaBand() {
       <div className="content-width cta-inner">
         <Reveal>
           <h2>
-            Stop dreaming — <em>start building your pool.</em>
+            Ready to Make <em>a Splash?</em>
           </h2>
-          <p>Free site visit · Line-item estimate within 48 hours · Get costing details today. No pressure, ever.</p>
+          <p>Your dream pool could be closer than you think. Let&apos;s turn your vision into water.</p>
           <div className="cta-actions">
             <button className="btn-primary" onClick={openQuote}>
-              Get costing details <ArrowRight size={16} />
+              Request a Consultation <ArrowRight size={16} />
             </button>
-            <a className="btn-ghost" href={waLink("Hi! I want a pool estimate.")} target="_blank" rel="noreferrer">
+            <a className="btn-ghost" href={CONTACT.phoneHref}>
+              <span className="play-ring">
+                <Phone size={16} />
+              </span>
+              Call Us
+            </a>
+            <a className="btn-ghost" href={waLink("Hi! I want to plan my dream pool.")} target="_blank" rel="noreferrer">
               <span className="play-ring">
                 <MessageCircle size={16} />
               </span>
-              WhatsApp us
+              WhatsApp Us
             </a>
           </div>
         </Reveal>

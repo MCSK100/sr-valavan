@@ -4,15 +4,12 @@ import {
   Compass,
   Droplets,
   Hammer,
-  Headphones,
   HeartPulse,
-  Leaf,
   PencilRuler,
   Phone,
   RefreshCcw,
   ShieldCheck,
   Sparkles,
-  Timer,
   Waves,
   Wrench,
   type LucideIcon,
@@ -22,8 +19,8 @@ export const CONTACT = {
   phoneDisplay: "+91 78718 31029",
   phoneHref: "tel:+917871831029",
   waNumber: "917871831029",
-  email: "hello@srvalavanenterprises.in",
-  address: "100 Feet Road, Vadapalani, Chennai 600 026",
+  email: "srvallavanofficial@gmail.com",
+  address: "17/27 Bharathi Nagar, Kuniyamuthur, Coimbatore 641008",
   hours: "9 AM – 7 PM, all days",
   cities: ["Chennai", "Coimbatore", "Madurai", "Trichy", "Salem"],
 };
@@ -43,28 +40,28 @@ export const quoteServices = [
 
 export const poolTypes = [
   {
-    name: "Infinity Edge",
-    desc: "Vanishing-edge pools that merge water with horizon — ideal for sea-facing and terrace sites.",
+    name: "Luxury Villa Pools",
+    desc: "Elegant swimming spaces designed to complement premium homes.",
   },
   {
-    name: "Skimmer Pools",
-    desc: "The dependable family classic — simple hydraulics, easy upkeep, honest pricing.",
+    name: "Infinity Pools",
+    desc: "Modern designs that create a stunning visual connection between water and surroundings.",
   },
   {
-    name: "Readymade / FRP",
-    desc: "Factory-finished fibreglass shells craned in fast — perfect for terraces and quick timelines.",
+    name: "Overflow Pools",
+    desc: "Sophisticated pool designs where water flows beautifully over the pool edges.",
   },
   {
-    name: "In-Ground Concrete",
-    desc: "Fully custom RCC shells in any shape, depth or finish — built for decades.",
+    name: "Rooftop Pools",
+    desc: "Make the most of your rooftop with a carefully planned private pool experience.",
   },
   {
-    name: "Above-Ground",
-    desc: "Compact, cost-effective splash pools for farmhouses and rentals with minimal civil work.",
+    name: "Resort & Hotel Pools",
+    desc: "Large-scale swimming environments designed for hospitality and commercial spaces.",
   },
   {
-    name: "Terrace / Plunge",
-    desc: "Lightweight, leak-proof plunge pools engineered for rooftops and courtyards.",
+    name: "Custom Pools",
+    desc: "Have something unique in mind? Let's create a pool designed specifically for you.",
   },
 ];
 
@@ -79,98 +76,86 @@ export interface Service {
 export const services: Service[] = [
   {
     icon: Waves,
-    title: "Residential Pools",
-    copy: "Infinity, skimmer, in-ground and family pools — designed to your site, soil and sun path.",
-    tags: ["Infinity edge", "Skimmer pools", "In-ground"],
+    title: "Custom Swimming Pool Construction",
+    copy: "Beautifully designed pools built around your space, requirements and lifestyle.",
+    tags: ["Custom design", "Villas", "End-to-end build"],
     details: [
-      "Soil test, structural design and civic approvals handled end-to-end",
-      "Skimmer or overflow gutter hydraulics sized for your bather load",
-      "Salt chlorination + LED lighting as standard, app control optional",
-      "Handover with water-balance training and a printed care manual",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Commercial & Resorts",
-    copy: "Hotel, villa-project and club pools engineered for 24×7 bather load and easy upkeep.",
-    tags: ["Hotels", "Clubs", "Villa projects"],
-    details: [
-      "Commercial-grade filtration with 4–6 hour turnover rates",
-      "Balance tanks, grating and anti-slip decks to safety norms",
-      "Automated liquid dosing for precise chemistry at high loads",
-      "Staff training + quarterly audit visits in year one",
-    ],
-  },
-  {
-    icon: HeartPulse,
-    title: "Spas, Jacuzzi & Fountains",
-    copy: "Jacuzzis, waterfalls, fountains, steam, sauna and hydrotherapy courts — silent, serviceable plant rooms.",
-    tags: ["Jacuzzi", "Waterfalls", "Fountains"],
-    details: [
-      "Hydrotherapy jet layouts tuned to shoulder, back and leg lines",
-      "Waterfalls, deck jets and fountain features integrated with filtration",
-      "Steam and sauna cabins with hygiene-grade timber and controls",
-      "Whisper-quiet plant rooms you never have to think about",
-    ],
-  },
-  {
-    icon: RefreshCcw,
-    title: "Renovation, Tiling & Repair",
-    copy: "Leak repair, re-tiling, shape changes and full equipment upgrades for ageing pools.",
-    tags: ["Leak repair", "Pool tiling", "Shape change"],
-    details: [
-      "Pressure testing to find the exact leak point before we dig",
-      "Re-waterproofing with a 10-year written warranty",
-      "Precision re-tiling: mosaic, quartzite, micro-cement or porcelain",
-      "Equipment swap to salt + variable-speed pumps that cut bills ~40%",
-    ],
-  },
-  {
-    icon: Droplets,
-    title: "Filtration & Automation",
-    copy: "Salt chlorinators, robotic cleaners, auto-dosing and app-controlled pumps and lights.",
-    tags: ["Salt systems", "Auto dosing", "App control"],
-    details: [
-      "Salt chlorinators + UV assist for gentle, smell-free water",
-      "Robotic cleaners that scrub floor, walls and waterline",
-      "Pump, light and heat scheduling from your phone",
-      "Retrofits for existing pools without breaking tile",
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    title: "AMC & Maintenance",
-    copy: "Weekly care visits, water-balance reports and breakdown support across the city.",
-    tags: ["Weekly visits", "Water reports", "Spares"],
-    details: [
-      "A fixed weekday visit — skimming, vacuuming, backwash included",
-      "Digital water-health report on WhatsApp after every visit",
-      "Chemicals dosed and logged; you never handle drums",
-      "Priority breakdown visits for AMC members",
+      "Pool concept tailored to your space, architecture and lifestyle",
+      "Strong construction with proper finishing at every stage",
+      "Tiles, coping, lighting and final details completed to plan",
+      "Handover ready for unforgettable moments",
     ],
   },
   {
     icon: Sparkles,
-    title: "Readymade, FRP & Terrace Pools",
-    copy: "Factory-finished FRP and readymade pools craned in fast — ideal for terraces and quick timelines.",
-    tags: ["FRP / Fibreglass", "Terrace pools", "Above-ground"],
+    title: "Infinity & Overflow Pools",
+    copy: "Create a breathtaking visual experience with modern infinity and overflow pool designs.",
+    tags: ["Infinity", "Overflow edges", "Modern design"],
     details: [
-      "Customisable shape, size and finish to fit rooftops, backyards and courtyards",
-      "Lightweight shells engineered for terrace load with leak-proof warranty",
-      "Installation in days, not months, with salt + LED as standard",
-      "Lower construction cost with long-term durability and easy upkeep",
+      "Stunning visual connection between water and surroundings",
+      "Water flowing beautifully over the pool edges",
+      "Designs planned around your site and views",
+      "Premium finishing for a luxurious look",
+    ],
+  },
+  {
+    icon: Building2,
+    title: "Residential Swimming Pools",
+    copy: "Transform your backyard, villa or farmhouse into your own private luxury retreat.",
+    tags: ["Backyards", "Villas", "Farmhouses"],
+    details: [
+      "Private pools designed for homes and villas",
+      "Concepts that suit your available space and lifestyle",
+      "Rooftop and backyard options planned with care",
+      "Built around your expectations and budget",
+    ],
+  },
+  {
+    icon: Compass,
+    title: "Commercial & Resort Pools",
+    copy: "Professional pool solutions designed for hotels, resorts, apartments, clubs and commercial properties.",
+    tags: ["Hotels", "Resorts", "Apartments & clubs"],
+    details: [
+      "Large-scale swimming environments for hospitality spaces",
+      "Pools planned for commercial use and guest experience",
+      "Custom water features to elevate the property",
+      "Solutions for apartments, clubs and resorts",
+    ],
+  },
+  {
+    icon: Droplets,
+    title: "Water Features & Fountains",
+    copy: "Add character and elegance with customised fountains, cascades and decorative water features.",
+    tags: ["Fountains", "Cascades", "Decorative features"],
+    details: [
+      "Customised fountains designed for your property",
+      "Cascades and decorative water features",
+      "Details that complete the final experience",
+      "Options for homes, resorts and commercial spaces",
+    ],
+  },
+  {
+    icon: RefreshCcw,
+    title: "Pool Renovation & Upgrades",
+    copy: "Give your existing pool a fresh new look with renovation, finishing and system upgrades.",
+    tags: ["Renovation", "Re-finishing", "System upgrades"],
+    details: [
+      "Fresh new look for ageing pools",
+      "Updated tiles, coping and finishes",
+      "Lighting and water-feature upgrades",
+      "Finishing touches that transform the experience",
     ],
   },
   {
     icon: Wrench,
-    title: "Accessories, Tiles & Equipment",
-    copy: "A complete range of pool accessories, tiles, lights and fittings that lift looks and function.",
-    tags: ["Accessories", "Pool tiles", "Lights & fittings"],
+    title: "Pool Filtration & Equipment",
+    copy: "Reliable filtration, circulation and supporting equipment for cleaner, healthier pool water.",
+    tags: ["Filtration", "Circulation", "Equipment"],
     details: [
-      "Robotic cleaners, covers, ladders, showers and poolside fittings",
-      "Designer pool tiles — mosaic, porcelain and anti-slip deck options",
-      "LED lighting, heating and salt systems retrofitted without breaking tile",
-      "Genuine spares with installation and after-support",
+      "Filtration planned for cleaner, healthier water",
+      "Circulation and supporting equipment installed with care",
+      "Practical solutions explained before work begins",
+      "Equipment matched to your pool size and use",
     ],
   },
 ];
@@ -256,12 +241,12 @@ export interface Step {
 }
 
 export const steps: Step[] = [
-  { icon: Phone, title: "Conceptual Stage", copy: "We start with your vision — site walk, soil and water tests, and the right pool for your plot and lifestyle." },
-  { icon: PencilRuler, title: "Flexible Design", copy: "3D views, sun studies and a line-item estimate for any space — compact terrace to luxury estate." },
-  { icon: Leaf, title: "Eco-friendly Engineering", copy: "Water-efficient hydraulics, energy-saving pumps and salt systems signed off before we dig." },
-  { icon: Hammer, title: "High-Quality Build", copy: "Durable materials, one accountable crew, photo updates every week, tested at every stage." },
-  { icon: Compass, title: "Extensive Reach & Handover", copy: "Homes, villas and resorts across Tamil Nadu — balanced water, staff training and a printed care manual." },
-  { icon: ShieldCheck, title: "Amazing Support", copy: "Warranties in writing, priority breakdown visits, and AMC that actually shows up." },
+  { icon: Phone, title: "Consultation", copy: "Tell us about your property, requirements and dream pool." },
+  { icon: Compass, title: "Site Assessment", copy: "We understand your available space and project requirements." },
+  { icon: PencilRuler, title: "Design & Planning", copy: "We develop a pool concept tailored to your property and preferences." },
+  { icon: Hammer, title: "Construction", copy: "Our team brings the approved design to life with careful execution." },
+  { icon: Sparkles, title: "Finishing", copy: "Tiles, coping, lighting, water features and final details complete the look." },
+  { icon: Waves, title: "Ready to Dive", copy: "Your new swimming pool is ready for unforgettable moments." },
 ];
 
 export interface WhyPoint {
@@ -271,12 +256,12 @@ export interface WhyPoint {
 }
 
 export const whyChooseUs: WhyPoint[] = [
-  { icon: BadgeCheck, title: "Worry-Free Guarantee", copy: "One contract for design, build, water safety and care — you relax while one accountable team owns everything." },
-  { icon: Droplets, title: "Salt Chlorine Generator", copy: "Salt + UV as standard for gentle, smell-free water that is kind to skin and eyes — and cheaper to run." },
-  { icon: Timer, title: "Show Up On Time", copy: "Fixed visit slots, GPS-tracked crews and weekly photo updates — your schedule is respected at every stage." },
-  { icon: Wrench, title: "Priority Repair Advantage", copy: "Filter, heater or leak issue? AMC members jump the queue with fast diagnosis and genuine spares." },
-  { icon: Sparkles, title: "Total Clean Promise", copy: "Sparkling, hygienically balanced water on every visit — logged chemistry and a WhatsApp health report." },
-  { icon: Headphones, title: "No Contracts, Just Care", copy: "Flexible AMC with no lock-in. Our results keep you with us — not paperwork. Cancel anytime." },
+  { icon: PencilRuler, title: "Custom Designs", copy: "Every property is different. We create pool concepts that suit your available space, architecture and lifestyle." },
+  { icon: ShieldCheck, title: "Quality Construction", copy: "We focus on strong construction, proper finishing and attention to detail at every stage." },
+  { icon: Compass, title: "End-to-End Service", copy: "From initial planning and construction to finishing and installation, we help manage your pool project from start to finish." },
+  { icon: BadgeCheck, title: "Transparent Approach", copy: "Clear communication and practical solutions help you understand your project before construction begins." },
+  { icon: Sparkles, title: "Attention to Detail", copy: "From the pool shape to the finishing touches, every detail contributes to the final experience." },
+  { icon: HeartPulse, title: "Built Around You", copy: "Your requirements come first. We create solutions based on your space, expectations and budget." },
 ];
 
 export interface Testimonial {

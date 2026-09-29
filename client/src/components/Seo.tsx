@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const SITE = "https://srvalavanenterprises.in";
-const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE}/srv-og.jpeg`;
 
 function setMetaByName(name: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);

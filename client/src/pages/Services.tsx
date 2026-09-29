@@ -9,8 +9,8 @@ export default function ServicesPage() {
   return (
     <main>
       <Seo
-        title="Swimming Pool Services — Construction, Renovation & AMC | SR Valavan Enterprises"
-        description="Residential & commercial pools, spas, renovations, filtration automation and AMC across Chennai, Coimbatore, Madurai & Trichy. One accountable studio."
+        title="Complete Swimming Pool Solutions | SR Valavan Enterprises"
+        description="Custom pools, infinity & overflow pools, residential and commercial pools, water features, renovation and filtration — designed for your space, built for your lifestyle."
         path="/services"
         jsonLd={{
           "@context": "https://schema.org",
@@ -28,12 +28,12 @@ export default function ServicesPage() {
         marker="Our services"
         title={
           <>
-            Everything water, <em>under one roof.</em>
+            Complete Swimming <em>Pool Solutions.</em>
           </>
         }
-        lede="One-stop solution for all swimming pool needs — construction, readymade FRP pools, fountains & Jacuzzi, filtration, accessories, tiling, maintenance and renovation."
+        lede="Custom pools, infinity designs, residential retreats, commercial projects, water features, renovation and filtration — all managed from concept to completion."
         image={IMG.infinity}
-        badge="8 SERVICES · ONE CONTRACT"
+        badge="7 SERVICES · ONE TEAM"
       />
       <section className="section" style={{ paddingTop: 70, paddingBottom: 30 }}>
         <div className="content-width">
@@ -42,12 +42,12 @@ export default function ServicesPage() {
               00 <span>End-to-end turnkey projects</span>
             </div>
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>
-              Consult → Build → Commission → <em>Care.</em>
+              Consult → Design → Build → <em>Dive.</em>
             </h2>
             <p className="sec-lede">
-              One contract from first sketch to first swim: site consultation and budgeting,
-              excavation and groundwork, shell construction and tiling, equipment
-              commissioning — then weekly care for years after.
+              From first idea to first dive: consultation, site assessment, design and
+              planning, careful construction and finishing — your pool, ready for
+              unforgettable moments.
             </p>
           </Reveal>
           <div className="type-grid">
@@ -74,7 +74,7 @@ export default function ServicesPage() {
               01 <span>Wide range of swimming pools</span>
             </div>
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>
-              Infinity · Readymade · Skimmer · <em>Terrace & more.</em>
+              A Pool That Matches <em>Your Vision.</em>
             </h2>
           </Reveal>
           <div className="type-grid">

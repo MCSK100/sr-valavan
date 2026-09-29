@@ -9,18 +9,18 @@ export default function AboutPage() {
   return (
     <main>
       <Seo
-        title="About Us — Pool Designers & Builders Since 2021 | SR Valavan Enterprises"
-        description="Meet SR Valavan Enterprises: a Chennai pool studio with 5 years, 120+ pools and one promise — design, build and care, all under one roof."
+        title="About Us — Your Dream Pool, Our Expertise | SR Valavan Enterprises"
+        description="SR Valavan Enterprises provides complete swimming pool construction solutions — thoughtful design, quality materials and skilled workmanship for homes, villas and resorts."
         path="/about"
       />
       <PageHero
-        marker="About the studio"
+        marker="About us"
         title={
           <>
-            A pool is not an amenity. <em>It is a horizon.</em>
+            Your Dream Pool. <em>Our Expertise.</em>
           </>
         }
-        lede="Since 2021 we have designed and built singular pools, spas and water landscapes across Tamil Nadu — and stayed around to care for them."
+        lede="At SR Valavan Enterprises, we believe a swimming pool is more than a structure filled with water — it is a space where relaxation, luxury and unforgettable moments come together."
         image={IMG.evening}
         badge="THE STUDIO · SINCE 2021"
       />
@@ -35,17 +35,17 @@ export default function AboutPage() {
                 01 <span>Our story</span>
               </div>
               <h2 className="sec-title" style={{ fontSize: "clamp(34px,4vw,54px)" }}>
-                Built by engineers, <em>finished like artists.</em>
+                Your Vision. Our Craftsmanship. <em>One Perfect Pool.</em>
               </h2>
               <p className="about-copy">
-                SR Valavan Enterprises began with a simple frustration: beautiful pools that
-                leaked, and sturdy pools that looked ordinary. We set out to do both —
-                structural engineering you never see, and finishes you never stop looking at.
+                We provide complete swimming pool construction solutions, combining
+                thoughtful design, quality materials and skilled workmanship to create pools
+                that complement your property and lifestyle.
               </p>
               <p className="about-copy">
-                Today one crew handles your site visit, 3D design, civil work, waterproofing,
-                equipment and weekly care. No subcontractor chains, no finger-pointing — one
-                phone number from first dig to tenth summer.
+                Whether you are planning a private villa pool, resort pool, rooftop pool or
+                a custom water feature, our team works closely with you from concept to
+                completion.
               </p>
               <div className="brochure-band" style={{ marginTop: 28 }}>
                 <div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
               03 <span>Why choose us</span>
             </div>
             <h2 className="sec-title">
-              A pool partner, <em>not just a contractor.</em>
+              Built With Care. <em>Finished With Precision.</em>
             </h2>
           </Reveal>
           <div className="why-grid">
@@ -130,7 +130,7 @@ export default function AboutPage() {
               04 <span>How we work</span>
             </div>
             <h2 className="sec-title">
-              From first visit <em>to first swim.</em>
+              From First Idea <em>to First Dive.</em>
             </h2>
           </Reveal>
           <div className="steps">

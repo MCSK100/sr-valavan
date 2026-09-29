@@ -17,7 +17,7 @@ export default function ContactPage() {
   const cards = [
     { icon: Phone, title: "Call us", lines: [CONTACT.phoneDisplay, CONTACT.hours], href: CONTACT.phoneHref },
     { icon: Mail, title: "Write to us", lines: [CONTACT.email, "Replies within a day"], href: `mailto:${CONTACT.email}` },
-    { icon: MapPin, title: "Visit us", lines: [CONTACT.address, "Landmark: near Vadapalani metro"] },
+    { icon: MapPin, title: "Visit us", lines: [CONTACT.address, "Kuniyamuthur, Coimbatore"] },
     { icon: Clock, title: "Site visits", lines: ["Free within the city", "Fixed within 48 hours"] },
   ];
 
@@ -158,11 +158,11 @@ export default function ContactPage() {
             <Reveal delay={0.12}>
               <div>
                 <h3 className="map-title">Find the studio</h3>
-                <p className="map-sub">100 Feet Road, Vadapalani — 5 minutes from the metro.</p>
+                <p className="map-sub">17/27 Bharathi Nagar, Kuniyamuthur, Coimbatore 641008.</p>
                 <div className="map-frame">
                   <iframe
                     title="SR Valavan Enterprises on the map"
-                    src="https://www.google.com/maps?q=Vadapalani,+Chennai&output=embed"
+                    src="https://www.google.com/maps?q=Bharathi+Nagar,+Kuniyamuthur,+Coimbatore+641008&output=embed"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
