@@ -185,3 +185,79 @@ export function useTileReveal() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 }
+
+/* Subtle falling water-drops (rain) overlay for the hero.
+   Canvas-based, pauses off-screen, fades to minimal as you scroll. */
+export function RainDrops({ density = 90 }: { density?: number }) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    let raf = 0;
+    let w = 0;
+    let h = 0;
+    let drops: Array<{ x: number; y: number; len: number; speed: number; opacity: number }> = [];
+    const seed = () => {
+      const count = w < 700 ? Math.round(density / 2) : density;
+      drops = Array.from({ length: count }, () => ({
+        x: Math.random() * (w + 60),
+        y: Math.random() * (h + 60) - 30,
+        len: 10 + Math.random() * 22,
+        speed: 2 + Math.random() * 4,
+        opacity: 0.08 + Math.random() * 0.2,
+      }));
+    };
+    const resize = () => {
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.max(1, Math.round(w * dpr));
+      canvas.height = Math.max(1, Math.round(h * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    };
+    resize();
+    window.addEventListener("resize", resize);
+    let visible = true;
+    const io = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: 0 });
+    io.observe(canvas);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let fade = 1;
+    const onScroll = () => {
+      const vh = window.innerHeight || 1;
+      fade = Math.max(0.12, 1 - window.scrollY / (vh * 0.9));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    const tick = () => {
+      raf = requestAnimationFrame(tick);
+      if (!visible || mq.matches) return;
+      ctx.clearRect(0, 0, w, h);
+      ctx.lineWidth = 1.2;
+      ctx.lineCap = "round";
+      for (const d of drops) {
+        ctx.strokeStyle = `rgba(200,235,245,${(d.opacity * fade).toFixed(3)})`;
+        ctx.beginPath();
+        ctx.moveTo(d.x, d.y);
+        ctx.lineTo(d.x - d.len * 0.18, d.y + d.len);
+        ctx.stroke();
+        d.y += d.speed;
+        d.x -= d.speed * 0.18;
+        if (d.y > h + 30) {
+          d.y = -30;
+          d.x = Math.random() * (w + 60);
+        }
+      }
+    };
+    tick();
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("scroll", onScroll);
+      io.disconnect();
+    };
+  }, [density]);
+  return <canvas ref={ref} className="rain-canvas" aria-hidden />;
+}

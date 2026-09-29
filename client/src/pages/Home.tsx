@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
-import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useTileReveal } from "../components/story";
+import { FloatFly, RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
 import { CONTACT, buildSteps, faqs, finishes, poolTypes, projects, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
@@ -49,6 +49,7 @@ function Hero() {
         <source src="/herosec_video.mp4" type="video/mp4" />
       </video>
       <div className="hero-wash" aria-hidden />
+      <RainDrops />
       <div className="hero-noise" />
       <div className="hero-content">
         <div className="hero-cloud cloud-a" />
@@ -60,7 +61,6 @@ function Hero() {
         </h1>
         <div className="h-line multidisciplinary" aria-hidden><SplitLetters text="Your Dream Pool." /></div>
         <div className="h-line designer" aria-hidden><RollingWord words={["Built to Perfection.", "Built Around You.", "Built to Last."]} /></div>
-        <DiskPlayer />
         <div className="hero-cta-block">
           <p>Transform your space into a place to relax, refresh and reconnect — custom residential pools to elegant commercial projects, made for your lifestyle.</p>
           <div>

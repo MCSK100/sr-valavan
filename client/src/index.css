@@ -473,7 +473,7 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 
 
 /* ===== hero CTA + statement + premium bands ===== */
-.hero-cta-block{position:absolute;left:calc(50% - 229px);top:calc(50vh + 218px);transform:translateX(-50%);z-index:3;max-width:min(520px,calc(100vw - 48px));text-align:center}
+.hero-cta-block{position:absolute;left:calc(50% - 229px);top:auto;bottom:clamp(20px,7vh,90px);transform:translateX(-50%);z-index:3;max-width:min(520px,calc(100vw - 48px));text-align:center}
 .hero-cta-block p{margin:0 0 14px;font-size:13.5px;line-height:1.65;color:rgba(255,255,255,.85);text-shadow:0 2px 18px rgba(0,0,0,.35)}
 .hero-cta-block div{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
 .hero-cta-block span{display:block;margin-top:12px;font:500 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7)}
@@ -501,6 +501,7 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:1;pointer-events:none}
 .hero-wash{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,20,26,.42),rgba(3,20,26,.12) 40%,rgba(2,12,16,.62));pointer-events:none}
 .hero-content{z-index:2}
+.rain-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .h-line{position:absolute;font-family:var(--serif);font-weight:400;font-size:150px;letter-spacing:2.7px;line-height:1.1;color:#fff;margin:0;white-space:nowrap;text-shadow:0 4px 60px rgba(0,0,0,.35)}
 .hero-dots{position:absolute;right:34px;bottom:32vh;z-index:3;display:flex;flex-direction:column;gap:10px}
 .hero-dots button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.6);padding:0;transition:all .3s}
@@ -523,6 +524,14 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 .build-body p{margin:10px 0 0;font-size:12.5px;line-height:1.65;color:#5b6d75}
 @media(max-width:1080px){.build-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.build-grid{grid-template-columns:1fr}.build-body h4{min-height:0}}
+
+@media (max-height: 840px) and (min-width: 1081px) {
+  .h-line { font-size: 112px; letter-spacing: 2px; }
+  .hero-eyebrow { top: calc(50vh - 196px); }
+  .h-line.multidisciplinary { top: calc(50vh - 188px); }
+  .h-line.designer { top: calc(50vh - 58px); }
+  .hero-cta-block p { font-size: 12px; margin-bottom: 10px; }
+}
 
 /* ===== landing alignment fixes ===== */
 .featured-work .sec-marker{margin-bottom:18px}
