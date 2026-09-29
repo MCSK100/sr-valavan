@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 
 export const CONTACT = {
-  phoneDisplay: "+91 98410 45670",
-  phoneHref: "tel:+919841045670",
-  waNumber: "918778000970",
+  phoneDisplay: "+91 78718 31029",
+  phoneHref: "tel:+917871831029",
+  waNumber: "917871831029",
   email: "hello@srvalavanenterprises.in",
   address: "100 Feet Road, Vadapalani, Chennai 600 026",
   hours: "9 AM – 7 PM, all days",

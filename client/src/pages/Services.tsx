@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Reveal, cn } from "../components/motion";
 import Seo from "../components/Seo";
-import { poolTypes, services } from "../data/content";
+import { IMG, poolTypes, services } from "../data/content";
 
 export default function ServicesPage() {
   return (
@@ -32,6 +32,8 @@ export default function ServicesPage() {
           </>
         }
         lede="One-stop solution for all swimming pool needs — construction, readymade FRP pools, fountains & Jacuzzi, filtration, accessories, tiling, maintenance and renovation."
+        image={IMG.infinity}
+        badge="8 SERVICES · ONE CONTRACT"
       />
       <section className="section" style={{ paddingTop: 70, paddingBottom: 30 }}>
         <div className="content-width">

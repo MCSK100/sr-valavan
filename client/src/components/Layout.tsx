@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Check, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
-import { CONTACT, quoteServices, waLink } from "../data/content";
+import { CONTACT, IMG, quoteServices, waLink } from "../data/content";
 import { Reveal, cn, usePageState } from "./motion";
 
 export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quote"));
@@ -10,7 +10,7 @@ export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quo
 export function Brand({ dark = false }: { dark?: boolean }) {
   return (
     <Link className="brand" href="/" aria-label="SR Valavan Enterprises home">
-      <span className="brand-mark">S</span>
+      <img src="/logo.png" alt="SR Valavan Enterprises logo" className="brand-logo" width={40} height={40} />
       <span className="brand-text">
         <b>SR VALAVAN</b>
         <small style={dark ? { color: "var(--gold-soft)", opacity: 1 } : undefined}>
@@ -210,7 +210,7 @@ function WhatsAppWidget() {
           transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="wa-head">
-            <span className="wa-avatar">S</span>
+            <img src="/logo.png" alt="SR Valavan Enterprises" className="wa-avatar-img" width={36} height={36} />
             <div>
               <b>SR Valavan Enterprises</b>
               <span>
@@ -314,22 +314,43 @@ export function PageHero({
   marker,
   title,
   lede,
+  image = IMG.hero,
+  badge = "SR VALAVAN · TAMIL NADU",
 }: {
   marker: string;
   title: ReactNode;
   lede?: string;
+  image?: string;
+  badge?: string;
 }) {
   return (
     <section className="page-hero">
       <div className="glow-orb glow-a" />
       <div className="glow-orb glow-b" />
-      <div className="content-width page-hero-inner">
+      <div className="content-width page-hero-grid">
         <Reveal>
           <div className="sec-marker on-dark">
             <span>{marker}</span>
           </div>
           <h1 className="page-hero-title">{title}</h1>
           {lede && <p className="page-hero-lede">{lede}</p>}
+          <div className="page-hero-actions">
+            <button className="btn-primary" onClick={openQuote}>
+              Get a free quote <ArrowRight size={16} />
+            </button>
+            <a className="btn-ghost" href={CONTACT.phoneHref}>
+              <span className="play-ring">
+                <Phone size={16} />
+              </span>
+              {CONTACT.phoneDisplay}
+            </a>
+          </div>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="page-hero-card">
+            <img src={image} alt="" aria-hidden />
+            <span>{badge}</span>
+          </div>
         </Reveal>
       </div>
     </section>

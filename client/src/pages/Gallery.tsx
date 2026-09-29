@@ -3,7 +3,7 @@ import { useState } from "react";
 import { CtaBand, PageHero, openQuote } from "../components/Layout";
 import { Counter, Reveal, handleImgError } from "../components/motion";
 import Seo from "../components/Seo";
-import { galleryCategories, galleryItems } from "../data/content";
+import { galleryCategories, galleryItems, IMG } from "../data/content";
 
 const stats = [
   { to: 5, suffix: " +", label: "Years of experience" },
@@ -33,6 +33,8 @@ export default function GalleryPage() {
           </>
         }
         lede="Every project below was designed, engineered, built — and is still cared for — by our own crew. Filter by pool type, tap any image to view it large."
+        image={IMG.resort}
+        badge="120+ POOLS BUILT"
       />
       <div className="stats-band">
         <div className="content-width stats-grid">

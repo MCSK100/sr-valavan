@@ -21,6 +21,8 @@ export default function AboutPage() {
           </>
         }
         lede="Since 2021 we have designed and built singular pools, spas and water landscapes across Tamil Nadu — and stayed around to care for them."
+        image={IMG.evening}
+        badge="THE STUDIO · SINCE 2021"
       />
       <section className="section" style={{ paddingTop: 90 }}>
         <div className="content-width about-split">

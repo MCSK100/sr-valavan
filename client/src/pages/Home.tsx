@@ -5,23 +5,13 @@ import {
   Mail,
   MapPin,
   Phone,
-  Play,
   Plus,
   Star,
   X,
 } from "lucide-react";
-import {
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import {
-  useRef,
-  useState,
-  type MouseEvent as ReactMouseEvent,
-} from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Link } from "wouter";
 import Seo from "../components/Seo";
 import { openQuote } from "../components/Layout";
 import {
@@ -59,8 +49,6 @@ const media = {
   duskHouse: U("photo-1523217582562-09d0def993a6"),
   lapLanes: U("photo-1530549387789-4c1017266635"),
   interior: U("photo-1600607687939-ce8a6c25118c"),
-  video: "/herosec_video.mp4",
-  videoFallback: "https://assets.mixkit.co/videos/13195/13195-720.mp4",
   film: "https://assets.mixkit.co/videos/20360/20360-720.mp4",
   filmFallback: "https://assets.mixkit.co/videos/23078/23078-720.mp4",
 };
@@ -138,84 +126,51 @@ function WaveSep({ fill = "var(--white)" }: { fill?: string }) {
   );
 }
 
-/* ---------------- Hero ---------------- */
+/* ---------------- Hero (lead-gen split) ---------------- */
 function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const [videoOk, setVideoOk] = useState(true);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.14]);
-  const fade = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const copyY = useTransform(scrollYProgress, [0, 1], [0, 130]);
-
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const smx = useSpring(mx, { stiffness: 55, damping: 18 });
-  const smy = useSpring(my, { stiffness: 55, damping: 18 });
-  const mediaX = useTransform(smx, (v) => v * -26);
-  const mediaY = useTransform(smy, (v) => v * -18);
-  const copyX = useTransform(smx, (v) => v * 22);
-
-  const onMouse = (e: ReactMouseEvent<HTMLElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    mx.set((e.clientX - r.left) / r.width - 0.5);
-    my.set((e.clientY - r.top) / r.height - 0.5);
-  };
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", service: "", city: "" });
+  const set =
+    (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+      setForm((f) => ({ ...f, [k]: e.target.value }));
+  const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <section id="top" ref={ref} className="hero mood-water" onMouseMove={onMouse}>
-      <motion.div className="hero-media" style={{ y: bgY, scale: bgScale, x: mediaX }}>
-        <motion.div style={{ y: mediaY, position: "absolute", inset: 0 }}>
-          <img className="poster" src={media.hero} alt="" aria-hidden onError={handleImgError} />
-          {videoOk && (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              poster={media.hero}
-              onError={() => setVideoOk(false)}
-              aria-label="Swimming pool water shimmering in sunlight"
-            >
-              <source src={media.video} type="video/mp4" />
-              <source src={media.videoFallback} type="video/mp4" />
-            </video>
-          )}
-        </motion.div>
-      </motion.div>
-      <div className="hero-shade" />
-      <div className="hero-grain" />
-      <div className="hero-vignette" />
+    <section id="top" className="hero-split">
       <div className="glow-orb glow-a" />
       <div className="glow-orb glow-b" />
-
-      <motion.div className="hero-inner" style={{ opacity: fade, y: copyY }}>
-        <motion.div style={{ x: copyX }}>
-          <div className="hero-topline">
+      <div className="content-width hero-split-grid">
+        <div className="hero-split-copy">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease }}
+          >
             <span className="live">
               <span className="live-dot" /> NOW BUILDING · CHENNAI / COIMBATORE / MADURAI
             </span>
-          </div>
+          </motion.div>
           <motion.p
             className="hero-kicker"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: 0.12, ease }}
           >
             <span className="kicker-rule" /> Luxury pools · Spas · Water landscapes
           </motion.p>
           <motion.h1
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, delay: 0.22, ease }}
           >
             Dive into your <em>own paradise.</em>
           </motion.h1>
           <motion.p
             className="hero-dek"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.38, ease }}
           >
             SR Valavan Enterprises designs and builds swimming pools that feel inevitable —
             engineered for Tamil Nadu sun and soil, finished like architecture, and cared for
@@ -223,9 +178,9 @@ function Hero() {
           </motion.p>
           <motion.div
             className="hero-actions"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.58, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 0.5, ease }}
           >
             <motion.a
               href={waLink("Hi SR Valavan Enterprises! I want to enquire about a swimming pool.")}
@@ -235,22 +190,118 @@ function Hero() {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
-              Contact us <ArrowRight size={16} />
+              WhatsApp us <ArrowRight size={16} />
             </motion.a>
-            <a href="#work" className="btn-ghost">
+            <Link href="/gallery" className="btn-ghost">
               <span className="play-ring">
-                <Play size={16} fill="currentColor" />
+                <ArrowUpRight size={16} />
               </span>
               See our work
-            </a>
+            </Link>
           </motion.div>
-          <div className="hero-bottom">
-            <span className="scroll-cue" aria-hidden>
-              <i />
+          <motion.div
+            className="hero-trust"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.65 }}
+          >
+            <span className="stars">
+              {Array.from({ length: 5 }).map((_, s) => (
+                <Star key={s} size={13} fill="currentColor" />
+              ))}
             </span>
+            <span>
+              <b>4.9</b> from 120+ pool owners · 5+ yrs · Tamil Nadu only
+            </span>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="hero-lead-card"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease }}
+        >
+          <div className="hero-lead-media">
+            <img src={media.hero} alt="Luxury swimming pool at a villa" onError={handleImgError} />
+            <span>Free site visit · 48-hr estimate</span>
+          </div>
+          <div className="hero-lead-body">
+            {sent ? (
+              <div className="form-ok">
+                <span className="ok-ring">
+                  <Check size={28} />
+                </span>
+                <h3>Request received.</h3>
+                <p>
+                  Thanks{form.name ? `, ${form.name.split(" ")[0]}` : ""} — we will call
+                  you back within 48 hours to fix a site visit.
+                </p>
+                <a
+                  className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  href={waLink(
+                    `Hi! I requested a quote for ${form.service || "a swimming pool"}. Name: ${form.name}, Phone: ${form.phone}, City: ${form.city}`
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Confirm on WhatsApp <ArrowRight size={16} />
+                </a>
+              </div>
+            ) : (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSent(true);
+                }}
+              >
+                <h3>Get a free quote</h3>
+                <p>Estimate within 48 hours. No spam, ever.</p>
+                <div className="f-row">
+                  <div className="f-field">
+                    <label htmlFor="hero-name">Name</label>
+                    <input id="hero-name" required placeholder="Your name" value={form.name} onChange={set("name")} />
+                  </div>
+                  <div className="f-field">
+                    <label htmlFor="hero-phone">Phone</label>
+                    <input id="hero-phone" required placeholder="+91 …" value={form.phone} onChange={set("phone")} />
+                  </div>
+                </div>
+                <div className="f-row">
+                  <div className="f-field">
+                    <label htmlFor="hero-service">Service</label>
+                    <select id="hero-service" value={form.service} onChange={set("service")}>
+                      <option value="">Select…</option>
+                      {quoteServices.map((s) => (
+                        <option key={s}>{s}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="f-field">
+                    <label htmlFor="hero-city">City</label>
+                    <select id="hero-city" value={form.city} onChange={set("city")}>
+                      <option value="">Select…</option>
+                      {CONTACT.cities.map((c) => (
+                        <option key={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <motion.button
+                  type="submit"
+                  className="btn-primary"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Request callback <ArrowRight size={16} />
+                </motion.button>
+              </form>
+            )}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }
@@ -777,16 +828,12 @@ function Faq() {
 }
 
 function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: "", phone: "", city: "", service: "", message: "" });
-  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-    setForm((f) => ({ ...f, [k]: e.target.value }));
   return (
     <section id="contact" className="contact">
       <div className="contact-bg">
         <img src={media.interior} alt="" aria-hidden onError={handleImgError} loading="lazy" />
       </div>
-      <div className="content-width contact-inner">
+      <div className="content-width contact-inner" style={{ gridTemplateColumns: "1fr", maxWidth: 760 }}>
         <Reveal className="contact-copy">
           <div className="sec-marker on-dark">
             08 <span>Begin your pool</span>
@@ -799,8 +846,11 @@ function Contact() {
             and return a considered design + line-item estimate within 48 hours.
           </p>
           <div className="contact-points">
-            <a href="tel:+919841045670">
-              <Phone size={17} /> +91 98410 45670 (9 AM – 7 PM, all days)
+            <a href="tel:+917871831029">
+              <Phone size={17} /> +91 78718 31029 (9 AM – 7 PM, all days)
+            </a>
+            <a href={waLink("Hi! I want a free pool quote.")} target="_blank" rel="noreferrer">
+              <Phone size={17} /> WhatsApp us — Chat now
             </a>
             <a href="mailto:hello@srvalavanenterprises.in">
               <Mail size={17} /> hello@srvalavanenterprises.in
@@ -808,81 +858,6 @@ function Contact() {
             <div>
               <MapPin size={17} /> 100 Feet Road, Vadapalani, Chennai 600 026
             </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <div className="contact-form">
-            {submitted ? (
-              <div className="form-ok">
-                <span className="ok-ring">
-                  <Check size={30} />
-                </span>
-                <h3>Request received.</h3>
-                <p>
-                  Thank you{form.name ? `, ${form.name.split(" ")[0]}` : ""} — our studio will
-                  call you back within 48 hours to fix a site visit.
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSubmitted(true);
-                }}
-              >
-                <h3>Request a free quote</h3>
-                <p>Select a service, leave your details — estimate within 48 hours.</p>
-                <div className="f-row">
-                  <div className="f-field">
-                    <label htmlFor="cf-name">Name</label>
-                    <input id="cf-name" required placeholder="Your name" value={form.name} onChange={set("name")} />
-                  </div>
-                  <div className="f-field">
-                    <label htmlFor="cf-phone">Phone</label>
-                    <input id="cf-phone" required placeholder="+91 …" value={form.phone} onChange={set("phone")} />
-                  </div>
-                </div>
-                <div className="f-row">
-                  <div className="f-field">
-                    <label htmlFor="cf-service">Service</label>
-                    <select id="cf-service" value={form.service} onChange={set("service")}>
-                      <option value="">Select a service…</option>
-                      {quoteServices.map((s) => (
-                        <option key={s}>{s}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="f-field">
-                    <label htmlFor="cf-city">Site city</label>
-                    <select id="cf-city" value={form.city} onChange={set("city")}>
-                      <option value="">Select a city…</option>
-                      {CONTACT.cities.map((c) => (
-                        <option key={c}>{c}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div className="f-field">
-                  <label htmlFor="cf-msg">About your project</label>
-                  <textarea
-                    id="cf-msg"
-                    placeholder="Plot size, pool dream, timeline…"
-                    value={form.message}
-                    onChange={set("message")}
-                  />
-                </div>
-                <motion.button
-                  type="submit"
-                  className="btn-primary"
-                  style={{ width: "100%", justifyContent: "center" }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Request callback <ArrowRight size={16} />
-                </motion.button>
-                <p className="form-note">Average response time: under 6 working hours. Prefer WhatsApp? <a href={waLink("Hi! I want a free pool quote.")} target="_blank" rel="noreferrer">Chat now</a>.</p>
-              </form>
-            )}
           </div>
         </Reveal>
       </div>

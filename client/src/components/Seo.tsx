@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 const SITE = "https://srvalavanenterprises.in";
+const DEFAULT_OG_IMAGE = `${SITE}/og-image.jpg`;
 
 function setMetaByName(name: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
@@ -45,10 +46,9 @@ export default function Seo({
     setMetaByProperty("og:type", "website");
     setMetaByName("twitter:title", title);
     setMetaByName("twitter:description", description);
-    if (image) {
-      setMetaByProperty("og:image", image);
-      setMetaByName("twitter:image", image);
-    }
+    const ogImage = image || DEFAULT_OG_IMAGE;
+    setMetaByProperty("og:image", ogImage);
+    setMetaByName("twitter:image", ogImage);
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");

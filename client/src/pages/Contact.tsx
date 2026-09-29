@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHero } from "../components/Layout";
 import { Reveal } from "../components/motion";
 import Seo from "../components/Seo";
-import { CONTACT, poolSizes, quoteServices } from "../data/content";
+import { CONTACT, IMG, poolSizes, quoteServices } from "../data/content";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,7 +25,7 @@ export default function ContactPage() {
     <main>
       <Seo
         title="Contact Us — Free Pool Site Visit in Chennai | SR Valavan Enterprises"
-        description="Call +91 98410 45670 or book a free swimming pool site visit in Chennai, Coimbatore, Madurai or Trichy. Estimate within 48 hours."
+        description="Call +91 78718 31029 or book a free swimming pool site visit in Chennai, Coimbatore, Madurai or Trichy. Estimate within 48 hours."
         path="/contact"
       />
       <PageHero
@@ -36,6 +36,8 @@ export default function ContactPage() {
           </>
         }
         lede="Call, WhatsApp, or leave your details — we will visit, measure and return a line-item estimate within 48 hours."
+        image={IMG.interior}
+        badge="48-HR ESTIMATE · FREE VISIT"
       />
       <section className="section" style={{ paddingTop: 80 }}>
         <div className="content-width">
