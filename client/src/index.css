@@ -476,3 +476,11 @@ body.night .story-hero-title em{color:var(--gold-soft)}
 @media(max-width:1536px){.hero-cta-block{left:calc(50% - 184px)}}
 @media(max-width:1080px){.hero-cta-block{left:24px;transform:none;text-align:left;top:auto;bottom:23vh}.hero-cta-block div{justify-content:flex-start}}
 
+
+/* hero carousel */
+.hero-shader{transition:opacity 1.4s ease}
+.hero-dots{position:absolute;right:34px;bottom:32vh;z-index:3;display:flex;flex-direction:column;gap:10px}
+.hero-dots button{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.6);padding:0;transition:all .3s}
+.hero-dots button.active{background:var(--gold-soft);border-color:var(--gold-soft);transform:scale(1.25)}
+@media(max-width:1080px){.hero-dots{right:20px;bottom:30vh}}
+

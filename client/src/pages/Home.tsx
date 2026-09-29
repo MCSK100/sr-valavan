@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight, Check, Plus, Star } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
@@ -8,6 +8,12 @@ import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useFanSpread, useTileR
 import { CONTACT, faqs, finishes, poolTypes, projects, services, steps, testimonials, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
+const heroSlides = [
+  { src: U("photo-1512917774080-9991f1c4c750", 3840), alt: "4K infinity-edge swimming pool at dusk" },
+  { src: U("photo-1613977257363-707ba9348227", 2560), alt: "Modern villa with mirror-calm pool" },
+  { src: U("photo-1540541338287-41700207dee6", 2560), alt: "Palm-fringed resort lagoon pool" },
+  { src: U("photo-1584132967334-10e028bd69f7", 2560), alt: "Luxury villa pool at golden hour" },
+];
 const media = {
   heroPool: U("photo-1512917774080-9991f1c4c750", 3840),
   infinity: U("photo-1613977257363-707ba9348227", 2400),
@@ -31,9 +37,30 @@ const typeImages = [media.infinity, media.villa, media.hotel, media.float];
 
 function Hero() {
   useTileReveal();
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setSlide((s) => (s + 1) % heroSlides.length), 6000);
+    return () => clearInterval(t);
+  }, []);
   return (
     <section className="hero" aria-label="SR Valavan hero">
-      <img className="hero-shader" src={media.heroPool} alt="4K infinity-edge swimming pool at dusk" fetchPriority="high" onError={handleImgError} />
+      {heroSlides.map((h, i) => (
+        <img
+          key={h.src}
+          className="hero-shader"
+          src={h.src}
+          alt={i === 0 ? h.alt : ""}
+          aria-hidden={i !== 0}
+          fetchPriority={i === 0 ? "high" : "low"}
+          onError={handleImgError}
+          style={{ opacity: slide === i ? 1 : 0, zIndex: slide === i ? 0 : -1 }}
+        />
+      ))}
+      <div className="hero-dots" role="tablist" aria-label="Hero images">
+        {heroSlides.map((h, i) => (
+          <button key={h.src} role="tab" aria-selected={slide === i} aria-label={`Show image ${i + 1}`} className={slide === i ? "active" : ""} onClick={() => setSlide(i)} />
+        ))}
+      </div>
       <div className="hero-noise" />
       <div className="hero-content">
         <div className="sun-group" aria-hidden><div className="sun-core" /></div>
