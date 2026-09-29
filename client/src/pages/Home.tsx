@@ -65,7 +65,8 @@ function Hero() {
         <div className="h-line multidisciplinary" aria-hidden><SplitLetters text="Your Dream Pool." /></div>
         <div className="h-line designer" aria-hidden><RollingWord words={["Built to Perfection.", "Built Around You.", "Built to Last."]} /></div>
         <div className="hero-cta-block">
-          <p>{companyBlurb}</p>
+          <p className="hero-blurb hero-blurb-long">{companyBlurb}</p>
+          <p className="hero-blurb hero-blurb-short">Custom pools, waterproofing &amp; renovation for homes, villas &amp; resorts across Tamil Nadu.</p>
           <div>
             <button onClick={openQuote} className="btn-primary">Get a Free Quote <ArrowRight size={15} /></button>
             <Link href="/gallery" className="btn-ghost" style={{ color: "#fff" }}><span className="play-ring"><ArrowUpRight size={15} /></span> View Our Projects</Link>
