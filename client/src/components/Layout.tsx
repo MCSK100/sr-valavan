@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Check, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, Facebook, Instagram, Menu, MessageCircle, Phone, X } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { CONTACT, IMG, quoteServices, waLink } from "../data/content";
@@ -260,6 +260,14 @@ function SiteFooter() {
           <p className="footer-sub">
             Swimming Pool Construction | Water Features | Renovation | Commercial &amp; Residential Projects
           </p>
+          <div className="footer-social">
+            <a href="https://www.facebook.com/share/1CEGdVDSAZ/" target="_blank" rel="noreferrer" aria-label="SR Valavan Enterprises on Facebook">
+              <Facebook size={18} />
+            </a>
+            <a href="https://www.instagram.com/sr_vallavan_enterprises?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" aria-label="SR Valavan Enterprises on Instagram">
+              <Instagram size={18} />
+            </a>
+          </div>
         </div>
         <div>
           <h5>Explore</h5>

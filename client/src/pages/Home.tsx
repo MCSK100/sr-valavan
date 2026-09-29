@@ -138,8 +138,12 @@ function Hero() {
 
   return (
     <section id="top" className="hero-split">
-      <div className="glow-orb glow-a" />
-      <div className="glow-orb glow-b" />
+      <div className="hero-media" aria-hidden>
+        <video autoPlay muted loop playsInline poster={media.hero}>
+          <source src="/herosec_video.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-shade" />
+      </div>
       <div className="content-width hero-split-grid">
         <div className="hero-split-copy">
           <motion.div
@@ -300,6 +304,9 @@ function Hero() {
           </div>
         </motion.div>
       </div>
+      <a href="#services" className="hero-cue" aria-label="Scroll to services">
+        Scroll <i />
+      </a>
     </section>
   );
 }
@@ -827,7 +834,7 @@ export default function Home() {
       />
       <Hero />
       <Marquee />
-      <WaveSep fill="var(--white)" />
+      <WaveSep fill="var(--water-1)" />
       <Stats />
       <Services />
       <WhyChoose />
