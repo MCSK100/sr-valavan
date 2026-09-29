@@ -37,7 +37,7 @@ const typeImages = [media.infinity, media.villa, media.lagoon, media.vanishing];
 function Hero() {
   useTileReveal();
   return (
-    <section className="hero" aria-label="SR Valavan hero">
+    <section className="hero" aria-label="SR Vallavan hero">
       <video
         className="hero-video"
         autoPlay

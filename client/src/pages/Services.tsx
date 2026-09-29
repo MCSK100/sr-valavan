@@ -16,7 +16,7 @@ export default function ServicesPage() {
   return (
     <main>
       <Seo
-        title="Complete Swimming Pool Solutions | SR Valavan Enterprises"
+        title="Complete Swimming Pool Solutions | SR Vallavan Enterprises"
         description="Custom pools, infinity & overflow pools, residential and commercial pools, water features, renovation and filtration — designed for your space, built for your lifestyle."
         path="/services"
         jsonLd={{

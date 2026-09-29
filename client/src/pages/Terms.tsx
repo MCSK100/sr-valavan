@@ -7,8 +7,8 @@ export default function TermsPage() {
   return (
     <main>
       <Seo
-        title="Terms of Service | SR Valavan Enterprises"
-        description="Terms governing estimates, pool construction contracts, warranties and maintenance services by SR Valavan Enterprises."
+        title="Terms of Service | SR Vallavan Enterprises"
+        description="Terms governing estimates, pool construction contracts, warranties and maintenance services by SR Vallavan Enterprises."
         path="/terms"
       />
       <PageHero
@@ -20,7 +20,7 @@ export default function TermsPage() {
         }
         lede="The working rules behind our estimates, builds and care plans. Last updated September 2026."
         images={pageHeroSlides.legal}
-        badge="SR VALAVAN · TAMIL NADU"
+        badge="SR VALLAVAN · TAMIL NADU"
       />
       <section className="section" style={{ paddingTop: 70 }}>
         <div className="content-width prose">

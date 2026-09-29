@@ -17,8 +17,8 @@ function useNight() {
 
 export function Brand() {
   return (
-    <Link className="brand" href="/" aria-label="SR Valavan Enterprises home">
-      <img src="/srv-logo-updated.png" alt="SR Valavan Enterprises — Swimming Pool Construction" className="brand-logo" />
+    <Link className="brand" href="/" aria-label="SR Vallavan Enterprises home">
+      <img src="/srv-logo-updated.png" alt="SR Vallavan Enterprises — Swimming Pool Construction" className="brand-logo" />
     </Link>
   );
 }
@@ -85,7 +85,7 @@ function MenuOverlay({ onClose }: { onClose: () => void }) {
         ))}
       </div>
       <div className="mobile-menu-foot">
-        <span>SR VALAVAN · COIMBATORE → CHENNAI</span>
+        <span>SR VALLAVAN · COIMBATORE → CHENNAI</span>
         <a href={CONTACT.phoneHref}>{CONTACT.phoneDisplay}</a>
       </div>
     </motion.div>
@@ -154,13 +154,13 @@ function WhatsAppWidget() {
         <motion.div className="wa-card" initial={{ opacity: 0, y: 18, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }}>
           <div className="wa-head">
             <div className="t-avatar" style={{ background: "#fff", color: "#075e54" }}>SR</div>
-            <div><b>SR Valavan</b><div style={{ fontSize: 11, opacity: 0.9 }}>Online · replies within an hour</div></div>
+            <div><b>SR Vallavan</b><div style={{ fontSize: 11, opacity: 0.9 }}>Online · replies within an hour</div></div>
             <button style={{ marginLeft: "auto" }} onClick={() => setOpen(false)} aria-label="Close chat"><X size={18} /></button>
           </div>
           <div className="wa-body">
             <div className="wa-msg">Hi! Pool, spa or fountain? Tap below — we reply fast with cost + site-visit slot.</div>
           </div>
-          <a className="wa-cta" href={waLink("Hi SR Valavan! I want a free pool quote.")} target="_blank" rel="noreferrer">
+          <a className="wa-cta" href={waLink("Hi SR Vallavan! I want a free pool quote.")} target="_blank" rel="noreferrer">
             <MessageCircle size={18} /> Start WhatsApp chat
           </a>
         </motion.div>
@@ -217,7 +217,7 @@ function SiteFooter() {
         </div>
       </div>
       <div className="content-width footer-bottom">
-        <span>© {new Date().getFullYear()} SR Valavan Enterprises · Design / Details / Dive</span>
+        <span>© {new Date().getFullYear()} SR Vallavan Enterprises · Design / Details / Dive</span>
         <span style={{ display: "inline-flex", gap: 8, alignItems: "center" }}><Phone size={12} /> {CONTACT.phoneDisplay}</span>
       </div>
     </footer>
@@ -276,7 +276,7 @@ export function PageHero({ marker, title, lede, image, images, badge }: { marker
                 ))}
               </div>
             )}
-            <span>{badge ?? "SR VALAVAN · TAMIL NADU"}</span>
+            <span>{badge ?? "SR VALLAVAN · TAMIL NADU"}</span>
           </div>
         </Reveal>
       </div>

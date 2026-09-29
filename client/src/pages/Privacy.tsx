@@ -7,8 +7,8 @@ export default function PrivacyPage() {
   return (
     <main>
       <Seo
-        title="Privacy Policy | SR Valavan Enterprises"
-        description="How SR Valavan Enterprises collects, uses and protects your personal information when you enquire about our pool services."
+        title="Privacy Policy | SR Vallavan Enterprises"
+        description="How SR Vallavan Enterprises collects, uses and protects your personal information when you enquire about our pool services."
         path="/privacy-policy"
       />
       <PageHero
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
         }
         lede="Plain words on what we collect and why. Last updated September 2026."
         images={pageHeroSlides.legal}
-        badge="SR VALAVAN · TAMIL NADU"
+        badge="SR VALLAVAN · TAMIL NADU"
       />
       <section className="section" style={{ paddingTop: 70 }}>
         <div className="content-width prose">

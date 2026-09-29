@@ -22,7 +22,7 @@ export default function ContactPage() {
   return (
     <main>
       <Seo
-        title="Contact Us — Free Pool Site Visit | SR Valavan Enterprises"
+        title="Contact Us — Free Pool Site Visit | SR Vallavan Enterprises"
         description="Call +91 78718 31029 or book a free swimming pool site visit in Chennai, Coimbatore, Madurai or Trichy. Estimate within 48 hours."
         path="/contact"
       />
@@ -112,7 +112,7 @@ export default function ContactPage() {
                 <h3 className="map-title" style={{ fontFamily: "var(--serif)", fontWeight: 400, fontSize: 26 }}>Find the studio</h3>
                 <p className="map-sub">17/27 Bharathi Nagar, Kuniyamuthur, Coimbatore 641008.</p>
                 <div className="map-frame">
-                  <iframe title="SR Valavan Enterprises on the map" src="https://www.google.com/maps?q=Bharathi+Nagar,+Kuniyamuthur,+Coimbatore+641008&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                  <iframe title="SR Vallavan Enterprises on the map" src="https://www.google.com/maps?q=Bharathi+Nagar,+Kuniyamuthur,+Coimbatore+641008&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                 </div>
               </div>
             </Reveal>

@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @custom-variant dark (&:is(.dark *));
 
-/* ===== SR VALAVAN x STORYBOOK THEME (inspired by zainabkabira.com) ===== */
+/* ===== SR VALLAVAN x STORYBOOK THEME (inspired by zainabkabira.com) ===== */
 :root {
   --cream: #fff9f1;
   --cream-2: #fef2e2;

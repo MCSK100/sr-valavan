@@ -21,8 +21,8 @@ export default function GalleryPage() {
   return (
     <main>
       <Seo
-        title="Swimming Pool Gallery — Infinity, Family & Plunge Pools | SR Valavan Enterprises"
-        description="Browse infinity edges, family pools, terrace plunges, commercial pools and spa features designed, built and maintained by SR Valavan Enterprises across Tamil Nadu."
+        title="Swimming Pool Gallery — Infinity, Family & Plunge Pools | SR Vallavan Enterprises"
+        description="Browse infinity edges, family pools, terrace plunges, commercial pools and spa features designed, built and maintained by SR Vallavan Enterprises across Tamil Nadu."
         path="/gallery"
       />
       <PageHero

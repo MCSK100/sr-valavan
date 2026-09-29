@@ -15,7 +15,7 @@ import {
   type ReactNode,
 } from "react";
 
-export const FALLBACK_IMG = "https://picsum.photos/seed/srvalavan-pool/1600/1000";
+export const FALLBACK_IMG = "https://picsum.photos/seed/srvallavan-pool/1600/1000";
 
 export function handleImgError(e: React.SyntheticEvent<HTMLImageElement>) {
   const t = e.currentTarget;

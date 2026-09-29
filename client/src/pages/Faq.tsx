@@ -11,7 +11,7 @@ export default function FaqPage() {
   return (
     <main>
       <Seo
-        title="Swimming Pool FAQs — Cost, Timeline, Maintenance | SR Valavan Enterprises"
+        title="Swimming Pool FAQs — Cost, Timeline, Maintenance | SR Vallavan Enterprises"
         description="How much does a pool cost in Chennai? How long to build? Salt vs chlorine? Answers from 6 years of pool building."
         path="/faq"
         jsonLd={{

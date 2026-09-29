@@ -23,14 +23,14 @@ export default function AboutPage() {
   return (
     <main>
       <Seo
-        title="About Us — Design / Details / Dive | SR Valavan Enterprises"
+        title="About Us — Design / Details / Dive | SR Vallavan Enterprises"
         description="Civil builders turned pool craftsmen — 120+ pools across Tamil Nadu. Shell, hydraulics and finish resolved as one drawing."
         path="/about"
       />
       <PageHero
         marker="About the studio"
         title={<>We trained as builders. Now we craft <em>water.</em></>}
-        lede="SR Valavan Enterprises is a pool studio, not a contractor — 6+ years across villas, resorts and rooftops, with a structural way of thinking most builders don't bring to water."
+        lede="SR Vallavan Enterprises is a pool studio, not a contractor — 6+ years across villas, resorts and rooftops, with a structural way of thinking most builders don't bring to water."
         image={IMG.villa}
         images={pageHeroSlides.about}
         badge="THE STUDIO · SINCE 2021"
