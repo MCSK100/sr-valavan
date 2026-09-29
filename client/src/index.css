@@ -343,6 +343,8 @@ body.night .sec-title em { color: var(--gold-soft); }
   .hero { height: auto; min-height: 100svh; }
   .hero-content { position: relative; inset: auto; padding: 120px 20px 64px; }
   .hero-cta-block { position: static; left: auto; transform: none; margin-top: 26px; }
+  .hero-cta-block > div { flex-direction: column; align-items: stretch; }
+  .hero-cta-block > div > * { width: 100%; justify-content: center; }
   .brand-logo { height: 48px; max-width: 210px; }
   .mobile-trigger { display: block; padding: 8px; }
   .nav-cta { display: none; }
