@@ -452,7 +452,7 @@ function ServiceArea() {
       <div className="content-width" style={{ textAlign: "center" }}>
         <Reveal>
           <div className="sec-marker" style={{ justifyContent: "center" }}>08 · Where we build</div>
-          <h2 className="sec-title" style={{ marginInline: "auto" }}>Building pools across <em>Coimbatore & Tamil Nadu.</em></h2>
+          <h2 className="sec-title" style={{ marginInline: "auto" }}>Building pools across <em>Tamil Nadu.</em></h2>
           <p className="sec-lede" style={{ marginInline: "auto" }}>From private homes and villas to resorts and commercial properties — swimming pool construction solutions tailored to each project.</p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -524,7 +524,7 @@ function Contact() {
 export default function Home() {
   return (
     <main>
-      <Seo title="SR Vallavan Enterprises — Your Dream Pool. Built to Perfection." description="Custom swimming pool design & construction for homes, villas, resorts and commercial spaces across Coimbatore & Tamil Nadu. Get a free quote." path="/" />
+      <Seo title="SR Vallavan Enterprises — Your Dream Pool. Built to Perfection." description="Custom swimming pool design & construction for homes, villas, resorts and commercial spaces across Tamil Nadu. Get a free quote." path="/" />
       <Hero />
       <Intro />
       <AboutStory />
