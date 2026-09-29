@@ -14,16 +14,16 @@ export function SplitLetters({ text }: { text: string }) {
 }
 
 /* Rotating word under hero */
-const WORDS = ["Backyards.", "Villas.", "Resorts.", "Rooftops.", "Farmhouses."];
-export function RollingWord() {
+const DEFAULT_WORDS = ["Backyards.", "Villas.", "Resorts.", "Rooftops.", "Farmhouses."];
+export function RollingWord({ words = DEFAULT_WORDS }: { words?: string[] }) {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setIdx((i) => (i + 1) % WORDS.length), 2200);
+    const t = setInterval(() => setIdx((i) => (i + 1) % words.length), 2200);
     return () => clearInterval(t);
-  }, []);
+  }, [words.length]);
   return (
     <span className="roll" style={{ transform: `translateY(-${idx * 1.2}em)`, transition: "transform .7s cubic-bezier(.22,1,.36,1)" }}>
-      {WORDS.map((w) => (
+      {words.map((w) => (
         <span key={w} className="roll-word">
           <SplitLetters text={w} />
         </span>

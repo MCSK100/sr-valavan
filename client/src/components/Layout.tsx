@@ -179,7 +179,7 @@ function SiteFooter() {
         <div>
           <Brand />
           <p style={{ maxWidth: 34, display: "contents" }} />
-          <p style={{ maxWidth: "34ch", fontSize: 14, lineHeight: 1.75, opacity: 0.65 }}>Design / Details / Dive — pools, spas & fountains engineered as one drawing across Tamil Nadu.</p>
+          <p style={{ maxWidth: "34ch", fontSize: 14, lineHeight: 1.75, opacity: 0.65 }}>Creating beautiful swimming spaces, built around your vision.</p>
           <div style={{ display: "flex", gap: 10, marginTop: 18 }}>
             <a href="https://www.facebook.com/share/1CEGdVDSAZ/" target="_blank" rel="noreferrer" aria-label="Facebook" style={{ width: 42, height: 42, borderRadius: "50%", border: "1px solid rgba(255,255,255,.3)", display: "grid", placeItems: "center" }}><Facebook size={18} /></a>
             <a href="https://www.instagram.com/sr_vallavan_enterprises" target="_blank" rel="noreferrer" aria-label="Instagram" style={{ width: 42, height: 42, borderRadius: "50%", border: "1px solid rgba(255,255,255,.3)", display: "grid", placeItems: "center" }}><Instagram size={18} /></a>
@@ -189,19 +189,21 @@ function SiteFooter() {
           <h5>Explore</h5>
           <ul>
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/about">About</Link></li>
+            <li><Link href="/about">About Us</Link></li>
             <li><Link href="/services">Services</Link></li>
-            <li><Link href="/gallery">Work</Link></li>
+            <li><Link href="/gallery">Projects</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
         <div>
-          <h5>Pools</h5>
+          <h5>Services</h5>
           <ul>
-            <li><Link href="/services">Infinity & overflow</Link></li>
-            <li><Link href="/services">Villa & plunge</Link></li>
-            <li><Link href="/services">Resort & commercial</Link></li>
-            <li><Link href="/services">Spa & fountains</Link></li>
+            <li><Link href="/services">Swimming Pool Construction</Link></li>
+            <li><Link href="/services">Custom Pool Design</Link></li>
+            <li><Link href="/services">Residential Pools</Link></li>
+            <li><Link href="/services">Commercial Pools</Link></li>
+            <li><Link href="/services">Pool Renovation</Link></li>
+            <li><Link href="/services">Pool Equipment</Link></li>
           </ul>
         </div>
         <div>

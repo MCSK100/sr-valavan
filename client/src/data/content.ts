@@ -49,28 +49,20 @@ export const quoteServices = [
 
 export const poolTypes = [
   {
-    name: "Luxury Villa Pools",
-    desc: "Elegant swimming spaces designed to complement premium homes.",
-  },
-  {
     name: "Infinity Pools",
-    desc: "Modern designs that create a stunning visual connection between water and surroundings.",
+    desc: "Contemporary designs that create a seamless connection between water and the surrounding landscape.",
   },
   {
-    name: "Overflow Pools",
-    desc: "Sophisticated pool designs where water flows beautifully over the pool edges.",
+    name: "Family Pools",
+    desc: "Comfortable and practical swimming spaces designed for everyday enjoyment.",
   },
   {
-    name: "Rooftop Pools",
-    desc: "Make the most of your rooftop with a carefully planned private pool experience.",
+    name: "Luxury Pools",
+    desc: "Premium designs that turn your property into a sophisticated private retreat.",
   },
   {
-    name: "Resort & Hotel Pools",
-    desc: "Large-scale swimming environments designed for hospitality and commercial spaces.",
-  },
-  {
-    name: "Custom Pools",
-    desc: "Have something unique in mind? Let's create a pool designed specifically for you.",
+    name: "Compact Pools",
+    desc: "Smart pool solutions designed to make the most of smaller spaces.",
   },
 ];
 
@@ -85,8 +77,8 @@ export interface Service {
 export const services: Service[] = [
   {
     icon: Waves,
-    title: "Custom Swimming Pool Construction",
-    copy: "Beautifully designed pools built around your space, requirements and lifestyle.",
+    title: "Custom Swimming Pools",
+    copy: "Bespoke swimming pool designs created around your available space, lifestyle and vision.",
     tags: ["Custom design", "Villas", "End-to-end build"],
     details: [
       "Pool concept tailored to your space, architecture and lifestyle",
@@ -97,8 +89,8 @@ export const services: Service[] = [
   },
   {
     icon: Sparkles,
-    title: "Infinity & Overflow Pools",
-    copy: "Create a breathtaking visual experience with modern infinity and overflow pool designs.",
+    title: "Infinity Pools",
+    copy: "Add a striking architectural element to your property with a beautifully designed infinity-edge pool.",
     tags: ["Infinity", "Overflow edges", "Modern design"],
     details: [
       "Stunning visual connection between water and surroundings",
@@ -109,8 +101,8 @@ export const services: Service[] = [
   },
   {
     icon: Building2,
-    title: "Residential Swimming Pools",
-    copy: "Transform your backyard, villa or farmhouse into your own private luxury retreat.",
+    title: "Residential Pools",
+    copy: "Create your own private retreat with a stylish swimming pool designed for homes, villas and farmhouses.",
     tags: ["Backyards", "Villas", "Farmhouses"],
     details: [
       "Private pools designed for homes and villas",
@@ -122,7 +114,7 @@ export const services: Service[] = [
   {
     icon: Compass,
     title: "Commercial & Resort Pools",
-    copy: "Professional pool solutions designed for hotels, resorts, apartments, clubs and commercial properties.",
+    copy: "Professional pool construction solutions for hotels, resorts, apartments, clubs and commercial spaces.",
     tags: ["Hotels", "Resorts", "Apartments & clubs"],
     details: [
       "Large-scale swimming environments for hospitality spaces",
@@ -145,8 +137,8 @@ export const services: Service[] = [
   },
   {
     icon: RefreshCcw,
-    title: "Pool Renovation & Upgrades",
-    copy: "Give your existing pool a fresh new look with renovation, finishing and system upgrades.",
+    title: "Pool Renovation",
+    copy: "Give an existing pool a fresh new look with renovation, upgrades, finishing and improvement work.",
     tags: ["Renovation", "Re-finishing", "System upgrades"],
     details: [
       "Fresh new look for ageing pools",
@@ -157,8 +149,8 @@ export const services: Service[] = [
   },
   {
     icon: Wrench,
-    title: "Pool Filtration & Equipment",
-    copy: "Reliable filtration, circulation and supporting equipment for cleaner, healthier pool water.",
+    title: "Pool Equipment & Filtration",
+    copy: "Reliable filtration, circulation and pool equipment solutions for cleaner water and efficient pool operation.",
     tags: ["Filtration", "Circulation", "Equipment"],
     details: [
       "Filtration planned for cleaner, healthier water",
@@ -259,14 +251,12 @@ export interface Step {
 }
 
 export const steps: Step[] = [
-  { icon: ClipboardCheck, title: "Site Inspection & Planning", copy: "We visit your site, understand your space and plan the best design as per your needs." },
-  { icon: Hammer, title: "Excavation", copy: "Precision digging with proper leveling and measurement." },
-  { icon: Layers, title: "Steel Fixing", copy: "High-quality steel structure for long-lasting strength and durability." },
-  { icon: Box, title: "Shuttering & Concreting", copy: "Strong foundation with premium grade concrete." },
-  { icon: Droplets, title: "Waterproofing", copy: "Leak-proof finishing for a hassle-free experience." },
-  { icon: Palette, title: "Tiling", copy: "Premium tiles for a stylish and long-lasting look." },
-  { icon: Settings, title: "Filtration & Equipment Setup", copy: "Clean, safe and crystal clear water with the right systems." },
-  { icon: PartyPopper, title: "Final Touch & Handover", copy: "Testing, cleaning and ready for you to make a splash!" },
+  { icon: ClipboardCheck, title: "Consultation", copy: "Tell us about your property, requirements and vision." },
+  { icon: Compass, title: "Site Assessment", copy: "We understand your available space and project requirements." },
+  { icon: PencilRuler, title: "Design", copy: "A pool concept is developed around your space and preferences." },
+  { icon: Hammer, title: "Construction", copy: "Our team brings the approved design to life with professional execution." },
+  { icon: Palette, title: "Finishing", copy: "Tiles, edges, equipment, lighting and finishing details complete your pool." },
+  { icon: PartyPopper, title: "Handover", copy: "Your new swimming pool is ready to enjoy." },
 ];
 
 export interface WhyPoint {
@@ -276,12 +266,12 @@ export interface WhyPoint {
 }
 
 export const whyChooseUs: WhyPoint[] = [
-  { icon: ShieldCheck, title: "Strong & Durable Construction", copy: "High-quality steel structure and premium grade concrete for long-lasting strength." },
-  { icon: Droplets, title: "Leak Proof Guarantee", copy: "Leak-proof waterproofing and finishing for a hassle-free pool experience." },
-  { icon: Award, title: "Premium Quality Materials", copy: "Premium tiles, fittings and systems — stylish, durable and built to last." },
-  { icon: Users, title: "Experienced Team", copy: "A skilled crew that plans, builds and finishes your pool with care at every stage." },
-  { icon: Timer, title: "On-Time Completion", copy: "Planned execution with clear stages — from site inspection to handover, on schedule." },
-  { icon: IndianRupee, title: "Affordable Pricing", copy: "Practical solutions based on your space, expectations and budget. No surprises." },
+  { icon: PencilRuler, title: "Custom Design", copy: "Every property is different. We create pool designs that suit your space, requirements and style." },
+  { icon: ShieldCheck, title: "Quality Construction", copy: "We focus on strong construction, proper finishing and attention to every stage of the project." },
+  { icon: Users, title: "Professional Execution", copy: "From planning to completion, we maintain a structured approach to keep your project moving smoothly." },
+  { icon: BadgeCheck, title: "Transparent Approach", copy: "Clear communication and straightforward project discussions from the beginning." },
+  { icon: Sparkles, title: "Detail-Oriented Finishing", copy: "From pool shape and tiles to steps, lighting and finishing touches, every detail matters." },
+  { icon: Phone, title: "Customer Focus", copy: "Your requirements come first. We work closely with you to bring your vision to life." },
 ];
 
 export interface Testimonial {
@@ -343,48 +333,28 @@ export interface Faq {
 
 export const faqs: Faq[] = [
   {
-    q: "How much does a swimming pool cost in Chennai?",
-    a: "A compact plunge pool starts around ₹8–10 lakh, a family skimmer pool around ₹14–20 lakh, and a vanishing-edge infinity pool ₹25 lakh and above — equipment and finish included. Readymade FRP pools for home are often more affordable and faster. We give a line-item estimate after a free site visit, so you see exactly where every rupee goes.",
+    q: "How much does a swimming pool cost?",
+    a: "Pool cost depends on the size, design, construction method, depth, materials, finishing and equipment selected. Contact us for a project-specific quotation.",
   },
   {
-    q: "How are swimming pools constructed?",
-    a: "Traditional in-ground pools use RCC shells with waterproofing and tiling (6–8 weeks). Readymade FRP / fibreglass pools arrive factory-finished and are craned into a prepared pit or terrace frame in days. We recommend the method that suits your soil, load and timeline after a site study.",
+    q: "Can you design a pool according to my available space?",
+    a: "Yes. We can plan a swimming pool around the available space and your requirements.",
   },
   {
-    q: "Is a pool worth the money?",
-    a: "Yes — a well-built pool lifts property value and daily life, especially for villas, farmhouses and resorts. Salt systems and variable-speed pumps keep running costs low, and a readymade pool for home keeps the upfront cost controlled while delivering the same lifestyle upgrade.",
+    q: "Do you build residential swimming pools?",
+    a: "Yes. We provide swimming pool construction solutions for homes, villas and private properties.",
   },
   {
-    q: "How long does construction take?",
-    a: "A standard residential pool takes 6–8 weeks from excavation to first fill: 1 week civil, 2 weeks shell and waterproofing, 2 weeks tiling and coping, 1–2 weeks equipment, testing and balancing. Readymade FRP installs finish in 7–12 days. Renovations typically finish in 2–3 weeks.",
+    q: "Do you construct commercial swimming pools?",
+    a: "Yes. We can work on suitable commercial, resort, hospitality and other larger-scale pool projects.",
   },
   {
-    q: "What maintenance does a pool need?",
-    a: "Very little, if it is built right. Daily skimming, weekly vacuuming and filter checks, plus balanced chemistry. Our AMC plans cover all of it with a visit every week and a water-health report on WhatsApp. Salt-chlorinated pools cut chemical handling to near zero.",
+    q: "Can an existing swimming pool be renovated?",
+    a: "Depending on its condition, an existing pool can be renovated, upgraded or redesigned.",
   },
   {
-    q: "What chemicals are needed, and how often should I clean?",
-    a: "Chlorine (or salt-generated chlorine), pH stabilisers, alkalinity balancers, algaecide and a test kit. Skim daily, vacuum weekly and deep-clean tiles seasonally. We hand over a chemical guide at handover, and AMC members never touch a drum — we dose and log everything.",
-  },
-  {
-    q: "Salt water, chlorine or UV — which is best?",
-    a: "For homes we recommend salt chlorination with UV assist: gentle on skin and eyes, no chlorine smell, and lower running cost. Commercial pools get automated liquid dosing for precise control at high bather loads.",
-  },
-  {
-    q: "What is an FRP / readymade swimming pool? Can it crack?",
-    a: "FRP (fibreglass-reinforced plastic) pools are strong, waterproof factory shells — quick to install and ideal for terraces. They flex slightly with soil movement, so cracks are rare when installed by a certified builder on a proper base. We warranty both shell and installation in writing.",
-  },
-  {
-    q: "Can a readymade pool be customised to fit my space?",
-    a: "Absolutely — shape, size, steps, benches, colour and finish can be tailored for backyards, rooftops and even terrace pools. Share your plot sketch on WhatsApp and we will propose two fitting options with pricing within 48 hours.",
-  },
-  {
-    q: "What is a Jacuzzi pool? Can you add a waterfall later?",
-    a: "A Jacuzzi is a heated hydrotherapy pool with massage jets — often paired with a main pool. And yes, waterfalls, deck jets, LED lighting and heating can be retrofitted to existing pools without breaking tile in most cases. Ask us for an upgrade estimate with tile and pump implications listed.",
-  },
-  {
-    q: "Do you give warranty and after-service?",
-    a: "Yes — 10 years on waterproofing, 5 years on structure, 1–2 years on equipment (as per manufacturer), all in writing. Every project can move onto an annual care plan with priority breakdown visits and no lock-in contracts.",
+    q: "How do I get a quotation?",
+    a: "Contact our team and share your location, approximate space and requirements. We can discuss your project and guide you through the next steps.",
   },
 ];
 

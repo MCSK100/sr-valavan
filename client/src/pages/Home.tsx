@@ -5,7 +5,7 @@ import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
 import { DiskPlayer, FloatFly, RollingWord, SplitLetters, useFanSpread, useTileReveal } from "../components/story";
-import { CONTACT, faqs, finishes, galleryItems, poolTypes, projects, services, steps, testimonials, waLink, whyChooseUs } from "../data/content";
+import { CONTACT, faqs, finishes, poolTypes, projects, services, steps, testimonials, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 const media = {
@@ -27,7 +27,7 @@ const media = {
 };
 
 const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.float, media.evening, media.mosaic];
-const typeImages = [media.villa, media.infinity, media.vanishing, media.dusk, media.hotel, media.float];
+const typeImages = [media.infinity, media.villa, media.hotel, media.float];
 
 function Hero() {
   useTileReveal();
@@ -39,16 +39,23 @@ function Hero() {
         <div className="sun-group" aria-hidden><div className="sun-core" /></div>
         <div className="hero-cloud cloud-a" />
         <div className="hero-cloud cloud-b" />
-        <p className="hero-eyebrow"><i /> Hello, we&apos;re SR Valavan · Pools in Tamil Nadu</p>
-        <span className="hero-vertical">DESIGN / DETAILS / DIVE — EST. COIMBATORE</span>
+        <p className="hero-eyebrow"><i /> Swimming pool design & construction</p>
+        <span className="hero-vertical">YOUR SPACE · YOUR POOL · YOUR ESCAPE</span>
         <h1 style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>
-          SR Valavan Enterprises — swimming pool construction in Tamil Nadu
+          SR Vallavan Enterprises — Your Dream Pool. Built to Perfection.
         </h1>
-        <div className="h-line multidisciplinary" aria-hidden><SplitLetters text="Swimming pools" /></div>
-        <div className="h-line designer" aria-hidden><RollingWord /></div>
+        <div className="h-line multidisciplinary" aria-hidden><SplitLetters text="Your Dream Pool." /></div>
+        <div className="h-line designer" aria-hidden><RollingWord words={["Built to Perfection.", "Built Around You.", "Built to Last."]} /></div>
         <DiskPlayer />
+        <div className="hero-cta-block">
+          <p>Transform your space into a place to relax, refresh and reconnect — custom residential pools to elegant commercial projects, made for your lifestyle.</p>
+          <div>
+            <button onClick={openQuote} className="btn-primary">Get a Free Quote <ArrowRight size={15} /></button>
+            <Link href="/gallery" className="btn-ghost" style={{ color: "#fff" }}><span className="play-ring"><ArrowUpRight size={15} /></span> View Our Projects</Link>
+          </div>
+          <span>Custom Designs • Quality Construction • Professional Workmanship</span>
+        </div>
       </div>
-      <img className="hero-pool-img" src={media.infinity} alt="Infinity pool built by SR Valavan" onError={handleImgError} />
     </section>
   );
 }
@@ -58,10 +65,17 @@ function Intro() {
     <section className="projects" id="story">
       <div className="sky-band" aria-hidden />
       <p className="intro-copy">
-        Six years across villas, resorts and rooftops — designing what&apos;s next, from a 14-metre
-        vanishing edge on ECR to silent salt-water plunge courts in Coimbatore.
-        <span className="bold">We believe every great pool is the start of an even greater summer — and we&apos;re here to keep building yours.</span>
+        More than a swimming pool. <em style={{ fontStyle: "italic", color: "var(--pool)" }}>We build your space to enjoy.</em>
+        <span className="bold">Thoughtful design · Quality construction · Attention to detail — from concept to final finish.</span>
       </p>
+      <div className="content-width" style={{ maxWidth: 720, margin: "34px auto 0", textAlign: "center" }}>
+        <p style={{ color: "var(--ink-soft)", lineHeight: 1.85, margin: "0 auto", maxWidth: "62ch" }}>
+          A well-designed swimming pool can transform an ordinary space into your own private escape.
+          From the initial concept to the final finish, we focus on delivering a pool that looks beautiful,
+          performs reliably and fits your requirements.
+        </p>
+        <button onClick={openQuote} className="link-arrow" style={{ marginTop: 26 }}>Let&apos;s Build Your Pool <ArrowRight size={14} /></button>
+      </div>
     </section>
   );
 }
@@ -75,12 +89,15 @@ function FeaturedWork() {
     <section className="featured-work" id="featured">
       <div id="plane-host" style={{ position: "relative" }}>
         <FloatFly containerId="plane-host" />
-        <h2 className="featured-heading">Work splashing across Tamil Nadu</h2>
-        <div className="logo-marquee-wrap" aria-label="Service areas">
+        <h2 className="featured-heading">Pools we&apos;ve built. <em style={{ fontStyle: "italic" }}>Spaces we&apos;ve transformed.</em></h2>
+        <p style={{ textAlign: "center", color: "var(--ink-soft)", maxWidth: "60ch", margin: "0 auto 30px", lineHeight: 1.75, padding: "0 24px" }}>
+          Explore our completed swimming pool projects and discover the quality, creativity and craftsmanship behind every build.
+        </p>
+        <div className="logo-marquee-wrap" aria-label="Project categories">
           <div className="logo-marquee-inner">
             {[0, 1].map((dup) => (
               <span key={dup} style={{ display: "flex", gap: 56 }}>
-                {["Infinity pools", "Villa plunges", "Resort lagoons", "Rooftop dips", "Spas & Jacuzzi", "Fountains"].map((w) => (
+                {["Residential Pools", "Villa Pools", "Farmhouse Pools", "Infinity Pools", "Commercial Pools", "Resort Pools", "Renovation Projects"].map((w) => (
                   <span key={`${dup}-${w}`} className="client-logo"><i>✦</i> {w}</span>
                 ))}
               </span>
@@ -108,6 +125,25 @@ function FeaturedWork() {
             </div>
           ))}
         </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Link href="/gallery" className="tile-cta" style={{ margin: "34px auto 0" }}>Explore Our Projects <ArrowUpRight size={14} /></Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PremiumImage() {
+  return (
+    <section className="premium-band" aria-label="Imagine your pool">
+      <img src={media.evening} alt="Luxury swimming pool at dusk" loading="lazy" onError={handleImgError} />
+      <div className="premium-wash" />
+      <div className="content-width premium-caption">
+        <Reveal>
+          <h2>Imagine It. Design It. <em>Dive Into It.</em></h2>
+          <p>Your perfect pool is closer than you think.</p>
+          <button onClick={openQuote} className="btn-primary" style={{ marginTop: 22 }}>Start Your Pool Project <ArrowRight size={15} /></button>
+        </Reveal>
       </div>
     </section>
   );
@@ -243,8 +279,8 @@ function ServicesStrip() {
     <section className="section" id="services">
       <div className="content-width">
         <Reveal><div className="sec-marker">04 · What we do</div>
-          <h2 className="sec-title">Complete pool <em>solutions.</em></h2>
-          <p className="sec-lede">Custom pools, infinity edges, plunge courts, spas, fountains, renovation, filtration + AMC — planned around your plot and lifestyle.</p>
+          <h2 className="sec-title">Complete Swimming Pool <em>Solutions.</em></h2>
+          <p className="sec-lede">Designed around your space. Built around your needs.</p>
         </Reveal>
         <div className="svc-grid">
           {services.map((s, i) => (
@@ -270,13 +306,28 @@ function ServicesStrip() {
   );
 }
 
+function Statement() {
+  return (
+    <section className="statement-band" aria-label="Our promise">
+      <div className="content-width">
+        <Reveal>
+          <p className="statement-kicker">Every pool begins with an idea</p>
+          <h2>Designed to Impress. <em>Built to Last.</em></h2>
+          <p>We turn that idea into a space you&apos;ll love coming back to.</p>
+          <div><span>Design</span><i>→</i><span>Construction</span><i>→</i><span>Finishing</span><i>→</i><span>Final Handover</span></div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function PoolTypes() {
   return (
     <section className="section" id="pool-types" style={{ paddingTop: 20 }}>
       <div className="content-width">
-        <Reveal><div className="sec-marker">05 · Pool types</div>
-          <h2 className="sec-title">A pool that matches <em>your plot.</em></h2>
-          <p className="sec-lede">Villa pools, infinity edges, overflows, rooftops, resorts and fully custom concepts.</p>
+        <Reveal><div className="sec-marker">05 · Pool designs</div>
+          <h2 className="sec-title">Find the pool that fits <em>your vision.</em></h2>
+          <p className="sec-lede">Modern. Elegant. Personal.</p>
         </Reveal>
         <div className="type-img-grid">
           {poolTypes.map((t, i) => (
@@ -293,37 +344,13 @@ function PoolTypes() {
   );
 }
 
-function FilmBand() {
-  const [ok, setOk] = useState(true);
-  return (
-    <section className="film-band" aria-label="On-site pool film">
-      {ok ? (
-        <video autoPlay muted loop playsInline poster={media.resort} onError={() => setOk(false)}>
-          <source src="/herosec_video.mp4" type="video/mp4" />
-        </video>
-      ) : (
-        <img src={media.resort} alt="Resort pool lined with palms" onError={handleImgError} />
-      )}
-      <div className="film-wash" />
-      <div className="content-width film-caption">
-        <Reveal>
-          <p className="film-kicker">Shot on our sites · Tamil Nadu</p>
-          <h2>An empty backyard. A rooftop. <em>A resort.</em></h2>
-          <p className="film-sub">All it takes is the right design and the right crew. Let&apos;s build your dream pool.</p>
-          <button onClick={openQuote} className="btn-primary" style={{ marginTop: 22 }}>Start your project <ArrowRight size={15} /></button>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function WhyChoose() {
   return (
     <section className="section" id="why-us">
       <div className="content-width">
         <Reveal><div className="sec-marker">06 · Why us</div>
-          <h2 className="sec-title">Built with care. <em>Finished with precision.</em></h2>
-          <p className="sec-lede">Your vision. Our craftsmanship. One perfect pool — designed around your space, expectations and budget.</p>
+          <h2 className="sec-title">Why choose <em>SR Vallavan Enterprises?</em></h2>
+          <p className="sec-lede">Quality you can see. Craftsmanship you can trust.</p>
         </Reveal>
         <Reveal>
           <div className="why-banner">
@@ -343,43 +370,16 @@ function WhyChoose() {
   );
 }
 
-function GalleryPreview() {
-  return (
-    <section className="section" id="gallery-preview" style={{ paddingTop: 20 }}>
-      <div className="content-width">
-        <div className="sec-head-split" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40, alignItems: "end", marginBottom: 40 }}>
-          <Reveal><div className="sec-marker">07 · Gallery</div>
-            <h2 className="sec-title">Ideas come <em>to life.</em></h2>
-          </Reveal>
-          <Reveal delay={0.1}><p className="side" style={{ color: "var(--ink-soft)", lineHeight: 1.75 }}>Every project tells a story. Every pool begins with an idea — swim through 120+ of them.</p>
-            <Link href="/gallery" className="link-arrow">Open full gallery <ArrowUpRight size={14} /></Link>
-          </Reveal>
-        </div>
-        <div className="gal-grid">
-          {galleryItems.slice(0, 4).map((g, i) => (
-            <Reveal key={`${g.title}-${i}`} delay={(i % 4) * 0.07}>
-              <Link href="/gallery" className="gal-item" aria-label={`View ${g.title}`}>
-                <img src={g.image} alt={`${g.title} — ${g.location}`} loading="lazy" onError={handleImgError} />
-                <span>{g.location} · {g.category}</span>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Reviews() {
   return (
     <section className="section" id="reviews" style={{ paddingTop: 20 }}>
       <div className="content-width">
-        <Reveal><div className="sec-marker">08 · Client words</div>
-          <h2 className="sec-title">Loved <em>after the fill.</em></h2>
-          <p className="sec-lede">4.9★ across 120+ handovers — homes, resorts, clubs.</p>
+        <Reveal><div className="sec-marker">08 · Testimonials</div>
+          <h2 className="sec-title">What our <em>clients say.</em></h2>
+          <p className="sec-lede">We believe the best measure of our work is the satisfaction of the people we build for.</p>
         </Reveal>
-        <div className="testi-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 18, marginTop: 44 }}>
-          {testimonials.map((t) => (
+        <div className="testi-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, marginTop: 44 }}>
+          {testimonials.slice(0, 4).map((t) => (
             <Reveal key={t.name}>
               <figure className="quote" style={{ background: "var(--paper)", border: "1px solid #323131", borderRadius: 22, padding: "30px 26px", boxShadow: "4px 4px 0 #323131", display: "flex", flexDirection: "column", gap: 14, margin: 0 }}>
                 <span style={{ display: "flex", gap: 3, color: "var(--gold)" }}>{Array.from({ length: 5 }).map((_, s) => <Star key={s} size={14} fill="currentColor" />)}</span>
@@ -419,9 +419,9 @@ function Process() {
   return (
     <section className="section" id="process">
       <div className="content-width">
-        <div className="sec-marker">09 · Idea → Plan → Build → Swim</div>
-        <h2 className="sec-title">Our pool construction <em>process.</em></h2>
-        <p className="sec-lede">Eight stages, photo updates at every one — from first site visit to first cannonball.</p>
+        <div className="sec-marker">09 · Our process</div>
+        <h2 className="sec-title">From first idea <em>to first swim.</em></h2>
+        <p className="sec-lede">Six stages, clear communication at every one — tell us what you&apos;re imagining, we&apos;ll help you build it.</p>
         <div className="steps">
           {steps.map((s, i) => (
             <div key={s.title} className="step"><span className="num">{String(i + 1).padStart(2, "0")}</span><h4>{s.title}</h4><p>{s.copy}</p></div>
@@ -438,8 +438,8 @@ function Faq() {
   return (
     <section className="section" id="faq">
       <div className="content-width">
-        <div className="sec-marker">10 · Good to know</div>
-        <h2 className="sec-title">Questions, <em>answered honestly.</em></h2>
+        <div className="sec-marker">10 · FAQ</div>
+        <h2 className="sec-title">Frequently asked <em>questions.</em></h2>
         <div className="faq-list">
           {faqs.map((f, i) => (
             <div key={f.q} className={cn("faq", open === i && "open")}>
@@ -454,6 +454,28 @@ function Faq() {
   );
 }
 
+function ServiceArea() {
+  return (
+    <section className="section" id="service-area" style={{ paddingTop: 20 }}>
+      <div className="content-width" style={{ textAlign: "center" }}>
+        <Reveal>
+          <div className="sec-marker" style={{ justifyContent: "center" }}>11 · Where we build</div>
+          <h2 className="sec-title" style={{ marginInline: "auto" }}>Building pools across <em>Coimbatore & Tamil Nadu.</em></h2>
+          <p className="sec-lede" style={{ marginInline: "auto" }}>From private homes and villas to resorts and commercial properties — swimming pool construction solutions tailored to each project.</p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", marginTop: 30 }}>
+            {CONTACT.cities.concat(["Tamil Nadu"]).map((c) => (
+              <span key={c} style={{ fontFamily: "var(--mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", padding: "12px 22px", borderRadius: 100, background: "var(--paper)", border: "1px solid #323131", boxShadow: "3px 3px 0 #323131" }}>{c}</span>
+            ))}
+          </div>
+          <button onClick={openQuote} className="link-arrow" style={{ marginTop: 30 }}>Check your area <ArrowUpRight size={14} /></button>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", city: "" });
@@ -461,9 +483,10 @@ function Contact() {
     <section className="contact-sec" id="contact">
       <div className="content-width contact-inner">
         <Reveal>
-          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>11 · Ready to dive</div>
-          <div className="contact-copy"><h2>Let&apos;s turn your plot <em>into water.</em></h2>
-            <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Villa, rooftop, farmhouse or resort — share your plot sketch on WhatsApp, get two fitting options + pricing within 48 hours.</p>
+          <div className="sec-marker" style={{ color: "var(--gold-soft)" }}>12 · Final call</div>
+          <div className="contact-copy"><h2>Ready to build <em>your dream pool?</em></h2>
+            <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Let&apos;s turn your outdoor space into something extraordinary.</p>
+            <p style={{ opacity: 0.75, lineHeight: 1.8 }}>Tell us what you&apos;re imagining. We&apos;ll help you build it.</p>
             <img src={media.hotel} alt="Resort pool at dusk" loading="lazy" onError={handleImgError} style={{ borderRadius: 20, border: "1px solid rgba(255,255,255,.3)", height: 210, width: "100%", objectFit: "cover", marginTop: 20 }} />
           </div>
           <div className="contact-points">
@@ -474,7 +497,7 @@ function Contact() {
           </div>
           <div style={{ display: "flex", gap: 8, marginTop: 18, alignItems: "center", fontSize: 13, opacity: 0.8 }}>
             <span style={{ display: "inline-flex", color: "var(--gold-soft)" }}>{Array.from({ length: 5 }).map((_, s) => <Star key={s} size={13} fill="currentColor" />)}</span>
-            <span><b>4.9</b> from 120+ pool owners</span>
+            <span>Residential • Commercial • Custom Pool Solutions</span>
           </div>
         </Reveal>
         <Reveal delay={0.12}>
@@ -488,14 +511,15 @@ function Contact() {
               </div>
             ) : (
               <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
-                <h3>Get a free quote</h3>
-                <p style={{ opacity: 0.6, fontSize: 13.5 }}>Estimate within 48 hours. No spam, ever.</p>
+                <h3>Tell us what you&apos;re imagining</h3>
+                <p style={{ opacity: 0.6, fontSize: 13.5 }}>Share your details — we&apos;ll help you build it.</p>
                 <div className="f-field"><label>Name</label><input required placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
                 <div className="f-row">
                   <div className="f-field"><label>Phone</label><input required placeholder="+91 …" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} /></div>
-                  <div className="f-field"><label>City</label><input placeholder="Chennai…" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} /></div>
+                  <div className="f-field"><label>City</label><input placeholder="Coimbatore…" value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} /></div>
                 </div>
-                <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} type="submit">Request callback <ArrowRight size={15} /></button>
+                <button className="btn-primary" style={{ width: "100%", justifyContent: "center" }} type="submit">Get a Free Quote <ArrowRight size={15} /></button>
+                <a className="btn-ghost" style={{ width: "100%", justifyContent: "center", marginTop: 8 }} href={CONTACT.phoneHref}>Talk to Our Team</a>
               </form>
             )}
           </div>
@@ -508,21 +532,22 @@ function Contact() {
 export default function Home() {
   return (
     <main>
-      <Seo title="SR Valavan Enterprises — Swimming Pools That Feel Like Holidays" description="Custom pools, infinity edges, plunge courts, spas & fountains across Tamil Nadu. 120+ pools, 4.9★, 10-year waterproof warranty." path="/" />
+      <Seo title="SR Vallavan Enterprises — Your Dream Pool. Built to Perfection." description="Custom swimming pool design & construction for homes, villas, resorts and commercial spaces across Coimbatore & Tamil Nadu. Get a free quote." path="/" />
       <Hero />
       <Intro />
-      <FeaturedWork />
-      <LagoonTestimonials />
       <AboutStory />
-      <Playground />
       <Stats />
       <ServicesStrip />
-      <PoolTypes />
-      <FilmBand />
+      <Statement />
       <WhyChoose />
-      <GalleryPreview />
-      <Reviews />
+      <PoolTypes />
+      <Playground />
       <Process />
+      <FeaturedWork />
+      <PremiumImage />
+      <LagoonTestimonials />
+      <Reviews />
+      <ServiceArea />
       <Faq />
       <Contact />
     </main>
