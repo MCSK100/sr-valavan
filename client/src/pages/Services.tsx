@@ -5,7 +5,7 @@ import { ParallaxImage, Reveal, cn, handleImgError } from "../components/motion"
 import Seo from "../components/Seo";
 import { IMG, companyBlurb, pageHeroSlides, poolTypes, services } from "../data/content";
 
-const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.lagoon, IMG.plumber, IMG.worker];
+const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.renovation, IMG.plumber, IMG.worker];
 const chapterFacts = [
   [{ b: "14 m", s: "Vanishing edge" }, { b: "Salt + UV", s: "Water" }, { b: "6 wks", s: "Shell → fill" }],
   [{ b: "38 °C", s: "Heated plunge" }, { b: "12 jets", s: "Hydrotherapy" }, { b: "Silent", s: "Plant room" }],
@@ -45,7 +45,7 @@ export default function ServicesPage() {
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>Consult → Design → Build → <em>Dive.</em></h2>
           </Reveal>
           <div className="about-photos" style={{ gridTemplateColumns: "1fr 1fr 1fr", marginTop: 30 }}>
-            {[IMG.villa, IMG.detail, IMG.duskPool].map((src, i) => (
+            {[IMG.tropical, IMG.detail, IMG.interior].map((src, i) => (
               <img key={i} src={src} alt="" onError={handleImgError} style={{ height: 230 }} />
             ))}
           </div>

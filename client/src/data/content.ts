@@ -210,14 +210,23 @@ export const IMG = {
   mosaic: U("photo-1572331165267-854da2b10ccc"),
   worker: U("photo-1621905251189-08b45d6a269e"),
   plumber: U("photo-1585704032915-c3400ca199e7"),
+  plans: U("photo-1503387762-592deb58ef4e"),
+  sitework: U("photo-1541888946425-d81bb19240f5"),
+  steelwork: U("photo-1516937941344-00b4e0337589"),
+  cranes: U("photo-1504307651254-35680f356dfd"),
+  coating: U("photo-1562259949-e8e7689d7828"),
+  renovation: U("photo-1581858726788-75bc0f6a952d"),
+  pipes: U("photo-1504328345606-18bbc8c9d7d1"),
+  villaDusk: U("photo-1613490493576-7fde63acd811"),
+  compactFloat: U("photo-1601918774946-25832a4be0d6"),
 };
 
 export const pageHeroSlides = {
-  services: [IMG.infinity, IMG.vanishing, IMG.lagoon, IMG.duskPool],
-  gallery: [IMG.resort, IMG.evening, IMG.villa, IMG.float],
+  services: [IMG.duskHouse, IMG.evening, IMG.lagoon, IMG.lapLanes],
+  gallery: [IMG.sitework, IMG.cranes, IMG.plans, IMG.pipes],
   about: [IMG.villa, IMG.lapLanes, IMG.interior],
-  contact: [IMG.tropical, IMG.evening, IMG.interior],
-  faq: [IMG.detail, IMG.mosaic, IMG.lapLanes],
+  contact: [IMG.tropical, IMG.hotel, IMG.interior],
+  faq: [IMG.detail, IMG.evening, IMG.lapLanes],
   legal: [IMG.hero, IMG.heroDusk, IMG.duskPool],
 };
 
@@ -299,49 +308,49 @@ export const buildSteps: BuildStep[] = [
     icon: ClipboardCheck,
     title: "Site Inspection & Planning",
     copy: "We visit your site, understand your space and plan the best design as per your needs.",
-    image: U("photo-1503387762-592deb58ef4e"),
+    image: IMG.plans,
   },
   {
     icon: Hammer,
     title: "Excavation",
     copy: "Precision digging with proper leveling and measurement.",
-    image: U("photo-1541888946425-d81bb19240f5"),
+    image: IMG.sitework,
   },
   {
     icon: Layers,
     title: "Steel Fixing",
     copy: "High-quality steel structure for long-lasting strength and durability.",
-    image: U("photo-1516937941344-00b4e0337589"),
+    image: IMG.steelwork,
   },
   {
     icon: Box,
     title: "Shuttering & Concreting",
     copy: "Strong foundation with premium grade concrete.",
-    image: U("photo-1504307651254-35680f356dfd"),
+    image: IMG.cranes,
   },
   {
     icon: Droplets,
     title: "Waterproofing",
     copy: "Leak-proof finishing for a hassle-free experience.",
-    image: U("photo-1621905251189-08b45d6a269e"),
+    image: IMG.coating,
   },
   {
     icon: LayoutGrid,
     title: "Tiling",
     copy: "Premium tiles for a stylish and long-lasting look.",
-    image: U("photo-1572331165267-854da2b10ccc"),
+    image: IMG.detail,
   },
   {
     icon: Settings,
     title: "Filtration & Equipment Setup",
     copy: "Clean, safe and crystal clear water with the right systems.",
-    image: U("photo-1585704032915-c3400ca199e7"),
+    image: IMG.pipes,
   },
   {
     icon: PartyPopper,
     title: "Final Touch & Handover",
     copy: "Testing, cleaning and ready for you to make a splash!",
-    image: U("photo-1520250497591-112f2f40a3f4"),
+    image: IMG.tropical,
   },
 ];
 
@@ -442,6 +451,10 @@ export const faqs: Faq[] = [
     q: "How do I get a quotation?",
     a: "Contact our team and share your location, approximate space and requirements. We can discuss your project and guide you through the next steps.",
   },
+  {
+    q: "Do you handle swimming pool waterproofing and leak repairs?",
+    a: "Yes. We provide waterproofing for new pool shells and leak detection plus repair for existing pools, for both residential and commercial projects.",
+  },
 ];
 
 export interface Finish {
@@ -463,6 +476,7 @@ export type GalleryCategory =
   | "Family"
   | "Plunge"
   | "Commercial"
+  | "Renovation"
   | "Spa & Features";
 
 export interface GalleryItem {
@@ -478,6 +492,7 @@ export const galleryCategories: Array<"All" | GalleryCategory> = [
   "Family",
   "Plunge",
   "Commercial",
+  "Renovation",
   "Spa & Features",
 ];
 
@@ -494,6 +509,9 @@ export const galleryItems: GalleryItem[] = [
   { image: IMG.villa, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
   { image: IMG.tropical, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
   { image: IMG.float, title: "Compact terrace plunge", location: "Salem", category: "Plunge" },
+  { image: IMG.coating, title: "Waterproofing membrane in progress", location: "Coimbatore", category: "Renovation" },
+  { image: IMG.renovation, title: "Structural shell rebuild", location: "Chennai", category: "Renovation" },
+  { image: IMG.worker, title: "Leak repair & tile refit", location: "Madurai", category: "Renovation" },
 ];
 
 export interface Industry {

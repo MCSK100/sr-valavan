@@ -29,10 +29,14 @@ const media = {
   indoor: U("photo-1575429198097-0414ec08e8cd"),
   worker: U("photo-1621905251189-08b45d6a269e"),
   plumber: U("photo-1585704032915-c3400ca199e7"),
+  coating: U("photo-1562259949-e8e7689d7828"),
+  renovation: U("photo-1581858726788-75bc0f6a952d"),
+  villa2: U("photo-1613490493576-7fde63acd811"),
+  float2: U("photo-1601918774946-25832a4be0d6"),
 };
 
-const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.evening, media.plumber, media.worker];
-const typeImages = [media.infinity, media.villa, media.lagoon, media.vanishing];
+const svcImages = [media.heroPool, media.infinity, media.villa, media.resort, media.aerial, media.renovation, media.plumber, media.worker];
+const typeImages = [media.infinity, media.evening, media.float, media.float2];
 
 function Hero() {
   useTileReveal();
@@ -152,7 +156,7 @@ function FeaturedWork() {
 function PremiumImage() {
   return (
     <section className="premium-band" aria-label="Imagine your pool">
-      <img src={media.evening} alt="Luxury swimming pool at dusk" loading="lazy" onError={handleImgError} />
+      <img src={media.villa2} alt="Luxury swimming pool at dusk" loading="lazy" onError={handleImgError} />
       <div className="premium-wash" />
       <div className="content-width premium-caption">
         <Reveal>
@@ -306,6 +310,50 @@ function ServicesStrip() {
   );
 }
 
+function CareBand() {
+  const cards = [
+    {
+      img: media.coating,
+      alt: "Waterproofing coating being applied",
+      tag: "New & existing pools",
+      title: "Waterproofing",
+      copy: "Leak-proof membranes and coatings for new shells and existing pools — applied with care, built to last.",
+    },
+    {
+      img: media.renovation,
+      alt: "Swimming pool structural renovation",
+      tag: "21-day rebuilds",
+      title: "Renovation & Refits",
+      copy: "From tired to timeless — re-tiling, LED and equipment upgrades, plus complete structural rebuilds.",
+    },
+  ];
+  return (
+    <section className="section" id="care" style={{ paddingTop: 20 }}>
+      <div className="content-width">
+        <Reveal><div className="sec-marker">Beyond new builds</div>
+          <h2 className="sec-title">Waterproofing & <em>renovation.</em></h2>
+          <p className="sec-lede">Protect what you have, transform what you own — complete care for existing pools, residential and commercial.</p>
+        </Reveal>
+        <div className="care-grid">
+          {cards.map((c, i) => (
+            <Reveal key={c.title} delay={i * 0.08}>
+              <article className="type-img-card">
+                <img src={c.img} alt={c.alt} loading="lazy" onError={handleImgError} style={{ height: 240 }} />
+                <div><em>{c.tag}</em><b>{c.title}</b><span>{c.copy}</span>
+                  <div style={{ display: "flex", gap: 16, marginTop: 14, flexWrap: "wrap" }}>
+                    <button onClick={openQuote} className="link-arrow" style={{ marginTop: 0 }}>Enquire <ArrowRight size={13} /></button>
+                    <Link href="/services" className="link-arrow" style={{ marginTop: 0 }}>All services <ArrowUpRight size={13} /></Link>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Statement() {
   return (
     <section className="statement-band" aria-label="Our promise">
@@ -354,7 +402,7 @@ function WhyChoose() {
         </Reveal>
         <Reveal>
           <div className="why-banner">
-            <img src={media.tropical} alt="Finished pool deck" loading="lazy" onError={handleImgError} />
+            <img src={media.villa2} alt="Finished luxury pool at dusk" loading="lazy" onError={handleImgError} />
             <span>STRONG SHELL · LEAK-PROOF · ON TIME</span>
           </div>
         </Reveal>
@@ -528,6 +576,7 @@ export default function Home() {
       <AboutStory />
       <Stats />
       <ServicesStrip />
+      <CareBand />
       <FilmBand />
       <Statement />
       <WhyChoose />

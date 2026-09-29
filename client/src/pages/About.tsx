@@ -47,7 +47,7 @@ export default function AboutPage() {
             </p>
             <div className="exp-list">
               <div className="exp-row"><div><h4>Lead pool studio — villas, resorts, rooftops</h4><p>End-to-end design + build with photo updates. 6–8 weeks home pools, 7–12 days readymade FRP.</p></div><span>2021 — NOW</span></div>
-              <div className="exp-row"><div><h4>Renovation & AMC crew</h4><p>Leak rebuilds in 21 days, LED + feature upgrades, weekly AMC with WhatsApp water-health reports.</p></div><span>120+ REFITS</span></div>
+              <div className="exp-row"><div><h4>Renovation & AMC crew</h4><p>Waterproofing, leak rebuilds in 21 days, LED + feature upgrades, weekly AMC with WhatsApp water-health reports.</p></div><span>120+ REFITS</span></div>
               <div className="exp-row"><div><h4>Commercial & institutional</h4><p>Resort lagoons, club lanes, therapy suites — balance tanks, auto-dosing, safety decks.</p></div><span>HOTELS · CLUBS</span></div>
             </div>
             <div className="brochure-band" style={{ marginTop: 28 }}>
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <p className="sec-lede">Three pool worlds, one standard of water.</p>
           </Reveal>
           <div className="about-photos" style={{ gridTemplateColumns: "1fr 1fr 1fr", marginTop: 36 }}>
-            {[IMG.villa, IMG.resort, IMG.lapLanes].map((src, i) => (
+            {[IMG.duskHouse, IMG.resort, IMG.detail].map((src, i) => (
               <img key={i} src={src} alt="" onError={handleImgError} style={{ height: 240 }} />
             ))}
           </div>
