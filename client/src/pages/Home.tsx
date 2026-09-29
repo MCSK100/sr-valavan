@@ -51,7 +51,6 @@ function Hero() {
       <div className="hero-wash" aria-hidden />
       <div className="hero-noise" />
       <div className="hero-content">
-        <div className="sun-group" aria-hidden><div className="sun-core" /></div>
         <div className="hero-cloud cloud-a" />
         <div className="hero-cloud cloud-b" />
         <p className="hero-eyebrow"><i /> Swimming pool design & construction</p>

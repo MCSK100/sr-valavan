@@ -92,9 +92,6 @@ body.night .theme-toggle button.active { background: #f4d24a; color: #17272e; }
 .hero-shader { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; opacity: 0.9; }
 .hero-pool-img { position: absolute; left: 50%; bottom: -6vw; transform: translateX(-50%); width: min(1100px, 92vw); height: 34vh; object-fit: cover; border-radius: 40px 40px 0 0; border: 6px solid rgba(255,249,241,0.9); border-bottom: 0; box-shadow: 0 -30px 80px rgba(0,0,0,0.25); }
 .hero-noise { position: absolute; inset: 0; opacity: 0.08; background-image: radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1.4px); background-size: 22px 22px; pointer-events: none; }
-.sun-group { position: absolute; width: var(--sun-w); top: calc(var(--sun-w) * -0.22); right: calc(var(--sun-w) * -0.12); pointer-events: none; z-index: 2; }
-.sun-core { width: 46%; aspect-ratio: 1; margin-left: 30%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff6d8, var(--gold-soft) 55%, #e8a90c 100%); box-shadow: 0 0 90px 30px rgba(244, 210, 74, 0.45); animation: sunPulse 6s ease-in-out infinite alternate; }
-body.night .sun-core { background: radial-gradient(circle at 35% 35%, #fdfbf3, #d9dee7 55%, #8b98ad 100%); box-shadow: 0 0 90px 30px rgba(220, 230, 245, 0.3); }
 @keyframes sunPulse { to { transform: scale(1.05); } }
 .hero-cloud { position: absolute; z-index: 1; background: rgba(255, 249, 241, 0.9); border-radius: 100px; filter: blur(1px); animation: cloudDrift 9s ease-in-out infinite alternate; }
 .hero-cloud.cloud-a { width: calc(var(--sun-w) * 0.62); height: 54px; right: calc(var(--sun-w) * -0.3); top: calc(var(--sun-w) * 0.3); }
