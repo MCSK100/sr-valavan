@@ -18,7 +18,7 @@ function useNight() {
 export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="SR Valavan Enterprises home">
-      <img src="/srv_logo_2.png" alt="SR Valavan Enterprises — Swimming Pool Construction" className="brand-logo" />
+      <img src="/srv-logo-updated.png" alt="SR Valavan Enterprises — Swimming Pool Construction" className="brand-logo" />
     </Link>
   );
 }

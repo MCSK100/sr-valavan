@@ -267,6 +267,7 @@ body.night .sec-title em { color: var(--gold-soft); }
 .btn-primary:hover { transform: translate(-1px, -2px); box-shadow: 5px 5px 0 #323131; }
 .btn-ghost { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13.5px; padding: 10px 6px; }
 .footer { background: #04141b; color: rgba(255,255,255,0.75); }
+.footer .brand { background: rgba(255,255,255,0.95); border-radius: 14px; padding: 8px 14px; display: inline-flex; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 44px; padding: 70px 0 50px; }
 .footer h5 { margin: 0 0 18px; font: 500 11px var(--mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-soft); }
 .footer ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
