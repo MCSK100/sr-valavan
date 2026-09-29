@@ -5,7 +5,16 @@ import { ParallaxImage, Reveal, cn, handleImgError } from "../components/motion"
 import Seo from "../components/Seo";
 import { IMG, companyBlurb, pageHeroSlides, poolTypes, services } from "../data/content";
 
-const chapterImages = [IMG.infinity, IMG.vanishing, IMG.villa, IMG.hotel, IMG.float, IMG.renovation, IMG.plumber, IMG.worker];
+const chapterImages = [
+  IMG.villa, // Custom Swimming Pools — luxury villa pool
+  IMG.infinity, // Infinity Pools — infinity edge
+  IMG.duskHouse, // Residential Pools — home pool at dusk
+  IMG.resort, // Commercial & Resort Pools — resort pool
+  IMG.lagoon, // Water Features & Fountains — lagoon / water body
+  IMG.detail, // Pool Renovation — tile / finish detail
+  IMG.evening, // Pool Equipment & Filtration — clean lit water (result)
+  IMG.vanishing, // Waterproofing & Leak Repair — pool shell / structure
+];
 const chapterFacts = [
   [{ b: "14 m", s: "Vanishing edge" }, { b: "Salt + UV", s: "Water" }, { b: "6 wks", s: "Shell → fill" }],
   [{ b: "38 °C", s: "Heated plunge" }, { b: "12 jets", s: "Hydrotherapy" }, { b: "Silent", s: "Plant room" }],
@@ -45,8 +54,8 @@ export default function ServicesPage() {
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>Consult → Design → Build → <em>Dive.</em></h2>
           </Reveal>
           <div className="about-photos" style={{ gridTemplateColumns: "1fr 1fr 1fr", marginTop: 30 }}>
-            {[IMG.tropical, IMG.detail, IMG.interior].map((src, i) => (
-              <img key={i} src={src} alt="" onError={handleImgError} style={{ height: 230 }} />
+            {[IMG.villaDusk, IMG.infinity, IMG.detail].map((src, i) => (
+              <img key={i} src={src} alt={["Pool design concept", "Pool shell and structure", "Pool tile finishing detail"][i]} onError={handleImgError} style={{ height: 230 }} />
             ))}
           </div>
           <div className="type-grid">
