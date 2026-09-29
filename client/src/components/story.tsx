@@ -194,9 +194,20 @@ export function useTileReveal() {
   }, []);
 }
 
-/* Subtle falling water-drops (rain) overlay for the hero.
-   Canvas-based, pauses off-screen, fades to minimal as you scroll. */
-export function RainDrops({ density = 90 }: { density?: number }) {
+/* Subtle falling water-drops (rain) overlay for heroes.
+   Canvas-based, pauses off-screen, fades to minimal as you scroll.
+   `color` is the RGB triplet used on light backgrounds (day);
+   `nightColor` is used when `body.night` is active so drops stay
+   visible on dark heroes. Defaults preserve the old dark-hero look. */
+export function RainDrops({
+  density = 90,
+  color = "200,235,245",
+  nightColor,
+}: {
+  density?: number;
+  color?: string;
+  nightColor?: string;
+}) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current;
@@ -242,11 +253,12 @@ export function RainDrops({ density = 90 }: { density?: number }) {
     const tick = () => {
       raf = requestAnimationFrame(tick);
       if (!visible || mq.matches) return;
+      const rgb = nightColor && document.body.classList.contains("night") ? nightColor : color;
       ctx.clearRect(0, 0, w, h);
       ctx.lineWidth = 1.2;
       ctx.lineCap = "round";
       for (const d of drops) {
-        ctx.strokeStyle = `rgba(200,235,245,${(d.opacity * fade).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(${rgb},${(d.opacity * fade).toFixed(3)})`;
         ctx.beginPath();
         ctx.moveTo(d.x, d.y);
         ctx.lineTo(d.x - d.len * 0.18, d.y + d.len);
@@ -266,6 +278,6 @@ export function RainDrops({ density = 90 }: { density?: number }) {
       window.removeEventListener("scroll", onScroll);
       io.disconnect();
     };
-  }, [density]);
+  }, [density, color, nightColor]);
   return <canvas ref={ref} className="rain-canvas" aria-hidden />;
 }

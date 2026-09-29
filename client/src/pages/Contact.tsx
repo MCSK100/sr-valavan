@@ -30,7 +30,7 @@ export default function ContactPage() {
         marker="Get in touch"
         title={<>Tell us where <em>the site is.</em></>}
         lede="Call, WhatsApp, or leave your details — we will visit, measure and return a line-item estimate within 48 hours. Average response: under 6 working hours."
-        image={IMG.interior}
+        image={IMG.palmHotel}
         images={pageHeroSlides.contact}
         badge="48-HR ESTIMATE · FREE VISIT"
       />

@@ -219,6 +219,17 @@ export const IMG = {
   pipes: U("photo-1504328345606-18bbc8c9d7d1"),
   villaDusk: U("photo-1613490493576-7fde63acd811"),
   compactFloat: U("photo-1601918774946-25832a4be0d6"),
+  spaRetreat: U("photo-1544161515-4ab6ce6db874"),
+  clubLanes: U("photo-1560089000-7433a4ebbd64"),
+  grandVilla: U("photo-1600566753086-00f18fb6b3ea"),
+  infinityBay: U("photo-1600965962361-9035dbfd1c50"),
+  palmHotel: U("photo-1551882547-ff40c63fe5fa"),
+  lagoonDeck: U("photo-1561501900-3701fa6a0864"),
+  tileStudio: U("photo-1620626011761-996317b8d101"),
+  duskEstate: U("photo-1416331108676-a22ccb276e35"),
+  courtYard: U("photo-1600585154526-990dced4db0d"),
+  laneClassic: U("photo-1438029071396-1e831a7fa6d8"),
+  suburbanPool: U("photo-1600047509807-ba8f99d2cdde"),
 };
 
 // Verified service photos stored locally (see client/public/services).
@@ -232,11 +243,10 @@ export const SVC_IMG = {
   filtration: "/services/pool-filtration.jpg",
 };
 
-export const pageHeroSlides = {
-  services: [IMG.tropical, IMG.villaDusk, IMG.compactFloat, IMG.lapLanes],
+export const pageHeroSlides = {  services: [IMG.suburbanPool, IMG.villaDusk, IMG.compactFloat, IMG.lapLanes],
   gallery: [IMG.sitework, IMG.cranes, IMG.plans, IMG.pipes],
-  about: [IMG.villa, IMG.lapLanes, IMG.interior],
-  contact: [IMG.tropical, IMG.hotel, IMG.interior],
+  about: [IMG.grandVilla, IMG.lapLanes, IMG.interior],
+  contact: [IMG.duskEstate, IMG.hotel, IMG.interior],
   faq: [IMG.detail, IMG.evening, IMG.lapLanes],
   legal: [IMG.hero, IMG.heroDusk, IMG.duskPool],
 };
@@ -349,7 +359,7 @@ export const buildSteps: BuildStep[] = [
     icon: LayoutGrid,
     title: "Tiling",
     copy: "Premium tiles for a stylish and long-lasting look.",
-    image: IMG.detail,
+    image: IMG.tileStudio,
   },
   {
     icon: Settings,
@@ -361,7 +371,7 @@ export const buildSteps: BuildStep[] = [
     icon: PartyPopper,
     title: "Final Touch & Handover",
     copy: "Testing, cleaning and ready for you to make a splash!",
-    image: IMG.tropical,
+    image: IMG.courtYard,
   },
 ];
 
@@ -510,15 +520,15 @@ export const galleryCategories: Array<"All" | GalleryCategory> = [
 export const galleryItems: GalleryItem[] = [
   { image: IMG.infinity, title: "Vanishing-edge villa pool", location: "ECR, Chennai", category: "Infinity" },
   { image: IMG.evening, title: "Dusk swim under the palms", location: "Mahabalipuram", category: "Family" },
-  { image: IMG.resort, title: "Resort lagoon with deck jets", location: "Madurai", category: "Commercial" },
-  { image: IMG.lapLanes, title: "20-metre training lane", location: "Coimbatore", category: "Family" },
+  { image: IMG.lagoonDeck, title: "Resort lagoon with deck jets", location: "Madurai", category: "Commercial" },
+  { image: IMG.laneClassic, title: "20-metre training lane", location: "Coimbatore", category: "Family" },
   { image: IMG.vanishing, title: "Rooftop plunge at dusk", location: "Trichy", category: "Plunge" },
   { image: IMG.detail, title: "Pebble-finish lagoon edge", location: "ECR, Chennai", category: "Infinity" },
-  { image: IMG.interior, title: "Warm-water therapy suite", location: "Anna Nagar, Chennai", category: "Spa & Features" },
+  { image: IMG.spaRetreat, title: "Warm-water therapy suite", location: "Anna Nagar, Chennai", category: "Spa & Features" },
   { image: IMG.hero, title: "Courtyard family pool", location: "Adyar, Chennai", category: "Family" },
   { image: IMG.hotel, title: "Wellness court with Jacuzzi", location: "RS Puram, Coimbatore", category: "Spa & Features" },
-  { image: IMG.villa, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
-  { image: IMG.tropical, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
+  { image: IMG.infinityBay, title: "Clifftop infinity concept", location: "Covelong, ECR", category: "Infinity" },
+  { image: IMG.clubLanes, title: "Club lap pool, 6 lanes", location: "Chennai", category: "Commercial" },
   { image: IMG.float, title: "Compact terrace plunge", location: "Salem", category: "Plunge" },
   { image: IMG.coating, title: "Waterproofing membrane in progress", location: "Coimbatore", category: "Renovation" },
   { image: IMG.renovation, title: "Structural shell rebuild", location: "Chennai", category: "Renovation" },

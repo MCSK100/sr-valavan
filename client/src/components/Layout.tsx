@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { CONTACT, quoteServices, waLink } from "../data/content";
 import { Reveal, cn, handleImgError, usePageState } from "./motion";
+import { RainDrops } from "./story";
 
 export const openQuote = () => window.dispatchEvent(new CustomEvent("sr:open-quote"));
 
@@ -227,7 +228,7 @@ function SiteFooter() {
   );
 }
 
-export function PageHero({ marker, title, lede, image, images, badge }: { marker: string; title: ReactNode; lede?: string; image?: string; images?: string[]; badge?: string }) {
+export function PageHero({ marker, title, lede, image, images, badge, rain = false, rainDensity = 90 }: { marker: string; title: ReactNode; lede?: string; image?: string; images?: string[]; badge?: string; rain?: boolean; rainDensity?: number }) {
   const slides = images && images.length > 0 ? images : image ? [image] : [];
   const [slide, setSlide] = useState(0);
   useEffect(() => {
@@ -237,6 +238,7 @@ export function PageHero({ marker, title, lede, image, images, badge }: { marker
   }, [slides.length]);
   return (
     <section className="story-hero">
+      {rain && <RainDrops density={rainDensity} color="10,138,153" nightColor="200,235,245" />}
       <div className="story-sun" aria-hidden />
       <div className="story-cloud c1" aria-hidden />
       <div className="story-cloud c2" aria-hidden />

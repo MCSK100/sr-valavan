@@ -46,9 +46,10 @@ export default function ServicesPage() {
         marker="Our services"
         title={<>Three ways <em>into the blue.</em></>}
         lede={companyBlurb}
-        image={IMG.tropical}
+        image={IMG.grandVilla}
         images={pageHeroSlides.services}
         badge="8 SERVICES · ONE TEAM"
+        rain
       />
       <section className="section" style={{ paddingTop: 70, paddingBottom: 10 }}>
         <div className="content-width">
@@ -56,7 +57,7 @@ export default function ServicesPage() {
             <h2 className="sec-title" style={{ fontSize: "clamp(28px,3.4vw,44px)" }}>Consult → Design → Build → <em>Dive.</em></h2>
           </Reveal>
           <div className="about-photos" style={{ gridTemplateColumns: "1fr 1fr 1fr", marginTop: 30 }}>
-            {[IMG.plans, IMG.steelwork, IMG.interior].map((src, i) => (
+            {[IMG.plans, IMG.steelwork, IMG.lagoon].map((src, i) => (
               <img key={i} src={src} alt={["Design drawings and planning", "Structural shell work", "Finished pool interior"][i]} onError={handleImgError} style={{ height: 230 }} />
             ))}
           </div>

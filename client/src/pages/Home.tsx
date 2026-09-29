@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { CtaBand, openQuote } from "../components/Layout";
 import Seo from "../components/Seo";
 import { Counter, Reveal, cn, handleImgError } from "../components/motion";
-import { RainDrops, RollingWord, SplitLetters, useTileReveal } from "../components/story";
+import { RollingWord, SplitLetters, useTileReveal } from "../components/story";
 import { CONTACT, SVC_IMG, buildSteps, companyBlurb, faqs, finishes, poolTypes, services, waLink, whyChooseUs } from "../data/content";
 
 const U = (id: string, w = 1600) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
@@ -55,7 +55,6 @@ function Hero() {
         <source src="/herosec_video.mp4" type="video/mp4" />
       </video>
       <div className="hero-wash" aria-hidden />
-      <RainDrops />
       <div className="hero-noise" />
       <div className="hero-content">
         <p className="hero-eyebrow"><i /> Swimming pool design & construction</p>
@@ -258,8 +257,8 @@ function ServicesStrip() {
 function CareBand() {
   const cards = [
     {
-      img: media.coating,
-      alt: "Waterproofing coating being applied",
+      img: media.tropical,
+      alt: "Crystal-clear pool protected by waterproofing",
       tag: "New & existing pools",
       title: "Waterproofing",
       copy: "Leak-proof membranes and coatings for new shells and existing pools — applied with care, built to last.",

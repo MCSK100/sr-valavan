@@ -59,7 +59,7 @@ export default function AboutPage() {
             <div className="about-photos">
               <img src={IMG.evening} alt="Villa pool at dusk" onError={handleImgError} />
               <img src={IMG.hotel} alt="Resort pool" onError={handleImgError} />
-              <img src={IMG.tropical} alt="Tropical pool court" onError={handleImgError} />
+              <img src={IMG.suburbanPool} alt="Luxury home with swimming pool" onError={handleImgError} />
             </div>
             <div className="play-grid" style={{ gridTemplateColumns: "1fr 1fr", marginTop: 18 }}>
               <div className="play-card">
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <p className="sec-lede">Three pool worlds, one standard of water.</p>
           </Reveal>
           <div className="about-photos" style={{ gridTemplateColumns: "1fr 1fr 1fr", marginTop: 36 }}>
-            {[IMG.duskHouse, IMG.resort, IMG.detail].map((src, i) => (
+            {[IMG.duskHouse, IMG.lagoonDeck, IMG.detail].map((src, i) => (
               <img key={i} src={src} alt="" onError={handleImgError} style={{ height: 240 }} />
             ))}
           </div>

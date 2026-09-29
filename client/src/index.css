@@ -397,7 +397,8 @@ body.night .story-sun{background:radial-gradient(circle at 35% 35%,#fdfbf3,#d9de
 .story-cloud.c1{width:300px;height:44px;top:150px;right:16%}
 .story-cloud.c2{width:190px;height:32px;top:210px;right:32%;opacity:.8}
 body.night .story-cloud{background:rgba(255,249,241,.12)}
-.story-hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.story-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.story-hero .rain-canvas{z-index:1}
 .story-hero-title{font:400 clamp(42px,5.6vw,76px)/1.04 var(--serif);letter-spacing:-.02em;color:var(--text-heading);margin:20px 0 0;text-wrap:balance}
 .story-hero-title em{color:var(--pool);font-style:italic}
 body.night .story-hero-title em{color:var(--gold-soft)}

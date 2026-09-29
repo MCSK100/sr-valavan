@@ -28,7 +28,7 @@ export default function FaqPage() {
         marker="Good to know"
         title={<>Questions, <em>answered honestly.</em></>}
         lede="Cost, timelines, maintenance, warranties — everything pool owners ask before the first dig, answered from 120+ builds."
-        image={IMG.detail}
+        image={IMG.duskEstate}
         images={pageHeroSlides.faq}
         badge={`${faqs.length} ANSWERS · 0 JARGON`}
       />
